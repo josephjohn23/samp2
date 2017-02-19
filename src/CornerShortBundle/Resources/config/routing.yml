@@ -1,3 +1,0 @@
-corner_short_homepage:
-    path:     /
-    defaults: { _controller: CornerShortBundle:Default:index }

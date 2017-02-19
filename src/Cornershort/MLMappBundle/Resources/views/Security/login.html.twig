@@ -1,0 +1,105 @@
+{% extends "CornershortMLMappBundle:Layouts:fos_user_layout.html.php" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+        <h3 class="form-title">Sign In</h3>
+        <div class="alert alert-danger display-hide">
+            <button class="close" data-close="alert"></button>
+            <span>Enter any username and password. </span>
+        </div>
+
+        <div class="alert alert-info hidden">
+            <button class="close" data-close="alert"></button>
+            <span>Your account has been successfully activated</span>
+        </div>
+
+        <div class="form-group">
+            <label for="username" class="control-label visible-ie8 visible-ie9">{{ 'security.login.username'|trans }}</label>
+            <input type="text" id="username" name="_username" value="{{ app.request.query.get("username") }}" required="required" placeholder="Enter Username" class="form-control form-control-solid placeholder-no-fix" />
+        </div>
+        <div class="form-group">
+            <label for="password" class="control-label visible-ie8 visible-ie9">{{ 'security.login.password'|trans }}</label>
+            <input type="password" placeholder="Enter Password" id="password" name="_password" required="required" class="form-control form-control-solid placeholder-no-fix" />
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success uppercase">Login</button>
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me" class="rememberme check">{{ 'security.login.remember_me'|trans }}</label>
+            <a href="{{ path('fos_user_resetting_request') }}" class="forget-password">Forgot Password?</a>
+        </div>
+
+        <div id="recaptcha_widget" class="g-recaptcha form-recaptcha recaptcha_nothad_incorrect_sol recaptcha_isnot_showing_audio" data-sitekey="6LdMAycTAAAAAPdFs2MGo9tFhqNeN4SurjmIw_GF"></div>
+    </form>
+    <!-- END LOGIN FORM -->
+    <!-- BEGIN FORGOT PASSWORD FORM -->
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="post"  class="forget-form">
+        <h3>Password Reset ?</h3>
+        <p>
+            Enter your e-mail address below to reset your password.
+        </p>
+        <div>
+            {% if invalid_username is defined %}
+                <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
+            {% endif %}
+
+        </div>
+        <div class="form-group">
+            <label for="username">{{ 'resetting.request.username'|trans }}</label>
+            <input type="text" id="username" name="username" required="required" class="form-control placeholder-no-fix" />
+        </div>
+        <div class="form-actions">
+            <button type="button" id="back-btn" class="btn btn-default">Back</button>
+            <button type="submit" class="btn btn-success uppercase pull-right">{{ 'resetting.request.submit'|trans }}</button>
+        </div>
+    </form>
+
+{% endblock fos_user_content %}
+
+{% block page_js %}
+<script>
+  jQuery(document).ready(function() {
+    $('form').submit(function(e){
+      if (grecaptcha.getResponse() == ""){
+          //e.preventDefault();
+          //alert('Please click CAPTCHA box');
+      }
+    });
+
+    $('#recaptcha_widget').css('marginLeft','18px');
+
+    //function to get url parameter using jquery
+     $.urlParam = function(name){
+       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+       if (results==null){
+          return null;
+       }
+       else{
+          return results[1] || 0;
+       }
+     }
+
+     var username = $.urlParam('username');
+     var success = $.urlParam('success');
+
+     if(username) {
+         username = decodeURIComponent(username);
+         $('#username').val(username);
+     }
+
+     if(success) {
+         $('.alert-info').removeClass('hidden');
+     }
+
+  });
+</script>
+{% endblock page_js %}

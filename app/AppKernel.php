@@ -14,10 +14,11 @@ class AppKernel extends Kernel
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Shivas\VersioningBundle\ShivasVersioningBundle(),
-            new CornerShortBundle\CornerShortBundle(),
-            new FOS\UserBundle\FOSUserBundle()
+            new FOS\UserBundle\FOSUserBundle(),
+            new Cornershort\MLMappBundle\CornershortMLMappBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

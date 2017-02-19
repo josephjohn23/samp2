@@ -1,0 +1,7 @@
+cornershort_mlmapp_homepage:
+    path:     /
+    defaults: { _controller: CornershortMLMappBundle:Default:index }
+
+cornershort_mlmapp_layout_sidebar_menu:
+    path:     /layout/sidebarMenu
+    defaults: { _controller: CornershortMLMappBundle:Default:sidebarMenu }

@@ -14,9 +14,11 @@ parameters:
     mailer_host:       127.0.0.1
     mailer_user:       ~
     mailer_password:   ~
+    mailer_from:       no-reply@cornershort.com
+    mailer_from_name:  CornerShort Admin
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    # Versioning
-    application_version : 0.1.0
+    # Google Analytics Tracking #
+    ga_tracking:       GA-XXXX-XX

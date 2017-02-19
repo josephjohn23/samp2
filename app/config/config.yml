@@ -3,7 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: version.yml, ignore_errors: true }
-    - { resource: "@CornerShortBundle/Resources/config/services.yml" }
+    - { resource: "@CornershortMLMappBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -22,7 +22,7 @@ framework:
     validation:      { enable_annotations: true }
     #serializer:      { enable_annotations: true }
     templating:
-        engines: ['twig']
+        engines: ['twig', 'php']
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
@@ -38,6 +38,8 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         app_version: "%application_version%"
+        #global_helper: "@cornershort.global_helper"
+        ga_tracking:    "%ga_tracking%"
 
 # Doctrine Configuration
 doctrine:
@@ -61,6 +63,14 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
+# Doctrine Migrations
+# http://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/../DoctrineMigrations"
+    namespace: Application\Migrations
+    table_name: migration_versions
+    name: Application Migrations
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
@@ -69,6 +79,20 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# Shivas Versioning Bundle Configuration
+# https://github.com/shivas/versioning-bundle
 shivas_versioning:
     version_parameter:    application_version
     version_file:         version.yml
+
+# FOSUserBundle Configuration
+# http://symfony.com/doc/current/bundles/FOSUserBundle/configuration_reference.html
+fos_user:
+    db_driver:              orm # Required
+    firewall_name:          main # Required
+    user_class:             User # Required
+    from_email:
+        address:        %mailer_from%
+        sender_name:    %mailer_from_name%
+    resetting:
+        token_ttl: 86400
