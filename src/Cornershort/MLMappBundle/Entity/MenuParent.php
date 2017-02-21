@@ -49,5 +49,12 @@ class MenuParent
      */
     private $sortId;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="category", type="string", length=255, nullable=false)
+     */
+    private $category;
+
 
 }

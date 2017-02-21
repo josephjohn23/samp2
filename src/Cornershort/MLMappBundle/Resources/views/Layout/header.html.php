@@ -5,7 +5,7 @@
             <div class="havbar-header">
                 <!-- BEGIN LOGO -->
                 <a id="index" class="navbar-brand" href="start.html">
-                    <img src="<?php echo $view['assets']->getUrl('bundles/cornershort/assets/layouts/layout6/img/logo.png') ?>" alt="Logo"> </a>
+                    <img src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/images/cornershort-logo-simple.png') ?>" alt="Logo"> </a>
                 <!-- END LOGO -->
                 <!-- BEGIN TOPBAR ACTIONS -->
                 <div class="topbar-actions">

@@ -36,6 +36,7 @@
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/css/components-md.min.css') ?>" rel="stylesheet" id="style_components" type="text/css" />
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/css/plugins-md.min.css') ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/css/cornershort-layout-custom.css') ?>" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
 
         <?php $view['slots']->output('page_plugin_css') ?>
@@ -52,7 +53,7 @@
         <link rel="shortcut icon" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/images/favicon.ico') ?>" /> </head>
     <!-- END HEAD -->
 
-    <body class="<?php $view['slots']->output('body_class', 'page-md page-header-fixed page-quick-sidebar-over-content') ?>">
+    <body class="<?php $view['slots']->output('body_class', 'page-md page-quick-sidebar-over-content') ?>">
 
         <?php $view['slots']->output('body') ?>
 
@@ -78,6 +79,7 @@
 
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/scripts/app.min.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/layout.js') ?>" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
 
         <!-- BEGIN PAGE LEVEL SCRIPTS -->

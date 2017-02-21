@@ -1,7 +1,16 @@
 <?php $view->extend('CornershortMLMappBundle:Layout:base.html.php') ?>
 
 <?php $view['slots']->start('body') ?>
-<?php $view->extend('CornershortMLMappBundle:Layout:base.html.php') ?>
+
+<!-- BEGIN HEADER -->
+<?php
+echo $view['actions']->render(
+        new \Symfony\Component\HttpKernel\Controller\ControllerReference(
+        'CornershortMLMappBundle:Default:pageHeader', array('route' => $app->getRequest()->attributes->get('_route'))
+        )
+);
+?>
+<!-- END HEADER -->
 
 <!-- BEGIN CONTAINER -->
 <div class="container-fluid">
@@ -56,25 +65,22 @@
                 ?>
             </ul>
             <!-- END BREADCRUMBS -->
+
+            <div class="page-toolbar">
+                <?php $view['slots']->output('page-toolbar') ?>
+            </div>
         </div>
         <div class="page-sidebar-wrapper">
-            <!-- BEGIN SIDEBAR -->
-            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-            <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-            <div class="page-sidebar navbar-collapse collapse">
-                <!-- BEGIN SIDEBAR MENU -->
-                <?php
-                echo $view['actions']->render(
-                        new \Symfony\Component\HttpKernel\Controller\ControllerReference(
-                        'CornershortMLMappBundle:Default:sidebarMenu', array('route' => $app->getRequest()->attributes->get('_route'))
-                        )
-                );
-                ?>
-                <!-- END SIDEBAR MENU -->
-            </div>
-            <!-- END SIDEBAR -->
+            <!-- BEGIN SIDEBAR MENU -->
+            <?php
+            echo $view['actions']->render(
+                    new \Symfony\Component\HttpKernel\Controller\ControllerReference(
+                    'CornershortMLMappBundle:Default:sidebarMenu', array('route' => $app->getRequest()->attributes->get('_route'))
+                    )
+            );
+            ?>
+            <!-- END SIDEBAR MENU -->
         </div>
-
         <div class="page-fixed-main-content">
             <!-- BEGIN PAGE BASE CONTENT -->
             <?php $view['slots']->output('before-content') ?>
@@ -86,7 +92,7 @@
 
         <!-- BEGIN FOOTER -->
         <p class="copyright-v2">
-            <?php echo date('Y', time()) ?> &copy;  CornerShort.com MLM Portal <?php echo $this->container->getParameter('application_version'); ?>
+            <?php echo date('Y', time()) ?> &copy;  CornerShort.com MLM Portal v<?php echo $this->container->getParameter('application_version'); ?>
         </p>
         <!-- BEGIN QUICK SIDEBAR TOGGLER -->
         <!-- END QUICK SIDEBAR TOGGLER -->

@@ -9,6 +9,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    database_encryption_key: Cornershort by John Joseph Hilario
+    database_encryption_fields: ssn,openvpn_password,openvpn_unified_certs
 
 framework:
     #esi:             ~
