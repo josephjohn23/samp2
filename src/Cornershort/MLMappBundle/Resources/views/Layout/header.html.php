@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="havbar-header">
                 <!-- BEGIN LOGO -->
-                <a id="index" class="navbar-brand" href="start.html">
+                <a id="index" class="navbar-brand" href="<?php echo $view['router']->path('cornershort_mlmapp_homepage') ?>">
                     <img src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/images/cornershort-logo-simple.png') ?>" alt="Logo"> </a>
                 <!-- END LOGO -->
                 <!-- BEGIN TOPBAR ACTIONS -->

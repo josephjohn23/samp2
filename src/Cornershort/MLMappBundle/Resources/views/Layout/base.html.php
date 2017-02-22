@@ -58,9 +58,9 @@
         <?php $view['slots']->output('body') ?>
 
         <!--[if lt IE 9]>
-        <script src="../assets/global/plugins/respond.min.js"></script>
-        <script src="../assets/global/plugins/excanvas.min.js"></script>
-        <script src="../assets/global/plugins/ie8.fix.min.js"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/respond.min.js') ?>"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/excanvas.min.js') ?>"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/ie8.fix.min.js') ?>"></script>
         <![endif]-->
 
         <!-- BEGIN CORE PLUGINS -->

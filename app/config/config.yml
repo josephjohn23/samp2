@@ -92,9 +92,9 @@ shivas_versioning:
 fos_user:
     db_driver:              orm # Required
     firewall_name:          main # Required
-    user_class:             User # Required
+    user_class:             Cornershort\MLMappBundle\Entity\User # Required
     from_email:
-        address:        %mailer_from%
-        sender_name:    %mailer_from_name%
+        address:        "%mailer_from%"
+        sender_name:    "%mailer_from_name%"
     resetting:
         token_ttl: 86400

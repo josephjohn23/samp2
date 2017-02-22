@@ -98,7 +98,7 @@
                                 $r+=1;
                             }
                             ?>
-                            <li ><a href="<?php echo '/logout'; ?>"><i class="<?php echo 'fa fa fa-sign-out' ?>"></i><span class="title"><?php echo 'Logout' ?></span></a></li>
+                            <li ><a href="<?php echo $view['router']->path('fos_user_security_logout') ?>"><i class="<?php echo 'fa fa fa-sign-out' ?>"></i><span class="title"><?php echo 'Logout' ?></span></a></li>
 
 
                         </ul>
