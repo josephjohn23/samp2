@@ -6,7 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AddNewMemberWebController extends Controller
 {
-    public function indexAction(){
-        return $this->render('CornershortMLMappBundle:AddNewMember:index.html.php');
+    public function listAction(){
+        return $this->render('CornershortMLMappBundle:AddNewMember:list.html.php');
+    }
+
+    public function viewAction($id){
+        return $this->render('CornershortMLMappBundle:AddNewMember:view.html.php');
     }
 }

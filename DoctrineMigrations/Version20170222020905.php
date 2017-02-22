@@ -21,7 +21,7 @@ class Version20170222020905 extends AbstractMigration
         $this->addSql('TRUNCATE TABLE menu_parent');
         $this->addSql('TRUNCATE TABLE menu_child');
         $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Home\',\'fa fa-home\', \'cornershort_mlmapp_home_page\' , \'0\')');
-        $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Add New Member\',\'fa fa-user-plus\', \'cornershort_mlmapp_add_new_member_page\', \'1\')');
+        $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Add New Member\',\'fa fa-user-plus\', \'cornershort_mlmapp_add_new_member_page_list\', \'1\')');
         $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Request For Upgrade\',\'fa fa-level-up\', \'cornershort_mlmapp_request_for_upgrade_page\', \'2\')');
         $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Upgrade Member\',\'fa fa-key\', \'cornershort_mlmapp_upgrade_member_page\', \'3\')');
         $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Family Tree\',\'fa fa-users\', \'cornershort_mlmapp_family_tree_page\', \'4\')');
