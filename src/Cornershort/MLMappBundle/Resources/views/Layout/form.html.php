@@ -1,4 +1,4 @@
-<?php $view->extend('VisorCloudBundle:Layouts:layout.html.php') ?>
+<?php $view->extend('CornershortMLMappBundle:Layout:layout.html.php') ?>
 
 <?php $view['slots']->start('page-toolbar') ?>
 <div class="form-actions noborder">

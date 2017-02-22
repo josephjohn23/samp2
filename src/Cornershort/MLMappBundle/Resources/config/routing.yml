@@ -1,8 +1,3 @@
-# Default Layout Control Pages
-cornershort_mlmapp_homepage:
-    path:     /
-    defaults: { _controller: CornershortMLMappBundle:Default:index }
-
 cornershort_mlmapp_layout_sidebar_menu:
     path:     /layout/sidebarMenu
     defaults: { _controller: CornershortMLMappBundle:Default:sidebarMenu }
@@ -27,3 +22,54 @@ cornershort_menu_list_parents:
 cornershort_menu_view_parent:
     path:     /menu/parent/{id}
     defaults: { _controller: CornershortMLMappBundle:MenuWeb:viewParent }
+
+# Home Layout Control Pages
+cornershort_mlmapp_home_page:
+    path:     /home
+    defaults: { _controller: CornershortMLMappBundle:HomeWeb:index }
+
+# Show New Members Layout Control Pages
+cornershort_mlmapp_add_new_member_page_list:
+    path:     /add_new_member
+    defaults: { _controller: CornershortMLMappBundle:AddNewMemberWeb:list }
+
+# Add New Member Layout Control Pages
+cornershort_mlmapp_add_new_member_page_view:
+    path:     /add_new_member/{id}
+    defaults: { _controller: CornershortMLMappBundle:AddNewMemberWeb:view }
+
+
+# Request For Upgrade Layout Control Pages
+cornershort_mlmapp_request_for_upgrade_page:
+    path:     /request_for_upgrade
+    defaults: { _controller: CornershortMLMappBundle:RequestForUpgradeWeb:index }
+
+# Upgrade Member Layout Control Pages
+cornershort_mlmapp_upgrade_member_page:
+    path:     /upgrade_member
+    defaults: { _controller: CornershortMLMappBundle:UpgradeMemberWeb:index }
+
+# Family Tree Layout Control Pages
+cornershort_mlmapp_family_tree_page:
+    path:     /family_tree
+    defaults: { _controller: CornershortMLMappBundle:FamilyTreeWeb:index }
+
+# User Account Layout Control Pages
+cornershort_mlmapp_user_account_page:
+    path:     /user_account
+    defaults: { _controller: CornershortMLMappBundle:UserAccountWeb:index }
+
+# User Management Layout Control Pages
+cornershort_mlmapp_user_management_page:
+    path:     /user_management
+    defaults: { _controller: CornershortMLMappBundle:UserManagementWeb:index }
+
+# Report Layout Control Pages
+cornershort_mlmapp_report_page:
+    path:     /report
+    defaults: { _controller: CornershortMLMappBundle:ReportWeb:index }
+
+# Default Layout Control Pages
+cornershort_mlmapp_defaultpage:
+    path:     /
+    defaults: { _controller: CornershortMLMappBundle:Default:index }
