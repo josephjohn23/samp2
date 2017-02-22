@@ -45,6 +45,13 @@ class MenuChild
     /**
      * @var integer
      *
+     * @ORM\Column(name="sort_id", type="integer", nullable=false)
+     */
+    private $sortId;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="access_level", type="integer", nullable=false)
      */
     private $accessLevel;
