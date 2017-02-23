@@ -51,14 +51,14 @@ cornershort_mlmapp_homepage:
     defaults: { _controller: CornershortMLMappBundle:HomeWeb:index }
 
 # Show New Members Layout Control Pages
-cornershort_mlmapp_add_new_member_page_list:
-    path:     /add_new_member
-    defaults: { _controller: CornershortMLMappBundle:AddNewMemberWeb:list }
+cornershort_mlmapp_register_member_page_show:
+    path:     /show_member
+    defaults: { _controller: CornershortMLMappBundle:RegisterMemberWeb:show }
 
 # Add New Member Layout Control Pages
-cornershort_mlmapp_add_new_member_page_view:
-    path:     /add_new_member/{id}
-    defaults: { _controller: CornershortMLMappBundle:AddNewMemberWeb:view }
+cornershort_mlmapp_register_member_page_add:
+    path:     /add_member
+    defaults: { _controller: CornershortMLMappBundle:RegisterMemberWeb:add }
 
 
 # Request For Upgrade Layout Control Pages

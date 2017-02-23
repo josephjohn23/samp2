@@ -6,10 +6,6 @@
 
 <?php $view['slots']->set('data-table-caption', '<i class="icon-settings"></i>Show Members'); ?>
 
-<?php $view['slots']->start('data-table-tools'); ?>
-<a href="<?php echo $view['router']->path('cornershort_mlmapp_add_new_member_page_view', array('id' => -1)) ?>"><i class="fa fa-plus"></i> Add New</a>
-<?php $view['slots']->stop(); ?>
-
 <?php $view['slots']->start('data-table-thead'); ?>
 <tr>
     <th>ID</th>
