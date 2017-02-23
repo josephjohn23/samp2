@@ -86,10 +86,20 @@ cornershort_mlmapp_user_account_page_edit:
     path:     /edit_user_account
     defaults: { _controller: CornershortMLMappBundle:UserAccountWeb:edit }
 
-# User Management Layout Control Pages
-cornershort_mlmapp_user_management_page:
-    path:     /user_management
-    defaults: { _controller: CornershortMLMappBundle:UserManagementWeb:index }
+# Show User Management Layout Control Pages
+cornershort_mlmapp_user_management_page_show:
+    path:     /show_user_management
+    defaults: { _controller: CornershortMLMappBundle:UserManagementWeb:show }
+
+# Add User Management Layout Control Pages
+cornershort_mlmapp_user_management_page_add:
+    path:     /add_user_management
+    defaults: { _controller: CornershortMLMappBundle:UserManagementWeb:add }
+
+# Edit User Management Layout Control Pages
+cornershort_mlmapp_user_management_page_edit:
+    path:     /edit_user_management/{id}
+    defaults: { _controller: CornershortMLMappBundle:UserManagementWeb:edit }
 
 # Report Layout Control Pages
 cornershort_mlmapp_report_page:
