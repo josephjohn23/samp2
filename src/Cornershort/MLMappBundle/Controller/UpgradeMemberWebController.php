@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class UpgradeMemberWebController extends Controller
 {
-    public function indexAction(){
-        return $this->render('CornershortMLMappBundle:UpgradeMember:index.html.php');
+    public function manualAction(){
+        return $this->render('CornershortMLMappBundle:UpgradeMember:manual.html.php');
     }
 }

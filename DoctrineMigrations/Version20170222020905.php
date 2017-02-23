@@ -31,8 +31,9 @@ class Version20170222020905 extends AbstractMigration
 
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'2\',\'Show Member\', \'cornershort_mlmapp_register_member_page_show\', \'97\', \'0\')');
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'2\',\'Add Member\', \'cornershort_mlmapp_register_member_page_add\', \'97\', \'1\')');
-        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'3\',\'Auto Upgrade\', \'cornershort_mlmapp_request_for_upgrade_page_auto\', \'97\', \'0\')');
-        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'3\',\'Manual Upgrade\', \'cornershort_mlmapp_request_for_upgrade_page_manual\', \'97\', \'1\')');
+        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'3\',\'Auto Request\', \'cornershort_mlmapp_request_for_upgrade_page_auto\', \'97\', \'0\')');
+        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'3\',\'Manual Request\', \'cornershort_mlmapp_request_for_upgrade_page_manual\', \'97\', \'1\')');
+        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'4\',\'Manual Upgrade\', \'cornershort_mlmapp_upgrade_member_page_manual\', \'97\', \'0\')');
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'6\',\'Show My Account\', \'cornershort_mlmapp_user_account_page_show\', \'97\', \'0\')');
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'6\',\'Edit My Account\', \'cornershort_mlmapp_user_account_page_edit\', \'97\', \'1\')');
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'7\',\'Show Users\', \'cornershort_mlmapp_user_management_page_show\', \'100\', \'0\')');

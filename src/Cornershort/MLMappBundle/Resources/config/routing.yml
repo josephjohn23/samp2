@@ -70,10 +70,10 @@ cornershort_mlmapp_request_for_upgrade_page_manual:
     path:     /request_for_upgrade_manual
     defaults: { _controller: CornershortMLMappBundle:RequestForUpgradeWeb:manual }
 
-# Upgrade Member Layout Control Pages
-cornershort_mlmapp_upgrade_member_page:
-    path:     /upgrade_member
-    defaults: { _controller: CornershortMLMappBundle:UpgradeMemberWeb:index }
+# Manual Upgrade Member Layout Control Pages
+cornershort_mlmapp_upgrade_member_page_manual:
+    path:     /upgrade_member_manual
+    defaults: { _controller: CornershortMLMappBundle:UpgradeMemberWeb:manual }
 
 # Family Tree Layout Control Pages
 cornershort_mlmapp_family_tree_page:
