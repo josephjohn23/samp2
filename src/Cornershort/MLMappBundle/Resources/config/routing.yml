@@ -76,10 +76,15 @@ cornershort_mlmapp_family_tree_page:
     path:     /family_tree
     defaults: { _controller: CornershortMLMappBundle:FamilyTreeWeb:index }
 
-# User Account Layout Control Pages
-cornershort_mlmapp_user_account_page:
-    path:     /user_account
-    defaults: { _controller: CornershortMLMappBundle:UserAccountWeb:index }
+# Show User Account Layout Control Pages
+cornershort_mlmapp_user_account_page_show:
+    path:     /show_user_account
+    defaults: { _controller: CornershortMLMappBundle:UserAccountWeb:show }
+
+# Edit User Account Layout Control Pages
+cornershort_mlmapp_user_account_page_edit:
+    path:     /edit_user_account
+    defaults: { _controller: CornershortMLMappBundle:UserAccountWeb:edit }
 
 # User Management Layout Control Pages
 cornershort_mlmapp_user_management_page:

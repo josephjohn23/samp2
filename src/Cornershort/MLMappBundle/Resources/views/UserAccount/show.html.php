@@ -1,10 +1,10 @@
 <?php $view->extend('CornershortMLMappBundle:Layout:layout.html.php') ?>
 <?php $view->extend('CornershortMLMappBundle:Layout:data_tables_list.html.php'); ?>
 
-<?php $view['slots']->set('PageTitle', 'Add New Member'); ?>
+<?php $view['slots']->set('PageTitle', 'Show My Account'); ?>
 <?php $view['slots']->set('PageTitleSmall', ''); ?>
 
-<?php $view['slots']->set('data-table-caption', '<i class="icon-settings"></i>Show Members'); ?>
+<?php $view['slots']->set('data-table-caption', '<i class="icon-settings"></i>Show My Account'); ?>
 
 <?php $view['slots']->start('data-table-thead'); ?>
 <tr>
