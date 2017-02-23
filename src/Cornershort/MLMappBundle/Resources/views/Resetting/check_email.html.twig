@@ -1,0 +1,12 @@
+{% extends "CornershortMLMappBundle:Layout:fos_user_layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+<p style="margin: 20px 0;">
+{{ 'resetting.check_email'|trans({'%email%': email}) }}
+</p>
+<div class="form-actions">
+    <a href="/" class="btn btn-success uppercase">Back to Login Page</a>
+</div>
+{% endblock %}

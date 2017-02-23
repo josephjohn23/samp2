@@ -1,3 +1,25 @@
+# Security Routes
+fos_user_security_login:
+    pattern:  /login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+fos_user_security_check:
+    pattern:  /login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+fos_user_security_logout:
+    pattern:  /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+# Layout Routes
 cornershort_mlmapp_layout_sidebar_menu:
     path:     /layout/sidebarMenu
     defaults: { _controller: CornershortMLMappBundle:Default:sidebarMenu }
@@ -24,8 +46,8 @@ cornershort_menu_view_parent:
     defaults: { _controller: CornershortMLMappBundle:MenuWeb:viewParent }
 
 # Home Layout Control Pages
-cornershort_mlmapp_home_page:
-    path:     /home
+cornershort_mlmapp_homepage:
+    path:     /
     defaults: { _controller: CornershortMLMappBundle:HomeWeb:index }
 
 # Show New Members Layout Control Pages

@@ -5,4 +5,4 @@ services:
 
     cornershort_sql_helper.api:
         class: Cornershort\MLMappBundle\Services\SQLHelper
-        arguments: [ @service_container,@doctrine.orm.entity_manager, @cornershort_encryption.api ]
+        arguments: [ "@service_container", "@doctrine.orm.entity_manager", "@cornershort_encryption.api" ]

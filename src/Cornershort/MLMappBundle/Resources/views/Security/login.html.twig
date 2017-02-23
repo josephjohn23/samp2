@@ -1,4 +1,4 @@
-{% extends "CornershortMLMappBundle:Layouts:fos_user_layout.html.php" %}
+{% extends "CornershortMLMappBundle:Layout:fos_user_layout.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
@@ -34,7 +34,7 @@
         <div class="form-actions">
             <button type="submit" class="btn btn-success uppercase">Login</button>
             <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-            <label for="remember_me" class="rememberme check">{{ 'security.login.remember_me'|trans }}</label>
+            <label for="remember_me" class="rememberme check">Remember me?</label>
             <a href="{{ path('fos_user_resetting_request') }}" class="forget-password">Forgot Password?</a>
         </div>
 
