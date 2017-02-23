@@ -60,11 +60,15 @@ cornershort_mlmapp_register_member_page_add:
     path:     /add_member
     defaults: { _controller: CornershortMLMappBundle:RegisterMemberWeb:add }
 
+# Auto Request For Upgrade Layout Control Pages
+cornershort_mlmapp_request_for_upgrade_page_auto:
+    path:     /request_for_upgrade_auto
+    defaults: { _controller: CornershortMLMappBundle:RequestForUpgradeWeb:auto }
 
-# Request For Upgrade Layout Control Pages
-cornershort_mlmapp_request_for_upgrade_page:
-    path:     /request_for_upgrade
-    defaults: { _controller: CornershortMLMappBundle:RequestForUpgradeWeb:index }
+# Manual Request For Upgrade Layout Control Pages
+cornershort_mlmapp_request_for_upgrade_page_manual:
+    path:     /request_for_upgrade_manual
+    defaults: { _controller: CornershortMLMappBundle:RequestForUpgradeWeb:manual }
 
 # Upgrade Member Layout Control Pages
 cornershort_mlmapp_upgrade_member_page:
