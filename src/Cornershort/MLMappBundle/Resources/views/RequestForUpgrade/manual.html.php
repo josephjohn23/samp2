@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- BEGIN Portlet PORTLET-->
-                        <div class="portlet box blue">
+                        <div class="portlet box green">
                             <div class="portlet-title">
                                 <div class="caption">
                                     <i class="fa fa-gift"></i>Your Next Leader To Contact For Upgrade</div>
@@ -41,15 +41,13 @@
                                     <h2 style="font-weight:bold; color:red; font-family:Source Sans Pro;">CLICK THE BUTTON TO REQUEST FOR AN UPGRADE</h2>
                                 </div>
                                 <div class="form-actions noborder" style="display:flex; justify-content:flex-end;">
-                                    <button type="button" id="visor-form-submit" class="btn blue">Upgrade Now</button>
+                                    <button type="button" id="visor-form-submit" class="btn green">Upgrade Now</button>
                                 </div>
                             </div>
                         </div>
                         <!-- END Portlet PORTLET-->
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
