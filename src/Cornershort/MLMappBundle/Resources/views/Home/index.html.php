@@ -25,7 +25,7 @@
                                     <table>
                                         <tr>
                                             <th style="font-size:2vw;">3&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;">Members Needs Your Approval to Upgrade.</th>
+                                            <th style="font-size:2vw; font-weight: normal;"><a href="<?php echo $view['router']->path('cornershort_mlmapp_upgrade_member_page_manual', array()) ?>" >Members Needs Your Approval to Upgrade.</a></th>
                                         </tr>
                                     </table>
                                 </div>
