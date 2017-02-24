@@ -36,7 +36,7 @@ $view['slots']->start('data-table-tbody');
         <td>Feb 30, 2017</td>
         <td>1</td>
         <td>Active Request</td>
-        <td><a href="#basic" data-toggle="modal">Upgrade</a></td>
+        <td><a href="#basic" data-toggle="modal" class="btn btn-success">Upgrade</a></td>
     </tr>
 
     <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false">

@@ -38,7 +38,7 @@
                                     </table>
                                 </div>
                                 <div class="scroller" style="height:200px; display: flex; justify-content: center; align-items: center;">
-                                    <h2 style="font-weight:bold; color:red; font-family:Source Sans Pro;">CLICK THE BUTTON TO REQUEST FOR AN UPGRADE</h2>
+                                    <h2 style="font-weight:bold; color:red; font-family:Source Sans Pro; color:#d9534f">CLICK THE BUTTON TO REQUEST FOR AN UPGRADE</h2>
                                 </div>
                                 <div class="form-actions noborder" style="display:flex; justify-content:flex-end;">
                                     <button href="#basic" data-toggle="modal" type="button" id="visor-form-submit" class="btn btn-lg btn-success">Upgrade Now</button>

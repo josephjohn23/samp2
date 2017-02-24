@@ -22,12 +22,7 @@
                             </div>
                             <div class="portlet-body">
                                 <div class="scroller" style="height:200px; display: flex; justify-content: center; align-items: center;">
-                                    <table>
-                                        <tr>
-                                            <th style="font-size:2vw;">3&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;"><a href="<?php echo $view['router']->path('cornershort_mlmapp_upgrade_member_page_manual', array()) ?>" >Members Needs Your Approval to Upgrade.</a></th>
-                                        </tr>
-                                    </table>
+                                    <a style="font-size: 2vw; color:#d9534f;" class="btn btn-lg btn-link" href="<?php echo $view['router']->path('cornershort_mlmapp_upgrade_member_page_manual', array()) ?>" >3  Members Needs Your Approval to Upgrade.</a></th>
                                 </div>
                             </div>
                         </div>
@@ -53,16 +48,16 @@
                                 <div class="scroller" style="height:200px; display: flex; justify-content: center; align-items: center;">
                                     <table>
                                         <tr>
-                                            <th style="font-size:2vw;">Leader's ID:&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;">PH000002</th>
+                                            <th style="font-size:2vw; color:#276396;">Leader's ID:&nbsp</th>
+                                            <th style="font-size:2vw; font-weight: normal; color:#276396;">PH000002</th>
                                         </tr>
                                         <tr>
-                                            <th style="font-size:2vw;">Contact Number:&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;">0925 123 4567</th>
+                                            <th style="font-size:2vw; color:#276396;">Contact Number:&nbsp</th>
+                                            <th style="font-size:2vw; font-weight: normal; color:#276396;">0925 123 4567</th>
                                         </tr>
                                         <tr>
-                                            <th style="font-size:2vw;">Address:&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;">Clark, Pampanga</th>
+                                            <th style="font-size:2vw; color:#276396;">Address:&nbsp</th>
+                                            <th style="font-size:2vw; font-weight: normal; color:#276396;">Clark, Pampanga</th>
                                         </tr>
                                     </table>
                                 </div>
@@ -90,8 +85,8 @@
                                 <div class="scroller" style="height:200px; display: flex; justify-content: center; align-items: center;">
                                     <table>
                                         <tr>
-                                            <th style="font-size:2vw;">₱&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;">53,500,798.00</th>
+                                            <th style="font-size:2vw; color:#157a98;">₱&nbsp</th>
+                                            <th style="font-size:2vw; font-weight: normal; color:#157a98;">53,500,798.00</th>
                                         </tr>
                                     </table>
                                 </div>
@@ -117,7 +112,7 @@
                             </div>
                             <div class="portlet-body">
                                 <div class="scroller" style="height:200px; display: flex; justify-content: center; align-items: center;">
-                                    <p style="font-size:2vw; font-weight:bold;">7</p>
+                                    <p style="font-size:2vw; font-weight:bold; color:#8c6a19;">7</p>
                                 </div>
                             </div>
                         </div>
