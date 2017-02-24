@@ -41,7 +41,7 @@
                                     <h2 style="font-weight:bold; color:red; font-family:Source Sans Pro;">CLICK THE BUTTON TO REQUEST FOR AN UPGRADE</h2>
                                 </div>
                                 <div class="form-actions noborder" style="display:flex; justify-content:flex-end;">
-                                    <button type="button" id="visor-form-submit" class="btn green">Upgrade Now</button>
+                                    <button href="#basic" data-toggle="modal" type="button" id="visor-form-submit" class="btn btn-lg btn-success">Upgrade Now</button>
                                 </div>
                             </div>
                         </div>
@@ -50,5 +50,24 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header error-dialog-type" style="background:#c9302c; color:white;">
+                    <h4 class="modal-title"><i class="fa fa-exclamation-triangle"></i> Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title">Are you sure you want to Upgrade? <span class="device-name" style="font-weight:bold;"></h3>
+                </div>
+                <div class="modal-footer">
+                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide');"> <i class="fa fa-check" style="font-size:25px;"></i></button>
+                    <a class="btn" style="background:#dddddd;" onClick="$('#basic').modal('hide');"> <i class="fa fa-times" style="font-size:25px;"></i></a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
     </div>
 <?php $view['slots']->stop() ?>

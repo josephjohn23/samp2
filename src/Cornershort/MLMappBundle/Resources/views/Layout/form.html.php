@@ -2,8 +2,8 @@
 
 <?php $view['slots']->start('page-toolbar') ?>
 <div class="form-actions noborder">
-    <button type="button" id="visor-form-submit" class="btn blue">Submit</button>
-    <button type="button" id="visor-form-cancel" class="btn default">Cancel</button>
+    <button type="button" id="visor-form-submit" class="btn btn-lg btn-success">Submit</button>
+    <button type="button" id="visor-form-cancel" class="btn btn-lg red">Cancel</button>
 </div>
 <?php $view['slots']->stop() ?>
 

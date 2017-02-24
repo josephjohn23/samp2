@@ -40,22 +40,23 @@ $view['slots']->start('data-table-tbody');
     </tr>
 
     <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header error-dialog-type" style="background:#c9302c; color:white;">
-        <h4 class="modal-title"><i class="fa fa-exclamation-triangle"></i> Confirmation</h4>
-    </div>
-            <div class="modal-body">
-                <h3 class="modal-title">Are you sure you want to Upgrade this member? <span class="device-name" style="font-weight:bold;"></h3>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header error-dialog-type" style="background:#c9302c; color:white;">
+                    <h4 class="modal-title"><i class="fa fa-exclamation-triangle"></i> Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title">Are you sure you want to Upgrade this member? <span class="device-name" style="font-weight:bold;"></h3>
+                </div>
+                <div class="modal-footer">
+                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide');"> <i class="fa fa-check" style="font-size:25px;"></i></button>
+                    <a class="btn" style="background:#dddddd;" onClick="$('#basic').modal('hide');"> <i class="fa fa-times" style="font-size:25px;"></i></a>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide');"> <i class="fa fa-check" style="font-size:25px;"></i></button>
-                <a class="btn" style="background:#dddddd;" onClick="$('#basic').modal('hide');"> <i class="fa fa-times" style="font-size:25px;"></i></a>
-            </div>
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
 <?php
 $view['slots']->stop()
 ?>

@@ -66,9 +66,6 @@ echo $view['actions']->render(
             </ul>
             <!-- END BREADCRUMBS -->
 
-            <div class="page-toolbar">
-                <?php $view['slots']->output('page-toolbar') ?>
-            </div>
         </div>
         <div class="page-sidebar-wrapper">
             <!-- BEGIN SIDEBAR MENU -->
@@ -88,6 +85,10 @@ echo $view['actions']->render(
             <?php $view['slots']->output('_content') ?>
             <?php $view['slots']->output('after-content') ?>
             <!-- END PAGE BASE CONTENT -->
+
+            <div class="page-toolbar">
+                <?php $view['slots']->output('page-toolbar') ?>
+            </div>
         </div>
 
         <!-- BEGIN FOOTER -->
