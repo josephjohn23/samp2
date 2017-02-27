@@ -112,7 +112,7 @@ cornershort_mlmapp_report_page:
 
 # Demo Payment Page
 cornershort_mlmapp_demo_payment_page_view:
-    path:     /member/demo-payment/{order}
+    path:     /member/demo-payment/view/{order}
     defaults: { _controller: CornershortMLMappBundle:Demo_Payment:view }
 
 cornershort_mlmapp_demo_payment_page_new:

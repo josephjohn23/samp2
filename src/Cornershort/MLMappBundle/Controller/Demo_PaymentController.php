@@ -2,7 +2,6 @@
 
 namespace Cornershort\MLMappBundle\Controller;
 
-use Cornershort\MLMappBundle\Entity\Order;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -11,6 +10,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use JMS\Payment\CoreBundle\Form\ChoosePaymentMethodType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Cornershort\MLMappBundle\Entity\Order;
 
 class Demo_PaymentController extends Controller {
 
@@ -21,8 +21,8 @@ class Demo_PaymentController extends Controller {
         $em->persist($order);
         $em->flush();
 
-        return $this->redirect($this->generateUrl('cornershort_mlmapp_demo_payment_page_show', [
-            'id' => $order->getId(),
+        return $this->redirect($this->generateUrl('cornershort_mlmapp_demo_payment_page_view', [
+            'order' => $order->getId()
         ]));
     }
 
