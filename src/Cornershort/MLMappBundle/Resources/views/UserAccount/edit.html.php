@@ -1,13 +1,13 @@
 
 <?php $view->extend('CornershortMLMappBundle:Layout:form.html.php') ?>
 
-<?php $view['slots']->set('PageTitle', 'Add New Member') ?>
+<?php $view['slots']->set('PageTitle', 'Edit My Account') ?>
 <?php $view['slots']->set('PageTitleSmall', '') ?>
 
 <?php $view['slots']->start('page-toolbar') ?>
 <div class="form-actions noborder">
     <button type="button" id="visor-form-submit" class="btn blue">Submit</button>
-    <a type="button" href="<?php echo $view['router']->path('cornershort_mlmapp_home_page', array()) ?>" class="btn default">Cancel</a>
+    <a type="button" href="<?php echo $view['router']->path('cornershort_mlmapp_homepage', array()) ?>" class="btn default">Cancel</a>
 </div>
 <?php $view['slots']->stop() ?>
 

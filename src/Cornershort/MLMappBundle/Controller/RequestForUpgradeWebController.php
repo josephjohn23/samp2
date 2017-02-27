@@ -6,7 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class RequestForUpgradeWebController extends Controller
 {
-    public function indexAction(){
-        return $this->render('CornershortMLMappBundle:RequestForUpgrade:index.html.php');
+    public function autoAction(){
+        return $this->render('CornershortMLMappBundle:RequestForUpgrade:auto.html.php');
+    }
+
+    public function manualAction(){
+        return $this->render('CornershortMLMappBundle:RequestForUpgrade:manual.html.php');
     }
 }
