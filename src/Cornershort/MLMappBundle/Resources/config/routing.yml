@@ -136,10 +136,18 @@ cornershort_mlmapp_report_page_bank_withdraw_edit:
     defaults: { _controller: CornershortMLMappBundle:AdminReportWeb:bankWithdrawEdit }
 
 # Demo Payment Page
-cornershort_mlmapp_demo_payment_page_view:
-    path:     /member/demo-payment/view/{order}
-    defaults: { _controller: CornershortMLMappBundle:Demo_Payment:view }
-
 cornershort_mlmapp_demo_payment_page_new:
     path:     /member/demo-payment/new
     defaults: { _controller: CornershortMLMappBundle:Demo_Payment:new }
+
+cornershort_mlmapp_demo_payment_page_show:
+    path:     /member/demo-payment/{order}/show
+    defaults: { _controller: CornershortMLMappBundle:Demo_Payment:show }
+
+cornershort_mlmapp_demo_payment_page_create:
+    path:     /member/demo-payment/{order}/create
+    defaults: { _controller: CornershortMLMappBundle:Demo_Payment:paymentCreate }
+
+cornershort_mlmapp_demo_payment_page_complete:
+    path:     /member/demo-payment/{order}/complete
+    defaults: { _controller: CornershortMLMappBundle:Demo_Payment:complete }

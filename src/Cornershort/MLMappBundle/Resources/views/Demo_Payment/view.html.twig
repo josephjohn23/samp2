@@ -1,7 +1,11 @@
+{% extends "CornershortMLMappBundle:Layout:layout.html.twig" %}
+
+{% block content %}
 Total price: Php {{ order.amount }}
 
 {{ form_start(form) }}
     {{ form_widget(form) }}
 
-    <input type="submit" value="Pay € {{ order.amount }}" />
+    <input type="submit" value="Pay Php {{ order.amount }}" />
 {{ form_end(form) }}
+{% endblock %}
