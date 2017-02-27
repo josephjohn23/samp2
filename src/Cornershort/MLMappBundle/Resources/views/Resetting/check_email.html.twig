@@ -2,11 +2,55 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block page_css %}
+<link href="{{ asset('bundles/cornershortmlmapp/assets/pages/css/login.css')}}" rel="stylesheet" type="text/css"/>
+{% endblock page_css %}
+
 {% block fos_user_content %}
 <p style="margin: 20px 0;">
-{{ 'resetting.check_email'|trans({'%email%': email}) }}
+{# 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br #}
+{{ 'resetting.check_email'|trans({'%email%': username}) }}
 </p>
 <div class="form-actions">
     <a href="/" class="btn btn-success uppercase">Back to Login Page</a>
 </div>
 {% endblock %}
+
+{% block page_js %}
+<script>
+  jQuery(document).ready(function() {
+    $('form').submit(function(e){
+      if (grecaptcha.getResponse() == ""){
+          //e.preventDefault();
+          //alert('Please click CAPTCHA box');
+      }
+    });
+
+    $('#recaptcha_widget').css('marginLeft','18px');
+
+    //function to get url parameter using jquery
+     $.urlParam = function(name){
+       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+       if (results==null){
+          return null;
+       }
+       else{
+          return results[1] || 0;
+       }
+     }
+
+     var username = $.urlParam('username');
+     var success = $.urlParam('success');
+
+     if(username) {
+         username = decodeURIComponent(username);
+         $('#username').val(username);
+     }
+
+     if(success) {
+         $('.alert-info').removeClass('hidden');
+     }
+
+  });
+</script>
+{% endblock page_js %}

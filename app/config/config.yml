@@ -98,3 +98,16 @@ fos_user:
         sender_name:    "%mailer_from_name%"
     resetting:
         token_ttl: 86400
+
+# JMS Payment Core
+jms_payment_core:
+    encryption:
+        secret: def00000b0d3d4ced14c2ac1da5fe8fc807a71cc2055a107b9429348f9154152a71031f6114246fc1154d5747dd0ce0986d74825ff45d9691034751e3b14bed7f95ef5fc
+
+# JSM Payment Paypal Bundle
+jms_payment_paypal:
+    username: "%paypal_api_username%" # not your account username
+    password: "%paypal_api_password%" # not your account password
+    signature: "%paypal_api_signature%"
+    useraction: commit
+    debug: "%paypal_api_debug%" # Use the Sandbox

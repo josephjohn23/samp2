@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new Shivas\VersioningBundle\ShivasVersioningBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Cornershort\MLMappBundle\CornershortMLMappBundle(),
+            new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
+            new JMS\Payment\PaypalBundle\JMSPaymentPaypalBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
