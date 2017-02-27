@@ -35,8 +35,8 @@ class Version20170222020905 extends AbstractMigration
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'3\',\'Manual Request\', \'cornershort_mlmapp_request_for_upgrade_page_manual\', \'97\', \'1\')');
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'6\',\'Show My Account\', \'cornershort_mlmapp_user_account_page_show\', \'97\', \'0\')');
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'6\',\'Edit My Account\', \'cornershort_mlmapp_user_account_page_edit\', \'97\', \'1\')');
-        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'7\',\'Show Member Info\', \'cornershort_mlmapp_admin_tools_page_member_info_show\', \'100\', \'0\')');
-        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'7\',\'Show Member Payment History\', \'cornershort_mlmapp_admin_tools_page_member_payment_history_show\', \'100\', \'0\')');
+        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'7\',\'Member Info\', \'cornershort_mlmapp_admin_tools_page_member_info_show\', \'100\', \'0\')');
+        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'7\',\'Member Payment History\', \'cornershort_mlmapp_admin_tools_page_member_payment_history_show\', \'100\', \'0\')');
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'7\',\'Upgrade Member (Product)\', \'cornershort_mlmapp_admin_tools_page_upgrade_member_manual\', \'100\', \'1\')');
     }
 
