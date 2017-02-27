@@ -13,8 +13,4 @@ class UserManagementWebController extends Controller
     public function addAction(){
         return $this->render('CornershortMLMappBundle:UserManagement:add.html.php');
     }
-
-    public function editAction($id){
-        return $this->render('CornershortMLMappBundle:UserManagement:edit.html.php');
-    }
 }

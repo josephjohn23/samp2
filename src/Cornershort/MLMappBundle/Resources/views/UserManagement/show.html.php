@@ -26,7 +26,7 @@
 $view['slots']->start('data-table-tbody');
 ?>
     <tr>
-        <td><a href="<?php echo $view['router']->path('cornershort_mlmapp_user_management_page_edit', array('id' => 1)) ?>"><i class="fa fa-pencil"></i> <?php echo 1; ?></a></td>
+        <td>1</td>
         <td>PH0001</th>
         <td>PH0002</td>
         <td>Dela Cruz</td>
