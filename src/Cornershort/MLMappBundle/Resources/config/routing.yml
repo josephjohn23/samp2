@@ -72,7 +72,7 @@ cornershort_mlmapp_request_for_upgrade_page_manual:
 
 # Manual Upgrade Member Layout Control Pages
 cornershort_mlmapp_upgrade_member_page_manual:
-    path:     /upgrade_member_manual
+    path:     /upgrade_member_manual_by_level
     defaults: { _controller: CornershortMLMappBundle:UpgradeMemberWeb:manual }
 
 # Family Tree Layout Control Pages
@@ -90,15 +90,20 @@ cornershort_mlmapp_user_account_page_edit:
     path:     /edit_user_account
     defaults: { _controller: CornershortMLMappBundle:UserAccountWeb:edit }
 
-# Show User Management Layout Control Pages
-cornershort_mlmapp_user_management_page_show:
-    path:     /show_user_management
-    defaults: { _controller: CornershortMLMappBundle:UserManagementWeb:show }
+# Show Member's Info - Admin Tools Layout Control Pages
+cornershort_mlmapp_admin_tools_page_member_info_show:
+    path:     /show_member_info
+    defaults: { _controller: CornershortMLMappBundle:AdminToolsWeb:memberInfoShow }
 
-# Add User Management Layout Control Pages
-cornershort_mlmapp_user_management_page_add:
-    path:     /add_user_management
-    defaults: { _controller: CornershortMLMappBundle:UserManagementWeb:add }
+# Show Member's Payment History - Admin Tools Layout Control Pages
+cornershort_mlmapp_admin_tools_page_member_payment_history_show:
+    path:     /show_member_payment_history
+    defaults: { _controller: CornershortMLMappBundle:AdminToolsWeb:memberPaymentHistoryShow }
+
+# Manual Upgrade Member by Product - Admin Tools Layout Control Pages
+cornershort_mlmapp_admin_tools_page_upgrade_member_manual:
+    path:     /upgrade_member_manual_by_product
+    defaults: { _controller: CornershortMLMappBundle:AdminToolsWeb:upgradeMemberManualShow }
 
 # Report Layout Control Pages
 cornershort_mlmapp_report_page:

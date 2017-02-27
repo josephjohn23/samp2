@@ -1,10 +1,10 @@
 <?php $view->extend('CornershortMLMappBundle:Layout:layout.html.php') ?>
 <?php $view->extend('CornershortMLMappBundle:Layout:data_tables_list.html.php'); ?>
 
-<?php $view['slots']->set('PageTitle', 'Manual Upgrade My Member'); ?>
+<?php $view['slots']->set('PageTitle', 'Show Member Info'); ?>
 <?php $view['slots']->set('PageTitleSmall', ''); ?>
 
-<?php $view['slots']->set('data-table-caption', '<i class="icon-settings"></i>Manual Upgrade My Member'); ?>
+<?php $view['slots']->set('data-table-caption', '<i class="icon-settings"></i>Show Member Info'); ?>
 
 <?php $view['slots']->start('data-table-thead'); ?>
 <tr>
@@ -18,7 +18,6 @@
     <th>Acct Exp Date</th>
     <th>Level</th>
     <th>Status</th>
-    <th>Action</th>
 </tr>
 <?php $view['slots']->stop(); ?>
 
@@ -36,9 +35,6 @@ $view['slots']->start('data-table-tbody');
         <td>Feb 30, 2017</td>
         <td>1</td>
         <td>Active Request</td>
-        <td>
-            <button href="#basic" data-toggle="modal" class="btn btn-success">Upgrade</button>
-        </td>
     </tr>
 
     <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false">
