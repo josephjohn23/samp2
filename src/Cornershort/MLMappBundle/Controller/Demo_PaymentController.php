@@ -2,6 +2,7 @@
 
 namespace Cornershort\MLMappBundle\Controller;
 
+use Cornershort\MLMappBundle\Entity\Order;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,10 +17,7 @@ class Demo_PaymentController extends Controller {
     public function newAction(){
         $membership_amount = '1500';
         $em = $this->getDoctrine()->getManager();
-        dump($em);
         $order = new Order($membership_amount);
-        dump($order);
-        exit();
         $em->persist($order);
         $em->flush();
 
@@ -28,18 +26,18 @@ class Demo_PaymentController extends Controller {
         ]));
     }
 
-    public function viewAction(Request $request, $order){
+    public function viewAction(Request $request, Order $order){
 
         $form = $this->createForm('jms_choose_payment_method', null, [
-            'amount'   => '1500',
+            'amount'   => $order->getAmount(),
             'currency' => 'PHP',
             'allowed_methods' => ['paypal_express_checkout']
         ]);
 
-        return [
+        return $this->render('CornershortMLMappBundle:Demo_Payment:view.html.twig', [
             'order' => $order,
             'form'  => $form->createView(),
-        ];
+        ]);
     }
 
 }
