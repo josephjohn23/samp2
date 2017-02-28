@@ -92,6 +92,7 @@
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/layout6/scripts/layout.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-sidebar.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-nav.min.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/graph.js') ?>" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
 
     </body>
