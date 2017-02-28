@@ -2,9 +2,7 @@
 
 {% set body_class = 'login' %}
 
-{% block page_css %}
-<link href="{{ asset('bundles/cornershortmlmapp/assets/pages/css/login.css')}}" rel="stylesheet" type="text/css"/>
-{% endblock page_css %}
+
 
 {% block page_js %}
 <script type="text/javascript" src="{{ asset('bundles/cornershortmlmapp/assets/pages/scripts/login.js')}}"></script>
@@ -32,7 +30,6 @@
         {% endfor %}
     {% endif %}
 
-    <div>
         <div class="menu-toggler sidebar-toggler">
         </div>
 
@@ -47,5 +44,4 @@
         <div class="copyright">
             {{ "now"|date('Y') }} &copy;  CornerShort.com MLM Portal {{ app_version }}
         </div>
-    </div>
 {% endblock body %}

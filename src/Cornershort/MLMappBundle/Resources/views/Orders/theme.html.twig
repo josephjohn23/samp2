@@ -1,0 +1,19 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% form_theme form 'CornershortMLMappBundle:Orders:theme.html.twig' %}
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Pay € {{ order.amount }}" />
+{{ form_end(form) }}
+
+{# Don't render the radio button's label #}
+{% block _jms_choose_payment_method_method_label %}
+{% endblock %}
+
+{# Hide each entry in the radio button #}
+{% block _jms_choose_payment_method_method_widget %}
+    <div style="display: none;">
+        {{ parent() }}
+    </div>
+{% endblock %}

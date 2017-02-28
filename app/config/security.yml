@@ -44,6 +44,6 @@ security:
         - { path: ^/activate/*, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/affiliate/, role: ROLE_MEMBER }
+        - { path: ^/member/, role: ROLE_MEMBER }
         - { path: ^/csadmin/, role: ROLE_ADMIN }
         - { path: ^/, role: ROLE_USER }
