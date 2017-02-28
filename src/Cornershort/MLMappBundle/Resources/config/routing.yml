@@ -105,10 +105,35 @@ cornershort_mlmapp_admin_tools_page_member_payment_history_show:
     path:     /member/member-info/payment-history
     defaults: { _controller: CornershortMLMappBundle:AdminToolsWeb:memberPaymentHistoryShow }
 
-# Report Layout Control Pages
-cornershort_mlmapp_report_page:
-    path:     /member/report
-    defaults: { _controller: CornershortMLMappBundle:ReportWeb:index }
+# Sales Tab 1 - Admin Report Layout Control Pages
+cornershort_mlmapp_report_page_sales_tab_1:
+    path:     /member/admin-report/sales-tab-1
+    defaults: { _controller: CornershortMLMappBundle:AdminReportWeb:salesTab1 }
+
+# Sales Tab 2 - Admin Report Layout Control Pages
+cornershort_mlmapp_report_page_sales_tab_2:
+    path:     /member/admin-report/sales-tab-2
+    defaults: { _controller: CornershortMLMappBundle:AdminReportWeb:salesTab2 }
+
+# Sales Tab 3 - Admin Report Layout Control Pages
+cornershort_mlmapp_report_page_sales_tab_3:
+    path:     /member/admin-report/sales-tab-3
+    defaults: { _controller: CornershortMLMappBundle:AdminReportWeb:salesTab3 }
+
+# Show Bank Widthrawal - Admin Report Layout Control Pages
+cornershort_mlmapp_report_page_bank_withdraw_show:
+    path:     /member/admin-report/show-bank-withdraw
+    defaults: { _controller: CornershortMLMappBundle:AdminReportWeb:bankWithdrawShow }
+
+# Add Bank Widthrawal - Admin Report Layout Control Pages
+cornershort_mlmapp_report_page_bank_withdraw_add:
+    path:     /member/admin-report/add-bank-withdraw
+    defaults: { _controller: CornershortMLMappBundle:AdminReportWeb:bankWithdrawAdd }
+
+# Edit Bank Widthrawal - Admin Report Layout Control Pages
+cornershort_mlmapp_report_page_bank_withdraw_edit:
+    path:     /member/admin-report/edit-bank-withdraw/{id}
+    defaults: { _controller: CornershortMLMappBundle:AdminReportWeb:bankWithdrawEdit }
 
 # Demo Payment Page
 cornershort_mlmapp_demo_payment_page_view:
