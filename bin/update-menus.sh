@@ -18,7 +18,7 @@ parse_yaml() {
    }'
 }
 
-eval $(parse_yaml ../app/config/parameters.yml "config__")
+eval $(parse_yaml ./app/config/parameters.yml "config__")
 
 #ACCESS YML
 MYSQL_HOST=$config__parameters__database_host
@@ -31,11 +31,5 @@ MYSQL_DB=$config__parameters__database_name
 #echo `mysql -u$MYSQL_USER -p$MYSQL_PASS -h$MYSQL_HOST $MYSQL_DB -e "$SQL"`
 #echo mysql -u$MYSQL_USER -p$MYSQL_PASS -h$MYSQL_HOST $MYSQL_DB -e "$SQL";
 
-if ! [ -f ../sqls/menus.sql ];
-then
-echo `mysql -u$MYSQL_USER -p$MYSQL_PASS -h$MYSQL_HOST $MYSQL_DB < ../sqls/menus.sql`
-echo `Menu SQL found! Updating...`
-fi
-
-echo `mysqldump -u$MYSQL_USER -p$MYSQL_PASS -h$MYSQL_HOST $MYSQL_DB menu_parent menu_child > ../sqls/menus.sql`
-echo 'Completed menu update!'
+echo `mysqldump -u$MYSQL_USER -p$MYSQL_PASS -h$MYSQL_HOST $MYSQL_DB menu_parent menu_child > ./sqls/menus.sql`
+echo "Completed menu update!"
