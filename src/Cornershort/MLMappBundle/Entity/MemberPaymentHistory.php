@@ -115,4 +115,292 @@ class MemberPaymentHistory
      * @ORM\Column(name="date_completed", type="datetime", nullable=false)
      */
     private $dateCompleted;
+
+    /**
+     * Set leaderId
+     *
+     * @param string $leaderId
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setLeaderId($leaderId)
+    {
+        $this->leaderId = $leaderId;
+
+        return $this;
+    }
+
+    /**
+     * Get leaderId
+     *
+     * @return string
+     */
+    public function getLeaderId()
+    {
+        return $this->leaderId;
+    }
+
+    /**
+     * Set memberId
+     *
+     * @param string $memberId
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setMemberId($memberId)
+    {
+        $this->memberId = $memberId;
+
+        return $this;
+    }
+
+    /**
+     * Get memberId
+     *
+     * @return string
+     */
+    public function getMemberId()
+    {
+        return $this->memberId;
+    }
+
+    /**
+     * Set membershipOption
+     *
+     * @param string $membershipOption
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setMembershipOption($membershipOption)
+    {
+        $this->membershipOption = $membershipOption;
+
+        return $this;
+    }
+
+    /**
+     * Get membershipOption
+     *
+     * @return string
+     */
+    public function getMembershipOption()
+    {
+        return $this->membershipOption;
+    }
+
+    /**
+     * Set activationLevel
+     *
+     * @param integer $activationLevel
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setActivationLevel($activationLevel)
+    {
+        $this->activationLevel = $activationLevel;
+
+        return $this;
+    }
+
+    /**
+     * Get activationLevel
+     *
+     * @return integer
+     */
+    public function getActivationLevel()
+    {
+        return $this->activationLevel;
+    }
+
+    /**
+     * Set productAmount
+     *
+     * @param integer $productAmount
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setProductAmount($productAmount)
+    {
+        $this->productAmount = $productAmount;
+
+        return $this;
+    }
+
+    /**
+     * Get productAmount
+     *
+     * @return integer
+     */
+    public function getProductAmount()
+    {
+        return $this->productAmount;
+    }
+
+    /**
+     * Set levelAmount
+     *
+     * @param integer $levelAmount
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setLevelAmount($levelAmount)
+    {
+        $this->levelAmount = $levelAmount;
+
+        return $this;
+    }
+
+    /**
+     * Get levelAmount
+     *
+     * @return integer
+     */
+    public function getLevelAmount()
+    {
+        return $this->levelAmount;
+    }
+
+    /**
+     * Set dateRequested
+     *
+     * @param \DateTime $dateRequested
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setDateRequested($dateRequested)
+    {
+        $this->dateRequested = $dateRequested;
+
+        return $this;
+    }
+
+    /**
+     * Get dateRequested
+     *
+     * @return \DateTime
+     */
+    public function getDateRequested()
+    {
+        return $this->dateRequested;
+    }
+
+    /**
+     * Set dateLevelUpgraded
+     *
+     * @param \DateTime $dateLevelUpgraded
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setDateLevelUpgraded($dateLevelUpgraded)
+    {
+        $this->dateLevelUpgraded = $dateLevelUpgraded;
+
+        return $this;
+    }
+
+    /**
+     * Get dateLevelUpgraded
+     *
+     * @return \DateTime
+     */
+    public function getDateLevelUpgraded()
+    {
+        return $this->dateLevelUpgraded;
+    }
+
+    /**
+     * Set isLevelPaid
+     *
+     * @param boolean $isLevelPaid
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setIsLevelPaid($isLevelPaid)
+    {
+        $this->isLevelPaid = $isLevelPaid;
+
+        return $this;
+    }
+
+    /**
+     * Get isLevelPaid
+     *
+     * @return boolean
+     */
+    public function getIsLevelPaid()
+    {
+        return $this->isLevelPaid;
+    }
+
+    /**
+     * Set dateProductUpgraded
+     *
+     * @param \DateTime $dateProductUpgraded
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setDateProductUpgraded($dateProductUpgraded)
+    {
+        $this->dateProductUpgraded = $dateProductUpgraded;
+
+        return $this;
+    }
+
+    /**
+     * Get dateProductUpgraded
+     *
+     * @return \DateTime
+     */
+    public function getDateProductUpgraded()
+    {
+        return $this->dateProductUpgraded;
+    }
+
+    /**
+     * Set isProductPaid
+     *
+     * @param boolean $isProductPaid
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setIsProductPaid($isProductPaid)
+    {
+        $this->isProductPaid = $isProductPaid;
+
+        return $this;
+    }
+
+    /**
+     * Get isProductPaid
+     *
+     * @return boolean
+     */
+    public function getIsProductPaid()
+    {
+        return $this->isProductPaid;
+    }
+
+    /**
+     * Set dateCompleted
+     *
+     * @param \DateTime $dateCompleted
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setDateCompleted($dateCompleted)
+    {
+        $this->dateCompleted = $dateCompleted;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCompleted
+     *
+     * @return \DateTime
+     */
+    public function getDateCompleted()
+    {
+        return $this->dateCompleted;
+    }
 }
