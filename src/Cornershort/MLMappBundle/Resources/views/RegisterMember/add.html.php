@@ -13,6 +13,14 @@
 
 <?php $view['slots']->start('visor-form-body') ?>
 <div class="tab-content">
+    <div id="message_success" class="alert alert-success" style="display:none;">
+        <span id="message_success"></span>
+    </div>
+
+    <div id="message_danger" class="alert alert-danger" style="display:none;">
+        <span id="message_danger"></span>
+    </div>
+
     <div class="pane">
 
       <?php if(isset($notification['success'])): ?>
@@ -34,8 +42,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="equipment_id">ID</label>
-                    <input type="text" class="form-control" id="equipment_id" name="equipment_id" value="" placeholder="" readonly>
+                    <label for="user_id">ID</label>
+                    <input type="text" class="form-control" id="user_id" name="user_id" value="" placeholder="" >
                 </div>
             </div>
         </div>
@@ -43,8 +51,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="description" class="control-label">Leader's ID</label>
-                    <input type="text" class="form-control required" id="leader_id" name="leader_id" value="" placeholder="">
+                    <label for="leaders_id" class="control-label">Leader's ID</label>
+                    <input type="text" class="form-control required" id="leaders_id" name="leaders_id" value="" placeholder="">
                 </div>
             </div>
         </div>
@@ -52,7 +60,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="batch_capacity">Member's ID</label>
+                    <label for="member_id">Member's ID</label>
                     <input type="text" class="form-control" id="member_id" name="member_id" value="" placeholder="">
                 </div>
             </div>
@@ -61,7 +69,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="batch_queue">Account ID</label>
+                    <label for="acct_id">Account ID</label>
                     <input type="text" class="form-control" id="acct_id" name="acct_id" value="" placeholder="">
                 </div>
             </div>
@@ -70,7 +78,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="batch_queue">Password</label>
+                    <label for="password">Password</label>
                     <input type="text" class="form-control" id="password" name="password" value="" placeholder="">
                 </div>
             </div>
@@ -79,7 +87,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="batch_queue">Last Name</label>
+                    <label for="last_name">Last Name</label>
                     <input type="text" class="form-control" id="last_name" name="last_name" value="" placeholder="">
                 </div>
             </div>
@@ -88,7 +96,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="batch_queue">First Name</label>
+                    <label for="first_name">First Name</label>
                     <input type="text" class="form-control" id="first_name" name="first_name" value="" placeholder="">
                 </div>
             </div>
@@ -97,7 +105,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="batch_queue">Middle Name</label>
+                    <label for="middle_name">Middle Name</label>
                     <input type="text" class="form-control" id="middle_name" name="middle_name" value="" placeholder="">
                 </div>
             </div>
@@ -106,7 +114,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="batch_queue">Date of Birth</label>
+                    <label for="date_of_birth">Date of Birth</label>
                     <input type="text" class="form-control" id="date_of_birth" name="date_of_birth" value="" placeholder="">
                 </div>
             </div>
@@ -128,7 +136,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="batch_queue">Mobile Number</label>
+                    <label for="mobile_number">Mobile Number</label>
                     <input type="text" class="form-control" id="mobile_number" name="mobile_number" value="" placeholder="">
                 </div>
             </div>
@@ -137,7 +145,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="batch_queue">Email Address</label>
+                    <label for="email_add">Email Address</label>
                     <input type="text" class="form-control" id="email_add" name="email_add" value="" placeholder="">
                 </div>
             </div>
@@ -157,16 +165,14 @@
             </div>
         </div>
 
+        <div class="btn-group">
+            <div class="button-container">
+                <button type="button" id="add-member-form-submit" onClick="addNewMember()" class="btn btn-lg btn-success">Submit</button>
+                <button type="button" id="add-member-form-cancel" onclick="window.history.back();" class="btn btn-lg red">Cancel</button>
+            </div>
+        </div>
+
     </div>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        document.getElementById("visor-form-cancel").addEventListener("click", myFunction);
-        function myFunction() {
-            window.history.back();
-        }
-    })
-</script>
 
 <?php $view['slots']->stop() ?>

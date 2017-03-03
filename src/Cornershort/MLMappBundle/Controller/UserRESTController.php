@@ -82,20 +82,32 @@ class UserRESTController extends VoryxController
      */
     public function postAction(Request $request)
     {
-        $entity = new User();
-        $form = $this->createForm(get_class(new UserType()), $entity, array("method" => $request->getMethod()));
-        $this->removeExtraFields($request, $form);
-        $form->handleRequest($request);
+        $SQLHelper = $this->get('cornershort_sql_helper.api');
+        $data = json_decode($request->getContent(), true);
+        $data['password'] = md5($data['password']);
+        $data['username'] = $data['email_add'];
+        $data['username_canonical'] = $data['email_add'];
+        $data['email'] = $data['email_add'];
+        $data['email_canonical'] = $data['email_add'];
+        $data['roles'] = "a:1:{i:0;s:16:'ROLE_SUPER_ADMIN';}";
+        $data['access_level'] = 95;
+        $data['user_id'] = $data['leaders_id'];
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+        $params = array('email' => $data['email_add']);
+        $sql = "SELECT * FROM users WHERE email=:email";
+        $users = $SQLHelper->fetchRow($sql, $params);
 
-            return $entity;
+        if (!($users)) {
+            $saved_record = $SQLHelper->insertRecord('users', $data);
+        } else {
+            $saved_record = $SQLHelper->updateRecord('users', $data);
         }
 
-        return FOSView::create(array('errors' => $form->getErrors()), Codes::HTTP_INTERNAL_SERVER_ERROR);
+        if (!$saved_record) {
+            return "Error";
+        } else {
+            return "Success";
+        }
     }
     /**
      * Update a User entity.

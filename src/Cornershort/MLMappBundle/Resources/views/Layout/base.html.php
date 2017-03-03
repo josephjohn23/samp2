@@ -80,6 +80,7 @@
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/scripts/app.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/layout.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/main.js') ?>" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
 
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
