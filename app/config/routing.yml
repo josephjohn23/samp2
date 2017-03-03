@@ -1,5 +1,5 @@
 cornershort_ml_mapp_user_api:
-    resource: "@CornershortMLMappBundle/Rest/UserRESTController.php"
+    resource: "@CornershortMLMappBundle/Controller/UserRESTController.php"
     type:   rest
     prefix:   /api
 
