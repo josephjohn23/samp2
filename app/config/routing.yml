@@ -1,3 +1,8 @@
+cornershort_ml_mapp_user_api:
+    resource: "@CornershortMLMappBundle/Rest/UserRESTController.php"
+    type:   rest
+    prefix:   /api
+
 cornershort_mlm_app:
     resource: "@CornershortMLMappBundle/Resources/config/routing.yml"
     prefix:   /

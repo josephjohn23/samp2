@@ -18,9 +18,12 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Shivas\VersioningBundle\ShivasVersioningBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
             new Cornershort\MLMappBundle\CornershortMLMappBundle(),
             new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
             new JMS\Payment\PaypalBundle\JMSPaymentPaypalBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
+            new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
