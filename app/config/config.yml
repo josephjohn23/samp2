@@ -33,6 +33,13 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    serializer:
+        enabled: true
+
+sensio_framework_extra:
+    request: { converters: true }
+    view:    { annotations: false }
+    router:  { annotations: true }
 
 # Twig Configuration
 twig:
@@ -111,3 +118,15 @@ jms_payment_paypal:
     signature: "%paypal_api_signature%"
     useraction: commit
     debug: "%paypal_api_debug%" # Use the Sandbox
+
+# FOSRestBundle Configuration
+fos_rest:
+    routing_loader:
+        default_format: json
+    param_fetcher_listener: true
+    body_listener: true
+    #disable_csrf_role: ROLE_USER
+    body_converter:
+        enabled: true
+    view:
+        view_response_listener: force
