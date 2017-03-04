@@ -11,9 +11,8 @@
     <th>ID</th>
     <th>Leader's ID</th>
     <th>Member's ID</th>
-    <th>Last Name</th>
     <th>First Name</th>
-    <th>Middle Name</th>
+    <th>Last Name</th>
     <th>Mobile Number</th>
     <th>Acct Exp Date</th>
     <th>Level</th>
@@ -24,18 +23,19 @@
 <?php
 $view['slots']->start('data-table-tbody');
 ?>
+    <?php foreach ($member_infos as $member_info) {?>
     <tr>
-        <td>1</td>
-        <td>PH0001</th>
-        <td>PH0002</td>
-        <td>Dela Cruz</td>
-        <td>Juan</td>
-        <td>Manalo</td>
-        <td>09251234567</td>
-        <td>Feb 30, 2017</td>
-        <td>1</td>
-        <td>Active</td>
+        <td><?php echo $member_info['id']; ?></td>
+        <td><?php echo $member_info['leaders_id']; ?></th>
+        <td><?php echo $member_info['member_id']; ?></th>
+        <td><?php echo $member_info['first_name']; ?></th>
+        <td><?php echo $member_info['last_name']; ?></th>
+        <td><?php echo $member_info['mobile_number']; ?></th>
+        <td><?php echo $member_info['acct_exp_date']; ?></th>
+        <td><?php echo $member_info['activation_level']; ?></th>
+        <td><?php echo $member_info['status']; ?></th>
     </tr>
+    <?php } ?>
 <?php
 $view['slots']->stop()
 ?>
