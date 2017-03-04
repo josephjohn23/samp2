@@ -145,8 +145,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="email_add">Email Address</label>
-                    <input type="text" class="form-control" id="email_add" name="email_add" value="" placeholder="">
+                    <label for="bank_acct_no">Bank Account Number</label>
+                    <input type="text" class="form-control" id="bank_acct_no" name="bank_acct_no" value="" placeholder="">
                 </div>
             </div>
         </div>
@@ -154,13 +154,22 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
-                    <label for="batch_queue">Home Address</label>
-                    <input type="text" class="form-control" id="home_add_no" name="home_add_no" value="" placeholder="No">
-                    <input type="text" class="form-control" id="home_add_street" name="home_add_street" value="" placeholder="Street">
-                    <input type="text" class="form-control" id="home_add_brgy" name="home_add_brgy" value="" placeholder="Brgy.">
-                    <input type="text" class="form-control" id="home_add_subd" name="home_add_subd" value="" placeholder="Village / Subdivision">
-                    <input type="text" class="form-control" id="home_add_city" name="home_add_city" value="" placeholder="City">
-                    <input type="text" class="form-control" id="home_add_province" name="home_add_province" value="" placeholder="Province">
+                    <label for="email">Email Address</label>
+                    <input type="text" class="form-control" id="email" name="email" value="" placeholder="">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group form-md-line-input">
+                    <label for="home_add_house_no">Home Address</label>
+                    <input type="text" class="form-control" id="home_add_house_no" name="home_add_house_no" value="" placeholder="No">
+                    <input type="text" class="form-control" id="home_addr_street" name="home_addr_street" value="" placeholder="Street">
+                    <input type="text" class="form-control" id="home_addr_brgy" name="home_addr_brgy" value="" placeholder="Brgy.">
+                    <input type="text" class="form-control" id="home_addr_subd" name="home_addr_subd" value="" placeholder="Village / Subdivision">
+                    <input type="text" class="form-control" id="home_addr_city" name="home_addr_city" value="" placeholder="City">
+                    <input type="text" class="form-control" id="home_addr_province" name="home_addr_province" value="" placeholder="Province">
                 </div>
             </div>
         </div>

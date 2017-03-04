@@ -84,23 +84,18 @@ class UserRESTController extends VoryxController
     {
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $data = json_decode($request->getContent(), true);
-        $data['password'] = md5($data['password']);
-        $data['username'] = $data['email_add'];
-        $data['username_canonical'] = $data['email_add'];
-        $data['email'] = $data['email_add'];
-        $data['email_canonical'] = $data['email_add'];
-        $data['roles'] = "a:1:{i:0;s:16:'ROLE_SUPER_ADMIN';}";
-        $data['access_level'] = 95;
-        $data['user_id'] = $data['leaders_id'];
+        $saved_record = 0;
 
-        $params = array('email' => $data['email_add']);
+        $data['password'] = md5($data['password']);
+
+        $params = array('email' => $data['email']);
         $sql = "SELECT * FROM users WHERE email=:email";
         $users = $SQLHelper->fetchRow($sql, $params);
 
         if (!($users)) {
             $saved_record = $SQLHelper->insertRecord('users', $data);
         } else {
-            $saved_record = $SQLHelper->updateRecord('users', $data);
+            return "Error";
         }
 
         if (!$saved_record) {

@@ -1,9 +1,12 @@
+
+console.log('Main JS sasdasd');
 function addNewMember() {
     var data = {
         id: $('#user_id').val(),
         leaders_id: $('#leaders_id').val(),
         member_id: $('#member_id').val(),
         acct_id: $('#acct_id').val(),
+        next_leader_id: $('#leaders_id').val(),
         password: $('#password').val(),
         last_name: $('#last_name').val(),
         first_name: $('#first_name').val(),
@@ -11,15 +14,24 @@ function addNewMember() {
         date_of_birth: $('#date_of_birth').val(),
         gender: $('#gender').val(),
         mobile_number: $('#mobile_number').val(),
-        email_add: $('#email_add').val(),
-        home_add_no: $('#home_add_no').val(),
-        home_add_street: $('#home_add_street').val(),
-        home_add_brgy: $('#home_add_brgy').val(),
-        home_add_subd: $('#home_add_subd').val(),
-        home_add_city: $('#home_add_city').val(),
-        home_add_province: $('#home_add_province').val()
+        email: $('#email').val(),
+        home_add_house_no: $('#home_add_house_no').val(),
+        home_addr_street: $('#home_addr_street').val(),
+        home_addr_brgy: $('#home_addr_brgy').val(),
+        home_addr_subd: $('#home_addr_subd').val(),
+        home_addr_city: $('#home_addr_city').val(),
+        home_addr_province: $('#home_addr_province').val(),
+        username: $('#email').val(),
+        username_canonical: $('#email').val(),
+        email_canonical: $('#email').val(),
+        roles: "a:1:{i:0;s:16:'ROLE_SUPER_ADMIN';}",
+        access_level: 95,
+        user_id: $('#leaders_id').val(),
+        bank_acct_no: $('#bank_acct_no').val(),
+        status: 'not_active'
     };
-console.log(data);
+
+    console.log(data);
     $.ajax({
         method: "POST",
         url: "/api/users",
