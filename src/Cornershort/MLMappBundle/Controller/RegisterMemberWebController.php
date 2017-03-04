@@ -11,7 +11,7 @@ class RegisterMemberWebController extends Controller
 
         $my_id = '004';
         $params = array('my_id' => $my_id);
-        $sql = "SELECT * FROM users WHERE leaders_id=:my_id";
+        $sql = "SELECT * FROM users WHERE leader_id=:my_id";
         $member_infos = $SQLHelper->fetchRows($sql, $params);
 
         return $this->render('CornershortMLMappBundle:RegisterMember:show.html.php', array('member_infos' => $member_infos));

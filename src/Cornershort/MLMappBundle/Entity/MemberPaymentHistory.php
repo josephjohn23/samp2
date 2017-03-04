@@ -91,7 +91,7 @@ class MemberPaymentHistory
     /**
      * @var \boolean
      *
-     * @ORM\Column(name="is_level_paid", type="boolean", nullable=false)
+     * @ORM\Column(name="is_level_paid", type="integer", nullable=false)
      */
     private $isLevelPaid;
 
@@ -105,7 +105,7 @@ class MemberPaymentHistory
     /**
      * @var \boolean
      *
-     * @ORM\Column(name="is_product_paid", type="boolean", nullable=false)
+     * @ORM\Column(name="is_product_paid", type="integer", nullable=false)
      */
     private $isProductPaid;
 

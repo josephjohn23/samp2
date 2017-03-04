@@ -26,7 +26,7 @@ $view['slots']->start('data-table-tbody');
     <?php foreach ($member_infos as $member_info) {?>
     <tr>
         <td><?php echo $member_info['id']; ?></td>
-        <td><?php echo $member_info['leaders_id']; ?></th>
+        <td><?php echo $member_info['leader_id']; ?></th>
         <td><?php echo $member_info['member_id']; ?></th>
         <td><?php echo $member_info['first_name']; ?></th>
         <td><?php echo $member_info['last_name']; ?></th>
