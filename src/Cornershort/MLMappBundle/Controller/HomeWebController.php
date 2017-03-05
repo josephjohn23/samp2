@@ -30,6 +30,8 @@ class HomeWebController extends Controller
         $next_leader_info = $SQLHelper->fetchRow($sql, $params);
 
             $next_leader_info['member_id'] = (is_null($next_leader_info) ? 0 : '001');
+            $next_leader_info['first_name'] = (is_null($next_leader_info) ? 0 : 'Juan');
+            $next_leader_info['last_name'] = (is_null($next_leader_info) ? 0 : 'Dela Cruz');
             $next_leader_info['mobile_number'] = (is_null($next_leader_info) ? 0 : '09251234567');
             $next_leader_info['home_addr_city'] = (is_null($next_leader_info) ? 0 : 'San Fernando');
             $next_leader_info['home_addr_province'] = (is_null($next_leader_info) ? 0 : 'Pampanga');

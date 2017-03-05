@@ -52,8 +52,8 @@
                                 <div class="scroller" style="height:200px; display: flex; justify-content: center; align-items: center;">
                                     <table>
                                         <tr>
-                                            <th style="font-size:2vw; color:#276396;">Leader's ID:&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal; color:#276396;"><?php echo $next_leader_info['member_id']; ?></th>
+                                            <th style="font-size:2vw; color:#276396;">Leader's Name:&nbsp</th>
+                                            <th style="font-size:2vw; font-weight: normal; color:#276396;"><?php echo $next_leader_info['first_name'] . " " . $next_leader_info['last_name']; ?></th>
                                         </tr>
                                         <tr>
                                             <th style="font-size:2vw; color:#276396;">Contact Number:&nbsp</th>
