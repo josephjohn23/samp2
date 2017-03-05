@@ -1,5 +1,5 @@
 
-console.log('Main JS sasdasd');
+console.log('Main JS');
 function addNewMember() {
     var data = {
         id: $('#user_id').val(),
@@ -31,7 +31,6 @@ function addNewMember() {
         status: 'not_active'
     };
 
-    console.log(data);
     $.ajax({
         method: "POST",
         url: "/api/users",
@@ -39,12 +38,34 @@ function addNewMember() {
         contentType: "application/json",
         timeout: 5000
     })
-    .success(function (data) {
+    .success(function (result) {
         $("html, body").animate({scrollTop: 1}, 1000);
-        if (data == "Success"){
+        if (result == "Success"){
             messageAlert('Successfully Updated!', 'success');
         } else {
             messageAlert('Unable to update your info!', 'danger');
+        }
+    });
+}
+
+function requestUpgrade() {
+    var data = {
+        id: '001',
+        leaders_id: '002'
+    }
+
+    $.ajax({
+        method: "POST",
+        url: "/api/memberpaymenthistories/requests/fors/upgrades",
+        data: JSON.stringify(data),
+        contentType: "application/json"
+    })
+    .success(function (result) {
+        $("html, body").animate({scrollTop: 1}, 1000);
+        if (result == "Success"){
+            messageAlert('Successfully requested for an upgrade!', 'success');
+        } else {
+            messageAlert('You already request for an upgrade!', 'danger');
         }
     });
 }

@@ -84,6 +84,13 @@ class MemberPaymentHistory
     /**
      * @var \DateTime
      *
+     * @ORM\Column(name="is_level_requested", type="integer", nullable=false)
+     */
+    private $isLevelRequested;
+
+    /**
+     * @var \DateTime
+     *
      * @ORM\Column(name="date_level_upgraded", type="datetime", nullable=false)
      */
     private $dateLevelUpgraded;
@@ -402,5 +409,29 @@ class MemberPaymentHistory
     public function getDateCompleted()
     {
         return $this->dateCompleted;
+    }
+
+    /**
+     * Set isLevelRequested
+     *
+     * @param integer $isLevelRequested
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setIsLevelRequested($isLevelRequested)
+    {
+        $this->isLevelRequested = $isLevelRequested;
+
+        return $this;
+    }
+
+    /**
+     * Get isLevelRequested
+     *
+     * @return integer
+     */
+    public function getIsLevelRequested()
+    {
+        return $this->isLevelRequested;
     }
 }

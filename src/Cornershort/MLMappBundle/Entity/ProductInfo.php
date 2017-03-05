@@ -66,4 +66,124 @@ class ProductInfo
      * @ORM\Column(name="activation_level", type="integer", nullable=false)
      */
     private $activationLevel;
+
+    /**
+     * Set productId
+     *
+     * @param integer $productId
+     *
+     * @return ProductInfo
+     */
+    public function setProductId($productId)
+    {
+        $this->productId = $productId;
+
+        return $this;
+    }
+
+    /**
+     * Get productId
+     *
+     * @return integer
+     */
+    public function getProductId()
+    {
+        return $this->productId;
+    }
+
+    /**
+     * Set productDesc
+     *
+     * @param string $productDesc
+     *
+     * @return ProductInfo
+     */
+    public function setProductDesc($productDesc)
+    {
+        $this->productDesc = $productDesc;
+
+        return $this;
+    }
+
+    /**
+     * Get productDesc
+     *
+     * @return string
+     */
+    public function getProductDesc()
+    {
+        return $this->productDesc;
+    }
+
+    /**
+     * Set productName
+     *
+     * @param string $productName
+     *
+     * @return ProductInfo
+     */
+    public function setProductName($productName)
+    {
+        $this->productName = $productName;
+
+        return $this;
+    }
+
+    /**
+     * Get productName
+     *
+     * @return string
+     */
+    public function getProductName()
+    {
+        return $this->productName;
+    }
+
+    /**
+     * Set productAmount
+     *
+     * @param integer $productAmount
+     *
+     * @return ProductInfo
+     */
+    public function setProductAmount($productAmount)
+    {
+        $this->productAmount = $productAmount;
+
+        return $this;
+    }
+
+    /**
+     * Get productAmount
+     *
+     * @return integer
+     */
+    public function getProductAmount()
+    {
+        return $this->productAmount;
+    }
+
+    /**
+     * Set activationLevel
+     *
+     * @param integer $activationLevel
+     *
+     * @return ProductInfo
+     */
+    public function setActivationLevel($activationLevel)
+    {
+        $this->activationLevel = $activationLevel;
+
+        return $this;
+    }
+
+    /**
+     * Get activationLevel
+     *
+     * @return integer
+     */
+    public function getActivationLevel()
+    {
+        return $this->activationLevel;
+    }
 }
