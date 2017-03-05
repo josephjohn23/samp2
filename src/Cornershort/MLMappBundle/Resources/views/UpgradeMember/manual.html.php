@@ -7,13 +7,19 @@
 <?php $view['slots']->set('data-table-caption', '<i class="icon-settings"></i>Manual Upgrade My Member'); ?>
 
 <?php $view['slots']->start('data-table-thead'); ?>
+<div id="message_success" class="alert alert-success" style="display:none;">
+    <span id="message_success"></span>
+</div>
+
+<div id="message_danger" class="alert alert-danger" style="display:none;">
+    <span id="message_danger"></span>
+</div>
+
 <tr>
-    <th>ID</th>
     <th>Leader's ID</th>
     <th>Member's ID</th>
-    <th>Last Name</th>
     <th>First Name</th>
-    <th>Middle Name</th>
+    <th>Last Name</th>
     <th>Mobile Number</th>
     <th>Acct Exp Date</th>
     <th>Level</th>
@@ -25,21 +31,21 @@
 <?php
 $view['slots']->start('data-table-tbody');
 ?>
+    <?php foreach ($member_infos as $member_info) { ?>
     <tr>
-        <td>1</td>
-        <td>PH0001</th>
-        <td>PH0002</td>
-        <td>Dela Cruz</td>
-        <td>Juan</td>
-        <td>Manalo</td>
-        <td>09251234567</td>
-        <td>Feb 30, 2017</td>
-        <td>1</td>
-        <td>Active Request</td>
+        <td><?php echo $member_info['leader_id']; ?></td>
+        <td><?php echo $member_info['member_id']; ?></td>
+        <td><?php echo $member_info['first_name']; ?></td>
+        <td><?php echo $member_info['last_name']; ?></td>
+        <td><?php echo $member_info['mobile_number']; ?></td>
+        <td><?php echo $member_info['acct_exp_date']; ?></td>
+        <td><?php echo $member_info['activation_level']; ?></td>
+        <td><?php echo $member_info['status']; ?></td>
         <td>
             <button href="#basic" data-toggle="modal" class="btn btn-success">Upgrade</button>
         </td>
     </tr>
+    <?php } ?>
 
     <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
@@ -51,7 +57,7 @@ $view['slots']->start('data-table-tbody');
                     <h3 class="modal-title">Are you sure you want to Upgrade this member? <span class="device-name" style="font-weight:bold;"></h3>
                 </div>
                 <div class="modal-footer">
-                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide');"> <i class="fa fa-check" style="font-size:25px;"></i></button>
+                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide'); requestUpgrade();"> <i class="fa fa-check" style="font-size:25px;"></i></button>
                     <a class="btn" style="background:#dddddd;" onClick="$('#basic').modal('hide');"> <i class="fa fa-times" style="font-size:25px;"></i></a>
                 </div>
             </div>

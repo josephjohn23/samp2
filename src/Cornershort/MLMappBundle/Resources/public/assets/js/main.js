@@ -70,6 +70,28 @@ function requestUpgrade() {
     });
 }
 
+function requestUpgrade() {
+    var data = {
+        id: '001',
+        leaders_id: '002'
+    }
+
+    $.ajax({
+        method: "POST",
+        url: "/api/memberpaymenthistories/upgrades/members",
+        data: JSON.stringify(data),
+        contentType: "application/json"
+    })
+    .success(function (result) {
+        $("html, body").animate({scrollTop: 1}, 1000);
+        if (result == "Success"){
+            messageAlert('Your member was successfullt upgraded!', 'success');
+        } else {
+            messageAlert('Unable to upgrade your member!', 'danger');
+        }
+    });
+}
+
 function messageAlert(data, type) {
     $("#message_" + type).show();
     $("#message_" + type).html(data);

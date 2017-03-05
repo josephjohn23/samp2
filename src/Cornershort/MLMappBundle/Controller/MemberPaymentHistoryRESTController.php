@@ -228,6 +228,10 @@ exit;
             }
         }
     }
+
+    public function postUpgradeMemberAction(Request $request) {
+        return "Success";
+    }
 }
 
 // $memberPaymentHistory = new MemberPaymentHistory();
