@@ -57,7 +57,7 @@ $view['slots']->start('data-table-tbody');
                     <h3 class="modal-title">Are you sure you want to Upgrade this member? <span class="device-name" style="font-weight:bold;"></h3>
                 </div>
                 <div class="modal-footer">
-                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide'); upgradeMember(<?php echo $member_info['leader_id']; ?>, <?php echo $member_info['member_id']; ?>);"> <i class="fa fa-check" style="font-size:25px;"></i></button>
+                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide'); upgradeMember(<?php if(isset($member_info['leader_id'])) { echo $member_info['leader_id']; } ?>, <?php if(isset($member_info['member_id'])) { echo $member_info['member_id']; } ?>);"> <i class="fa fa-check" style="font-size:25px;"></i></button>
                     <a class="btn" style="background:#dddddd;" onClick="$('#basic').modal('hide');"> <i class="fa fa-times" style="font-size:25px;"></i></a>
                 </div>
             </div>
