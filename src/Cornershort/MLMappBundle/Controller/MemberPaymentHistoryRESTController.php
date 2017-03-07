@@ -98,9 +98,6 @@ class MemberPaymentHistoryRESTController extends VoryxController
 
         //FIND MEMBER'S PAYMENT HISTORY
         $memberPaymentHistory = $em->getRepository('CornershortMLMappBundle:MemberPaymentHistory')->findBy(array('memberId' => $my_id, 'isLevelPaid' => 0));
-
-    var_dump($myInfo);
-exit;
     }
     /**
      * Update a MemberPaymentHistory entity.
@@ -230,7 +227,34 @@ exit;
     }
 
     public function postUpgradeMemberAction(Request $request) {
-        return "Success";
+        $SQLHelper = $this->get('cornershort_sql_helper.api');
+        $em = $this->getDoctrine()->getManager();
+        $data = json_decode($request->getContent(), true);
+        $memberId = str_pad($data['member_id'], 3, '0', STR_PAD_LEFT);
+
+        //FIND isLevelLevelPaid
+        $isLevelPaid = $em->getRepository('CornershortMLMappBundle:MemberPaymentHistory')->findBy(
+            array(
+                'memberId' => $memberId,
+                'isLevelRequested' => 1,
+                'isLevelPaid' => 0
+            )
+        );
+
+        if (!is_null($isLevelPaid[0])) {
+            $data = [];
+            $data['id'] = $isLevelPaid[0]->getId();
+            $data['member_id'] = $memberId;
+            $data['is_level_paid'] = 1;
+
+            $saved_record = $SQLHelper->updateRecord('member_payment_history', $data);
+        }
+
+        if (!$saved_record) {
+            return "Error";
+        } else {
+            return "Success";
+        }
     }
 }
 

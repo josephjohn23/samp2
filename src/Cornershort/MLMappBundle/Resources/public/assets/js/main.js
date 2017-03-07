@@ -70,10 +70,10 @@ function requestUpgrade() {
     });
 }
 
-function requestUpgrade() {
+function upgradeMember(myId, memberId) {
     var data = {
-        id: '001',
-        leaders_id: '002'
+        leader_id: myId,
+        member_id: memberId
     }
 
     $.ajax({
