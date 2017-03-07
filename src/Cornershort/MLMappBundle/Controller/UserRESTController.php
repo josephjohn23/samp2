@@ -169,4 +169,29 @@ class UserRESTController extends VoryxController
             return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+    public function postEditAccountAction(Request $request)
+    {
+        $SQLHelper = $this->get('cornershort_sql_helper.api');
+        $data = json_decode($request->getContent(), true);
+        $saved_record = 0;
+
+        $data['password'] = md5($data['password']);
+
+        $params = array('email' => $data['email']);
+        $sql = "SELECT * FROM users WHERE email=:email";
+        $users = $SQLHelper->fetchRow($sql, $params);
+
+        if ($users) {
+            $saved_record = $SQLHelper->updateRecord('users', $data);
+        } else {
+            return "Error";
+        }
+
+        if (!$saved_record) {
+            return "Error";
+        } else {
+            return "Success";
+        }
+    }
 }

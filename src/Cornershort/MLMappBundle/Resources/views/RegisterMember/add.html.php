@@ -22,23 +22,6 @@
     </div>
 
     <div class="pane">
-
-      <?php if(isset($notification['success'])): ?>
-          <?php foreach($notification['success'] as $notif): ?>
-              <div class="note note-success">
-                <p> <?php echo $notif; ?> </p>
-              </div>
-          <?php endforeach; ?>
-      <?php endif; ?>
-
-      <?php if(isset($notification['error'])): ?>
-          <?php foreach($notification['error'] as $notif): ?>
-              <div class="note note-danger">
-                <p> <?php echo $notif; ?> </p>
-              </div>
-          <?php endforeach; ?>
-      <?php endif; ?>
-
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
