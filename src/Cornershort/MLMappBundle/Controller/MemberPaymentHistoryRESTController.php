@@ -231,30 +231,105 @@ class MemberPaymentHistoryRESTController extends VoryxController
         $em = $this->getDoctrine()->getManager();
         $data = json_decode($request->getContent(), true);
         $memberId = str_pad($data['member_id'], 3, '0', STR_PAD_LEFT);
+        $myId = '005';
 
-        //FIND isLevelLevelPaid
-        $isLevelPaid = $em->getRepository('CornershortMLMappBundle:MemberPaymentHistory')->findBy(
+        //FIND myInfo
+        $myInfo = $em->getRepository('CornershortMLMappBundle:User')->findBy(
             array(
-                'memberId' => $memberId,
-                'isLevelRequested' => 1,
-                'isLevelPaid' => 0
+                'memberId' => $myId
             )
         );
 
-        if (!is_null($isLevelPaid[0])) {
-            $data = [];
-            $data['id'] = $isLevelPaid[0]->getId();
-            $data['member_id'] = $memberId;
-            $data['is_level_paid'] = 1;
+        //FIND productInfo
+        $productInfo = $em->getRepository('CornershortMLMappBundle:ProductInfo')->findBy(
+            array(
+                'activationLevel' => $myInfo[0]->getActivationLevel() + 1
+            )
+        );
 
-            $saved_record = $SQLHelper->updateRecord('member_payment_history', $data);
+        //FIND levelInfo
+        $levelInfo = $em->getRepository('CornershortMLMappBundle:LevelInfo')->findBy(
+            array(
+                'activationLevel' => $myInfo[0]->getActivationLevel() + 1
+            )
+        );
+
+        if ($data[type] == 'level') {
+            //FIND isLevelLevelPaid
+            $isLevelPaid = $em->getRepository('CornershortMLMappBundle:MemberPaymentHistory')->findBy(
+                array(
+                    'memberId' => $memberId,
+                    'isLevelRequested' => 1,
+                    'isLevelPaid' => 0
+                )
+            );
+
+            if (!is_null($isLevelPaid[0])) {
+                $data = [];
+                $data['id'] = $isLevelPaid[0]->getId();
+                $data['member_id'] = $memberId;
+                $data['is_level_paid'] = 1;
+
+                $saved_record = $SQLHelper->updateRecord('member_payment_history', $data);
+            }
+        } else {
+            //FIND isLevelProductPaid
+            $isProductPaid = $em->getRepository('CornershortMLMappBundle:MemberPaymentHistory')->findBy(
+                array(
+                    'memberId' => $memberId,
+                    'isProductPaid' => 0
+                )
+            );
+
+            if (is_null($isProductPaid[0])) {
+                $saved_record = 0;
+                $data['leader_id'] = $myInfo[0]->getLeaderID();
+                $data['member_id'] = $memberId;
+                $data['membership_option'] = 'cash';
+                $data['activation_level'] = $myInfo[0]->getActivationLevel() + 1;
+                $data['product_amount'] = $productInfo[0]->getProductAmount();
+                $data['level_amount'] = $levelInfo[0]->getLevelAmount();
+                $data['date_requested'] = date('Y-m-d H:i:s');
+                $data['is_level_requested'] = 1;
+                // $data['date_level_upgraded'] = '';
+                // $data['is_level_paid'] = '';
+                $data['date_product_upgraded'] = date('Y-m-d H:i:s');
+                $data['is_product_paid'] = '1';
+                // $data['date_completed'] = '';
+
+                $saved_record = $SQLHelper->insertRecord('member_payment_history', $data);
+            } else {
+                $data = [];
+                $data['id'] = $isProductPaid[0]->getId();
+                $data['member_id'] = $memberId;
+                $data['is_product_paid'] = 1;
+
+                $saved_record = $SQLHelper->updateRecord('member_payment_history', $data);
+            }
         }
+
 
         if (!$saved_record) {
             return "Error";
         } else {
             return "Success";
         }
+    }
+
+    public function postSearchMemberAction(Request $request) {
+        $SQLHelper = $this->get('cornershort_sql_helper.api');
+        $em = $this->getDoctrine()->getManager();
+        $data = json_decode($request->getContent(), true);
+        $memberId = str_pad($data['member_id'], 3, '0', STR_PAD_LEFT);
+
+        //FIND memberInfo
+        $memberInfo = $em->getRepository('CornershortMLMappBundle:User')->findBy(
+            array(
+                'memberId' => $memberId
+            )
+        );
+
+        return $memberInfo;
     }
 }
 

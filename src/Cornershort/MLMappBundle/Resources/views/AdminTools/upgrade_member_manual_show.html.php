@@ -7,6 +7,14 @@
             <div class="portlet-body">
                 <div class="row">
                     <div class="col-md-12">
+                        <div id="message_success" class="alert alert-success" style="display:none;">
+                            <span id="message_success"></span>
+                        </div>
+
+                        <div id="message_danger" class="alert alert-danger" style="display:none;">
+                            <span id="message_danger"></span>
+                        </div>
+
                         <!-- BEGIN Portlet PORTLET-->
                         <div class="portlet box green">
                             <div class="portlet-title">
@@ -30,37 +38,41 @@
                                 </div>
                                 <div class="row" style="display:flex; justify-content:center;">
                                     <div class="form-actions noborder col-lg-4 col-md-4 col-sm-4 col-xs-4" style="display:flex; justify-content:center;">
-                                        <button type="button" id="visor-form-submit" class="btn btn-lg btn-success">Search</button>
+                                        <button type="button" id="visor-form-submit" class="btn btn-lg btn-success" ng-Click="searchMember();">Search</button>
                                     </div>
                                 </div>
 
-                                <div class="scroller" style="height:500px; display: flex; justify-content: center; align-items: center;">
-                                    <table>
-                                        <tr>
-                                            <th style="font-size:2vw;">Leader's ID:&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;">PH000002</th>
-                                        </tr>
-                                        <tr>
-                                            <th style="font-size:2vw;">Name:&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;">Juan Manalo</th>
-                                        </tr>
-                                        <tr>
-                                            <th style="font-size:2vw;">Contact Number:&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;">0925 123 4567</th>
-                                        </tr>
-                                        <tr>
-                                            <th style="font-size:2vw;">Level:&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;">1</th>
-                                        </tr>
-                                        <tr>
-                                            <th style="font-size:2vw;">Address:&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal;">Clark, Pampanga</th>
-                                        </tr>
-                                    </table>
+                                <div class="scroller" ng-if="memberInfo">
+                                    <div class="scroller" style="height:500px; display: flex; justify-content: center; align-items: center;">
+                                        <table>
+                                            <tr>
+                                                <th style="font-size:2vw;">Leader's ID:&nbsp</th>
+                                                <th style="font-size:2vw; font-weight: normal;">{{ memberInfo.leader_id }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th style="font-size:2vw;">Name:&nbsp</th>
+                                                <th style="font-size:2vw; font-weight: normal;">{{ memberInfo.first_name }}&nbsp{{ memberInfo.last_name }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th style="font-size:2vw;">Contact Number:&nbsp</th>
+                                                <th style="font-size:2vw; font-weight: normal;">{{ memberInfo.mobile_number }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th style="font-size:2vw;">Level:&nbsp</th>
+                                                <th style="font-size:2vw; font-weight: normal;">{{ memberInfo.activation_level }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th style="font-size:2vw;">Address:&nbsp</th>
+                                                <th style="font-size:2vw; font-weight: normal;">{{ memberInfo.home_addr_city }}&nbsp{{ memberInfo.home_addr_province }}</th>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <div class="form-actions noborder" style="display:flex; justify-content:flex-end;">
+                                        <button href="#basic" data-toggle="modal" type="button" id="visor-form-submit" class="btn btn-lg btn-success">Upgrade to Level 2</button>
+                                    </div>
                                 </div>
-                                <div class="form-actions noborder" style="display:flex; justify-content:flex-end;">
-                                    <button href="#basic" data-toggle="modal" type="button" id="visor-form-submit" class="btn btn-lg btn-success">Upgrade to Level 2</button>
-                                </div>
+
                             </div>
                         </div>
                         <!-- END Portlet PORTLET-->
@@ -80,7 +92,7 @@
                     <h3 class="modal-title">Are you sure you want to Upgrade? <span class="device-name" style="font-weight:bold;"></h3>
                 </div>
                 <div class="modal-footer">
-                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide');"> <i class="fa fa-check" style="font-size:25px;"></i></button>
+                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide');" ng-Click="updateProductMember();"> <i class="fa fa-check" style="font-size:25px;"></i></button>
                     <a class="btn" style="background:#dddddd;" onClick="$('#basic').modal('hide');"> <i class="fa fa-times" style="font-size:25px;"></i></a>
                 </div>
             </div>

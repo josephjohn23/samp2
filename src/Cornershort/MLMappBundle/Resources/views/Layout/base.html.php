@@ -2,7 +2,7 @@
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html lang="en" ng-app="myAppModule">
     <!--<![endif]-->
 
     <!-- BEGIN HEAD -->
@@ -53,7 +53,7 @@
         <link rel="shortcut icon" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/images/favicon.ico') ?>" /> </head>
     <!-- END HEAD -->
 
-    <body class="<?php $view['slots']->output('body_class', 'page-md page-quick-sidebar-over-content') ?>">
+    <body ng-controller="myAppController" class="<?php $view['slots']->output('body_class', 'page-md page-quick-sidebar-over-content') ?>">
 
         <?php $view['slots']->output('body') ?>
 
@@ -70,6 +70,8 @@
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/jquery.blockui.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/angularjs/angular.min.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js') ?>" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
 
         <!-- BEGIN PAGE LEVEL PLUGINS -->
@@ -81,6 +83,7 @@
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/scripts/app.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/layout.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/main.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/controller/main.js') ?>" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
 
         <!-- BEGIN PAGE LEVEL SCRIPTS -->

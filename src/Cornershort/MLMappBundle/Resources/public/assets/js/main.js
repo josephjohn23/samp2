@@ -73,7 +73,8 @@ function requestUpgrade() {
 function upgradeMember(myId, memberId) {
     var data = {
         leader_id: myId,
-        member_id: memberId
+        member_id: memberId,
+        type: 'level'
     }
 
     $.ajax({
