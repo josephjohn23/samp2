@@ -8,7 +8,6 @@
 
 <?php $view['slots']->start('data-table-thead'); ?>
 <tr>
-    <th>ID</th>
     <th>Leader's ID</th>
     <th>Member's ID</th>
     <th>First Name</th>
@@ -19,12 +18,9 @@
 </tr>
 <?php $view['slots']->stop(); ?>
 
-<?php
-$view['slots']->start('data-table-tbody');
-?>
+<?php $view['slots']->start('data-table-tbody'); ?>
     <?php foreach ($memberInfos as $memberInfo) {?>
     <tr>
-        <td><?php echo $memberInfo->getId(); ?></td>
         <td><?php echo $memberInfo->getLeaderId(); ?></th>
         <td><?php echo $memberInfo->getMemberId(); ?></th>
         <td><?php echo $memberInfo->getFirstName(); ?></th>
@@ -34,6 +30,4 @@ $view['slots']->start('data-table-tbody');
         <td><?php echo $memberInfo->getStatus(); ?></th>
     </tr>
     <?php } ?>
-<?php
-$view['slots']->stop()
-?>
+<?php $view['slots']->stop() ?>

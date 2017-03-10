@@ -43,7 +43,7 @@
                             </div>
                             <div class="portlet-body">
                                 <div class="scroller" style="height:500px; display: flex; justify-content: center; align-items: center;">
-                                    <a style="font-size: 2vw; color:#d9534f;" class="btn btn-lg btn-link">Request an upgrade to your leader to add new members.</a></th>
+                                    <a style="font-size: 2vw; color:#d9534f;" class="btn btn-lg btn-link" href="<?php echo $view['router']->path('cornershort_mlmapp_request_for_upgrade_page_manual', array()) ?>" >Request an upgrade to your leader to add new members.</a></th>
                                 </div>
                             </div>
                         </div>
@@ -136,8 +136,8 @@
 
             <div class="btn-group">
                 <div class="button-container">
-                    <button type="button" id="add-member-form-submit" onClick="addNewMember()" class="btn btn-lg btn-success">Submit</button>
-                    <button type="button" id="add-member-form-cancel" onclick="window.history.back();" class="btn btn-lg red">Cancel</button>
+                    <button type="button" id="add-member-form-submit" ng-Click="addNewMember()" class="btn btn-lg btn-success">Submit</button>
+                    <button type="button" id="add-member-form-cancel" onClick="window.history.back();" class="btn btn-lg red">Cancel</button>
                 </div>
             </div>
 
