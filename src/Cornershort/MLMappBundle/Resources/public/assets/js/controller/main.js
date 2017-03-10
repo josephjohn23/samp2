@@ -1,8 +1,31 @@
 var myAppModule = angular
 	.module("myAppModule", [])
 	.controller("myAppController", function($scope, $http, $rootScope) {
+		$scope.homeTab = function () {
+			console.log('Home Tab');
+			var data = {
+				member_id: '001',
+				leader_id: '001'
+			}
+
+			$http(
+					{
+						method: 'POST',
+						url: '/api/users/homes',
+						data: data,
+						headers: {
+							"Content-Type": "application/json; charset=utf-8",
+							"Accept": "application/json"
+						}
+					})
+					.then(
+							function (results) {
+								$rootScope.homeTabResults = results.data;
+								$rootScope.homeTabResultsMemberInfos = results.data.member_infos[0] == null ? 0 : 1;
+							});
+		};
+
         $scope.searchMember = function () {
-            console.log("Search member");
             var data = {
                 member_id: document.getElementById("member_id").value
             }
@@ -62,4 +85,7 @@ var myAppModule = angular
                 // window.location = window.location;
             }, 5000);
         };
+
+		//Load Functions
+		$scope.homeTab();
 });

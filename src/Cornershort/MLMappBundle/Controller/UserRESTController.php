@@ -25,51 +25,63 @@ use Voryx\RESTGeneratorBundle\Controller\VoryxController;
  */
 class UserRESTController extends VoryxController
 {
-    /**
-     * Get a User entity
-     *
-     * @View(serializerEnableMaxDepthChecks=true)
-     *
-     * @return Response
-     *
-     */
-    public function getAction(User $entity)
+    public function postHomeAction(Request $request)
     {
-        return $entity;
-    }
-    /**
-     * Get all User entities.
-     *
-     * @View(serializerEnableMaxDepthChecks=true)
-     *
-     * @param ParamFetcherInterface $paramFetcher
-     *
-     * @return Response
-     *
-     * @QueryParam(name="offset", requirements="\d+", nullable=true, description="Offset from which to start listing notes.")
-     * @QueryParam(name="limit", requirements="\d+", default="20", description="How many notes to return.")
-     * @QueryParam(name="order_by", nullable=true, array=true, description="Order by fields. Must be an array ie. &order_by[name]=ASC&order_by[description]=DESC")
-     * @QueryParam(name="filters", nullable=true, array=true, description="Filter by fields. Must be an array ie. &filters[id]=3")
-     */
-    public function cgetAction(ParamFetcherInterface $paramFetcher)
-    {
-        try {
-            $offset = $paramFetcher->get('offset');
-            $limit = $paramFetcher->get('limit');
-            $order_by = $paramFetcher->get('order_by');
-            $filters = !is_null($paramFetcher->get('filters')) ? $paramFetcher->get('filters') : array();
+        $SQLHelper = $this->get('cornershort_sql_helper.api');
+        $data = json_decode($request->getContent(), true);
 
-            $em = $this->getDoctrine()->getManager();
-            $entities = $em->getRepository('CornershortMLMappBundle:User')->findBy($filters, $order_by, $limit, $offset);
-            if ($entities) {
-                return $entities;
+        $my_id = '001';
+        //FIND MY INFO
+        $params = array('my_id' => $my_id,);
+        $sql = "SELECT * FROM users WHERE member_id=:my_id ";
+        $my_info = $SQLHelper->fetchRow($sql, $params);
+
+        //FIND MEMBER'S PAYMENT HISTORY
+        $params = array('my_id' => $my_id,);
+        $sql = "SELECT * FROM member_payment_history WHERE leader_id='".$my_id."' AND is_level_paid='0' AND is_level_requested='1' ";
+        $member_infos = $SQLHelper->fetchRows($sql, $params);
+
+        //FIND NEXT LEADER ID
+        $sql = "SELECT next_leader_id, activation_level FROM users WHERE member_id=:my_id";
+        $next_leader_info = $SQLHelper->fetchRow($sql, $params);
+
+        //FIND NEXT LEADER INFO
+        $params = array('next_leader_id' => $next_leader_info['next_leader_id'],);
+        $sql = "SELECT * FROM users WHERE member_id=:next_leader_id";
+        $next_leader_info = $SQLHelper->fetchRow($sql, $params);
+
+            if (!isset($next_leader_info['member_id'])) {
+                $next_leader_info['member_id'] = '001';
+                $next_leader_info['first_name'] = 'Juan';
+                $next_leader_info['last_name'] = 'Dela Cruz';
+                $next_leader_info['mobile_number'] = '09251234567';
+                $next_leader_info['home_addr_city'] = 'San Fernando';
+                $next_leader_info['home_addr_province'] = 'Pampanga';
             }
 
-            return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
-        } catch (\Exception $e) {
-            return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
-        }
+        //FIND TOTAL CASH EARNINGS
+        $params = array('my_id' => $my_id,);
+        $sql = "SELECT SUM(level_amount) FROM member_payment_history WHERE leader_id='".$my_id."' AND is_level_paid='1' AND membership_option='cash' ";
+        $total_cash_earnings = $SQLHelper->fetchRow($sql, $params);
+        $total_cash_earnings = (is_null($total_cash_earnings['SUM(level_amount)']) ? 0 : $total_cash_earnings['SUM(level_amount)']);
+
+        //FIND TOTAL CARD EARNINGS
+        $params = array('my_id' => $my_id,);
+        $sql = "SELECT SUM(level_amount) FROM member_payment_history WHERE leader_id='".$my_id."' AND is_level_paid='1' AND membership_option='card' ";
+        $total_card_earnings = $SQLHelper->fetchRow($sql, $params);
+        $total_card_earnings = (is_null($total_card_earnings['SUM(level_amount)']) ? 0 : $total_card_earnings['SUM(level_amount)']);
+
+        $result = [];
+        $result['member_infos'] = $member_infos;
+        // $result['member_infos'] = array('asd'=>'asd', 'dd'=>'dd');
+        $result['next_leader_info'] = $next_leader_info;
+        $result['total_cash_earnings'] = $total_cash_earnings;
+        $result['total_card_earnings'] = $total_card_earnings;
+        $result['my_info_level'] = $my_info['activation_level'];
+
+        return $result;
     }
+
     /**
      * Create a User entity.
      *
@@ -102,71 +114,6 @@ class UserRESTController extends VoryxController
             return "Error";
         } else {
             return "Success";
-        }
-    }
-    /**
-     * Update a User entity.
-     *
-     * @View(serializerEnableMaxDepthChecks=true)
-     *
-     * @param Request $request
-     * @param $entity
-     *
-     * @return Response
-     */
-    public function putAction(Request $request, User $entity)
-    {
-        try {
-            $em = $this->getDoctrine()->getManager();
-            $request->setMethod('PATCH'); //Treat all PUTs as PATCH
-            $form = $this->createForm(get_class(new UserType()), $entity, array("method" => $request->getMethod()));
-            $this->removeExtraFields($request, $form);
-            $form->handleRequest($request);
-            if ($form->isValid()) {
-                $em->flush();
-
-                return $entity;
-            }
-
-            return FOSView::create(array('errors' => $form->getErrors()), Codes::HTTP_INTERNAL_SERVER_ERROR);
-        } catch (\Exception $e) {
-            return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
-        }
-    }
-    /**
-     * Partial Update to a User entity.
-     *
-     * @View(serializerEnableMaxDepthChecks=true)
-     *
-     * @param Request $request
-     * @param $entity
-     *
-     * @return Response
-     */
-    public function patchAction(Request $request, User $entity)
-    {
-        return $this->putAction($request, $entity);
-    }
-    /**
-     * Delete a User entity.
-     *
-     * @View(statusCode=204)
-     *
-     * @param Request $request
-     * @param $entity
-     *
-     * @return Response
-     */
-    public function deleteAction(Request $request, User $entity)
-    {
-        try {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($entity);
-            $em->flush();
-
-            return null;
-        } catch (\Exception $e) {
-            return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
