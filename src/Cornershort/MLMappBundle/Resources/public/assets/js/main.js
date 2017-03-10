@@ -2,12 +2,7 @@
 console.log('Main JS');
 function addNewMember() {
     var data = {
-        id: $('#user_id').val(),
-        leaders_id: $('#leaders_id').val(),
-        member_id: $('#member_id').val(),
-        acct_id: $('#acct_id').val(),
-        next_leader_id: $('#leaders_id').val(),
-        password: $('#password').val(),
+        password: 'abc123',
         last_name: $('#last_name').val(),
         first_name: $('#first_name').val(),
         middle_name: $('#middle_name').val(),
@@ -24,7 +19,7 @@ function addNewMember() {
         username: $('#email').val(),
         username_canonical: $('#email').val(),
         email_canonical: $('#email').val(),
-        roles: "a:1:{i:0;s:16:'ROLE_SUPER_ADMIN';}",
+        roles: 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}',
         access_level: 95,
         user_id: $('#leaders_id').val(),
         bank_acct_no: $('#bank_acct_no').val(),

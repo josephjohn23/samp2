@@ -3,21 +3,43 @@
 namespace Cornershort\MLMappBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Cornershort\MLMappBundle\Entity\User;
 
 class RegisterMemberWebController extends Controller
 {
     public function showAction(){
-        $SQLHelper = $this->get('cornershort_sql_helper.api');
+        $em = $this->getDoctrine()->getManager();
+        $memberId = '001';
 
-        $my_id = '004';
-        $params = array('my_id' => $my_id);
-        $sql = "SELECT * FROM users WHERE leader_id=:my_id";
-        $member_infos = $SQLHelper->fetchRows($sql, $params);
+        //FIND memberInfo
+        $memberInfos = $em->getRepository('CornershortMLMappBundle:User')->findBy(
+            array(
+                'leaderId' => $memberId
+            )
+        );
 
-        return $this->render('CornershortMLMappBundle:RegisterMember:show.html.php', array('member_infos' => $member_infos));
+        return $this->render('CornershortMLMappBundle:RegisterMember:show.html.php',
+            array(
+                'memberInfos' => $memberInfos
+            )
+        );
     }
 
     public function addAction(){
-        return $this->render('CornershortMLMappBundle:RegisterMember:add.html.php');
+        $em = $this->getDoctrine()->getManager();
+        $memberId = '001';
+
+        //FIND myInfo
+        $myInfo = $em->getRepository('CornershortMLMappBundle:User')->findBy(
+            array(
+                'leaderId' => $memberId
+            )
+        );
+
+        return $this->render('CornershortMLMappBundle:RegisterMember:add.html.php',
+            array(
+                'myInfo_activationLevel' => $myInfo[0]->getActivationLevel()
+            )
+        );
     }
 }

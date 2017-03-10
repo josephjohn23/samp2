@@ -14,7 +14,6 @@
     <th>First Name</th>
     <th>Last Name</th>
     <th>Mobile Number</th>
-    <th>Acct Exp Date</th>
     <th>Level</th>
     <th>Status</th>
 </tr>
@@ -23,17 +22,16 @@
 <?php
 $view['slots']->start('data-table-tbody');
 ?>
-    <?php foreach ($member_infos as $member_info) {?>
+    <?php foreach ($memberInfos as $memberInfo) {?>
     <tr>
-        <td><?php echo $member_info['id']; ?></td>
-        <td><?php echo $member_info['leader_id']; ?></th>
-        <td><?php echo $member_info['member_id']; ?></th>
-        <td><?php echo $member_info['first_name']; ?></th>
-        <td><?php echo $member_info['last_name']; ?></th>
-        <td><?php echo $member_info['mobile_number']; ?></th>
-        <td><?php echo $member_info['acct_exp_date']; ?></th>
-        <td><?php echo $member_info['activation_level']; ?></th>
-        <td><?php echo $member_info['status']; ?></th>
+        <td><?php echo $memberInfo->getId(); ?></td>
+        <td><?php echo $memberInfo->getLeaderId(); ?></th>
+        <td><?php echo $memberInfo->getMemberId(); ?></th>
+        <td><?php echo $memberInfo->getFirstName(); ?></th>
+        <td><?php echo $memberInfo->getLastName(); ?></th>
+        <td><?php echo $memberInfo->getMobileNumber(); ?></th>
+        <td><?php echo $memberInfo->getActivationLevel(); ?></th>
+        <td><?php echo $memberInfo->getStatus(); ?></th>
     </tr>
     <?php } ?>
 <?php
