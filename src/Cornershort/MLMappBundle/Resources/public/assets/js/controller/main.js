@@ -123,6 +123,59 @@ var myAppModule = angular
                             });
 		};
 
+		//REQUEST FOR UPGRADE MENU - MANUAL REQUEST
+		$scope.requestUpgradeTab_searchNextLeader = function () {
+			var data = {
+				member_id: '00000001',
+				leader_id: '00000001'
+		    }
+
+			$http(
+                    {
+                        method: 'POST',
+                        url: '/api/memberpaymenthistories/searches/nexts/leaders',
+                        data: data,
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8",
+                            "Accept": "application/json"
+                        }
+                    })
+                    .then(
+                            function (results) {
+								$rootScope.requestUpgradeTabResults = results.data;
+                            });
+		}
+
+		//REQUEST FOR UPGRADE MENU - MANUAL REQUEST
+		$scope.requestUpgradeTab_manual = function () {
+		    var data = {
+				member_id: '00000001',
+				leader_id: '00000001'
+		    }
+
+			$http(
+                    {
+                        method: 'POST',
+                        url: '/api/memberpaymenthistories/requests/fors/upgrades',
+                        data: data,
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8",
+                            "Accept": "application/json"
+                        }
+                    })
+                    .then(
+                            function (results) {
+								console.log('requestUpgradeTab_manual ', results);
+								$("html, body").animate({scrollTop: 1}, 1000);
+						        if (results.data == "Success"){
+									$scope.requestUpgradeTab_searchNextLeader();
+						            messageAlert('Successfully requested for an upgrade!', 'success');
+						        } else {
+						            messageAlert('You already request for an upgrade!', 'danger');
+								}
+                            });
+		};
+
 		//ADMIN TOOLS MENU - UPGRADE MEMBER MANUAL SHOW
         $scope.adminToolsTab_searchMember = function () {
             var data = {
@@ -188,4 +241,5 @@ var myAppModule = angular
 		//LOAD FUNCTIONS
 		$scope.homeTab_searchMemberInfo();
 		$scope.registerMemberTab_searchMyInfo();
+		$scope.requestUpgradeTab_searchNextLeader();
 });

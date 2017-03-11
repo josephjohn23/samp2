@@ -44,27 +44,72 @@ class MemberPaymentHistoryRESTController extends VoryxController
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $em = $this->getDoctrine()->getManager();
         $data = json_decode($request->getContent(), true);
-        $my_id = '005';
-        $memberId = '005';
-        $id = 1;
 
-        //FIND MY INFO
-        // $this->myInfo($my_id);
+        $memberId = '1';
+        $memberId = str_pad($memberId, 8, '0', STR_PAD_LEFT); //need $leaderId = session['leaderId'];
+
+        //FIND myInfo
         $myInfo = $em->getRepository('CornershortMLMappBundle:ProductInfo')->find($id);
 
-        //FIND MEMBER'S PAYMENT HISTORY
+        //FIND member_payment_history
         $memberPaymentHistory = $em->getRepository('CornershortMLMappBundle:MemberPaymentHistory')->findBy(
             array(
-                'memberId' => $my_id,
+                'memberId' => $memberId,
                 'isLevelPaid' => 0
             )
         );
     }
 
+    public function postSearchNextLeaderAction(Request $request) {
+        $SQLHelper = $this->get('cornershort_sql_helper.api');
+        $em = $this->getDoctrine()->getManager();
+        $memberId = '1';
+        $memberId = str_pad($memberId, 8, '0', STR_PAD_LEFT); //need $leaderId = session['leaderId'];
+
+        //FIND isLevelLevelPaid
+        $isLevelPaid = $em->getRepository('CornershortMLMappBundle:MemberPaymentHistory')->findBy(
+            array(
+                'memberId' => $memberId,
+                'isLevelRequested' => 1,
+                'isLevelPaid' => 0
+            )
+        );
+
+        //FIND myInfo
+        $params = array('my_id' => $memberId,);
+        $sql = "SELECT * FROM users WHERE member_id=:my_id ";
+        $my_info = $SQLHelper->fetchRow($sql, $params);
+
+        //FIND next_leader_id
+        $sql = "SELECT next_leader_id, activation_level FROM users WHERE member_id=:my_id";
+        $next_leader_info = $SQLHelper->fetchRow($sql, $params);
+
+        //FIND next_leader_info
+        $params = array('next_leader_id' => $next_leader_info['next_leader_id'],);
+        $sql = "SELECT * FROM users WHERE member_id=:next_leader_id";
+        $next_leader_info = $SQLHelper->fetchRow($sql, $params);
+
+            if (!isset($next_leader_info['member_id'])) {
+                $next_leader_info['member_id'] = '001';
+                $next_leader_info['first_name'] = 'Juan';
+                $next_leader_info['last_name'] = 'Dela Cruz';
+                $next_leader_info['mobile_number'] = '09251234567';
+                $next_leader_info['home_addr_city'] = 'San Fernando';
+                $next_leader_info['home_addr_province'] = 'Pampanga';
+            }
+
+            $result['next_leader_info'] = $next_leader_info;
+            $result['my_info'] = $my_info;
+            $result['isLevelPaid'] = $isLevelPaid;
+
+            return $result;
+    }
+
     public function postRequestForUpgradeAction(Request $request) {
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $em = $this->getDoctrine()->getManager();
-        $memberId = '005';
+        $memberId = '1';
+        $memberId = str_pad($memberId, 8, '0', STR_PAD_LEFT);
 
         //FIND myInfo
         $myInfo = $em->getRepository('CornershortMLMappBundle:User')->findBy(
@@ -126,13 +171,12 @@ class MemberPaymentHistoryRESTController extends VoryxController
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $em = $this->getDoctrine()->getManager();
         $data = json_decode($request->getContent(), true);
-        $memberId = str_pad($data['member_id'], 3, '0', STR_PAD_LEFT);
-        $myId = '005';
+        $memberId = str_pad($data['member_id'], 8, '0', STR_PAD_LEFT);
 
         //FIND myInfo
         $myInfo = $em->getRepository('CornershortMLMappBundle:User')->findBy(
             array(
-                'memberId' => $myId
+                'memberId' => $memberId
             )
         );
 
@@ -216,7 +260,7 @@ class MemberPaymentHistoryRESTController extends VoryxController
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $em = $this->getDoctrine()->getManager();
         $data = json_decode($request->getContent(), true);
-        $memberId = str_pad($data['member_id'], 3, '0', STR_PAD_LEFT);
+        $memberId = str_pad($data['member_id'], 8, '0', STR_PAD_LEFT);
 
         //FIND memberInfo
         $memberInfo = $em->getRepository('CornershortMLMappBundle:User')->findBy(

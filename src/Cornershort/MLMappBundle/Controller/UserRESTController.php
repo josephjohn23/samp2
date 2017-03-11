@@ -30,7 +30,7 @@ class UserRESTController extends VoryxController
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $data = json_decode($request->getContent(), true);
 
-        $my_id = '00000001';
+        $my_id = '00000001'; //need $leaderId = session['leaderId'];
         //FIND myInfo
         $params = array('my_id' => $my_id,);
         $sql = "SELECT * FROM users WHERE member_id=:my_id ";
@@ -72,7 +72,7 @@ class UserRESTController extends VoryxController
         $total_card_earnings = (is_null($total_card_earnings['SUM(level_amount)']) ? 0 : $total_card_earnings['SUM(level_amount)']);
 
         $result = [];
-        $result['member_infos'] = $member_infos;        
+        $result['member_infos'] = $member_infos;
         $result['next_leader_info'] = $next_leader_info;
         $result['total_cash_earnings'] = $total_cash_earnings;
         $result['total_card_earnings'] = $total_card_earnings;

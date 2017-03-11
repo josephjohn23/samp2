@@ -1,25 +1,3 @@
-function requestUpgrade() {
-    var data = {
-        id: '001',
-        leaders_id: '002'
-    }
-
-    $.ajax({
-        method: "POST",
-        url: "/api/memberpaymenthistories/requests/fors/upgrades",
-        data: JSON.stringify(data),
-        contentType: "application/json"
-    })
-    .success(function (result) {
-        $("html, body").animate({scrollTop: 1}, 1000);
-        if (result == "Success"){
-            messageAlert('Successfully requested for an upgrade!', 'success');
-        } else {
-            messageAlert('You already request for an upgrade!', 'danger');
-        }
-    });
-}
-
 function upgradeMember(myId, memberId) {
     var data = {
         leader_id: myId,
