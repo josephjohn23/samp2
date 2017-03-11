@@ -145,7 +145,7 @@ var myAppModule = angular
                             });
         };
 
-        $scope.updateProductMember = function () {
+        $scope.adminToolsTab_updateProductMember = function () {
             var data = {
                 member_id: document.getElementById("member_id").value,
                 type: 'product'

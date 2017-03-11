@@ -92,7 +92,7 @@
                     <h3 class="modal-title">Are you sure you want to Upgrade? <span class="device-name" style="font-weight:bold;"></h3>
                 </div>
                 <div class="modal-footer">
-                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide');" ng-Click="updateProductMember();"> <i class="fa fa-check" style="font-size:25px;"></i></button>
+                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide');" ng-Click="adminToolsTab_updateProductMember();"> <i class="fa fa-check" style="font-size:25px;"></i></button>
                     <a class="btn" style="background:#dddddd;" onClick="$('#basic').modal('hide');"> <i class="fa fa-times" style="font-size:25px;"></i></a>
                 </div>
             </div>
