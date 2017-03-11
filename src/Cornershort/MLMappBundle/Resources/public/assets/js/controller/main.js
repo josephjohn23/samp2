@@ -1,6 +1,7 @@
 var myAppModule = angular
 	.module("myAppModule", [])
 	.controller("myAppController", function($scope, $http, $rootScope) {
+		//HOME MENU
 		$scope.homeTab_searchMemberInfo = function () {
 			var data = {
 				member_id: '00000001',
@@ -24,6 +25,7 @@ var myAppModule = angular
 							});
 		};
 
+		//REGISTER MEMBER MENU - ADD NEW MEMBER
 		$scope.registerMemberTab_searchLeaderId = function () {
 			var data = {
 				leader_id: $('#leader_id').val()
@@ -51,6 +53,7 @@ var myAppModule = angular
 							});
 		};
 
+		//REGISTER MEMBER MENU - ADD NEW MEMBER
 		$scope.registerMemberTab_searchMyInfo = function () {
 			var data = {
 				leader_id: '00000001'
@@ -72,6 +75,7 @@ var myAppModule = angular
 							});
 		};
 
+		//REGISTER MEMBER MENU - ADD NEW MEMBER
 		$scope.registerMemberTab_addNewMember = function () {
 		    var data = {
 				leader_id: $('#leader_id').val(),
@@ -119,6 +123,7 @@ var myAppModule = angular
                             });
 		};
 
+		//ADMIN TOOLS MENU - UPGRADE MEMBER MANUAL SHOW
         $scope.adminToolsTab_searchMember = function () {
             var data = {
                 member_id: document.getElementById("member_id").value
@@ -145,6 +150,7 @@ var myAppModule = angular
                             });
         };
 
+		//ADMIN TOOLS MENU - UPGRADE MEMBER MANUAL SHOW
         $scope.adminToolsTab_updateProductMember = function () {
             var data = {
                 member_id: document.getElementById("member_id").value,
@@ -168,6 +174,7 @@ var myAppModule = angular
                             });
         };
 
+		//POP UP MESSAGE
         $scope.messageAlert = function (data, type) {
             $("#message_" + type).show();
             $("#message_" + type).html(data);
@@ -178,7 +185,7 @@ var myAppModule = angular
             }, 5000);
         };
 
-		//Load Functions
+		//LOAD FUNCTIONS
 		$scope.homeTab_searchMemberInfo();
 		$scope.registerMemberTab_searchMyInfo();
 });

@@ -31,21 +31,21 @@ class UserRESTController extends VoryxController
         $data = json_decode($request->getContent(), true);
 
         $my_id = '00000001';
-        //FIND MY INFO
+        //FIND myInfo
         $params = array('my_id' => $my_id,);
         $sql = "SELECT * FROM users WHERE member_id=:my_id ";
         $my_info = $SQLHelper->fetchRow($sql, $params);
 
-        //FIND MEMBER'S PAYMENT HISTORY
+        //FIND member_payment_history
         $params = array('my_id' => $my_id,);
         $sql = "SELECT * FROM member_payment_history WHERE leader_id='".$my_id."' AND is_level_paid='0' AND is_level_requested='1' ";
         $member_infos = $SQLHelper->fetchRows($sql, $params);
 
-        //FIND NEXT LEADER ID
+        //FIND next_leader_id
         $sql = "SELECT next_leader_id, activation_level FROM users WHERE member_id=:my_id";
         $next_leader_info = $SQLHelper->fetchRow($sql, $params);
 
-        //FIND NEXT LEADER INFO
+        //FIND next_leader_info
         $params = array('next_leader_id' => $next_leader_info['next_leader_id'],);
         $sql = "SELECT * FROM users WHERE member_id=:next_leader_id";
         $next_leader_info = $SQLHelper->fetchRow($sql, $params);
@@ -59,21 +59,20 @@ class UserRESTController extends VoryxController
                 $next_leader_info['home_addr_province'] = 'Pampanga';
             }
 
-        //FIND TOTAL CASH EARNINGS
+        //FIND total_cash_earnings
         $params = array('my_id' => $my_id,);
         $sql = "SELECT SUM(level_amount) FROM member_payment_history WHERE leader_id='".$my_id."' AND is_level_paid='1' AND membership_option='cash' ";
         $total_cash_earnings = $SQLHelper->fetchRow($sql, $params);
         $total_cash_earnings = (is_null($total_cash_earnings['SUM(level_amount)']) ? 0 : $total_cash_earnings['SUM(level_amount)']);
 
-        //FIND TOTAL CARD EARNINGS
+        //FIND total_card_earnings
         $params = array('my_id' => $my_id,);
         $sql = "SELECT SUM(level_amount) FROM member_payment_history WHERE leader_id='".$my_id."' AND is_level_paid='1' AND membership_option='card' ";
         $total_card_earnings = $SQLHelper->fetchRow($sql, $params);
         $total_card_earnings = (is_null($total_card_earnings['SUM(level_amount)']) ? 0 : $total_card_earnings['SUM(level_amount)']);
 
         $result = [];
-        $result['member_infos'] = $member_infos;
-        // $result['member_infos'] = array('asd'=>'asd', 'dd'=>'dd');
+        $result['member_infos'] = $member_infos;        
         $result['next_leader_info'] = $next_leader_info;
         $result['total_cash_earnings'] = $total_cash_earnings;
         $result['total_card_earnings'] = $total_card_earnings;
