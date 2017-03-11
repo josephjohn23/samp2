@@ -88,7 +88,7 @@
                                     <table>
                                         <tr>
                                             <th style="font-size:2vw; color:#157a98;">₱&nbsp</th>
-                                            <th style="font-size:2vw; font-weight: normal; color:#157a98;">{{ homeTabResults.total_card_earnings }}</th>
+                                            <th style="font-size:2vw; font-weight: normal; color:#157a98;">{{ homeTabResults.total_cash_earnings }}</th>
                                         </tr>
                                     </table>
                                 </div>

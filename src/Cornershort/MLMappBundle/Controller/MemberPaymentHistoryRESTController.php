@@ -269,7 +269,24 @@ class MemberPaymentHistoryRESTController extends VoryxController
             )
         );
 
-        return $memberInfo;
+        //FIND memberInfos
+        $params = array();
+        $sql = "SELECT u.id as u_id, u.leader_id, u.member_id, u.first_name, u.last_name, u.mobile_number, u.acct_exp_date, u.activation_level, u.status, mph.id as mph_id FROM users as u
+                	JOIN member_payment_history as mph
+                    ON mph.member_id=u.member_id
+                	WHERE u.member_id
+                	  IN(SELECT mph.member_id
+                	      FROM member_payment_history
+                	      WHERE mph.leader_id = '" . $memberId . "'
+                	      AND mph.is_level_paid = 0
+                	      AND mph.is_level_requested = 1
+                    )";
+        $memberInfos = $SQLHelper->fetchRows($sql, $params);
+
+        $result['memberInfo'] = $memberInfo;
+        $result['memberInfos'] = $memberInfos;
+
+        return $result;
     }
 }
 

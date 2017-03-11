@@ -1,26 +1,3 @@
-function upgradeMember(myId, memberId) {
-    var data = {
-        leader_id: myId,
-        member_id: memberId,
-        type: 'level'
-    }
-
-    $.ajax({
-        method: "POST",
-        url: "/api/memberpaymenthistories/upgrades/members",
-        data: JSON.stringify(data),
-        contentType: "application/json"
-    })
-    .success(function (result) {
-        $("html, body").animate({scrollTop: 1}, 1000);
-        if (result == "Success"){
-            messageAlert('Your member was successfullt upgraded!', 'success');
-        } else {
-            messageAlert('Unable to upgrade your member!', 'danger');
-        }
-    });
-}
-
 function editMyAccount() {
     var data = {
         id: $('#user_id').val(),

@@ -176,6 +176,68 @@ var myAppModule = angular
                             });
 		};
 
+		//UPGRADE MEMBER MENU - MANUAL UPGRADE (LEVEL)
+		$scope.upgradeMemberTab_searchMemberInfo = function () {
+			var data = {
+				member_id: '00000001',
+				leader_id: '00000001'
+            }
+
+            $http(
+                    {
+                        method: 'POST',
+                        url: '/api/memberpaymenthistories/searches/members',
+                        data: data,
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8",
+                            "Accept": "application/json"
+                        }
+                    })
+                    .then(
+                            function (results) {
+                                $rootScope.upgradeMemberTabResultsMemberInfos = results.data.memberInfos;
+                            });
+		}
+
+		//UPGRADE MEMBER MENU - MANUAL UPGRADE (LEVEL)
+		$scope.upgradeMemberTab_setBtnId = function (id, memberId) {
+			localStorage.setItem('mphId', id);
+			localStorage.setItem('memberId', memberId);
+		}
+
+		//UPGRADE MEMBER MENU - MANUAL UPGRADE (LEVEL)
+		$scope.upgradeMemberTab_manual = function () {
+			var mph_id = localStorage.getItem('mphId');
+			var member_id = localStorage.getItem('memberId');
+
+		    var data = {
+				member_id: member_id,
+				mph_id: mph_id,
+		        type: 'level'
+		    }
+
+			$http(
+                    {
+                        method: 'POST',
+                        url: '/api/memberpaymenthistories/upgrades/members',
+                        data: data,
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8",
+                            "Accept": "application/json"
+                        }
+                    })
+                    .then(
+                            function (results) {
+								$("html, body").animate({scrollTop: 1}, 1000);
+						        if (results.data == "Success"){
+									$scope.upgradeMemberTab_searchMemberInfo();
+						            messageAlert('Your member was successfullt upgraded!', 'success');
+						        } else {
+						            messageAlert('Unable to upgrade your member!', 'danger');
+						        }
+                            });
+		}
+
 		//ADMIN TOOLS MENU - UPGRADE MEMBER MANUAL SHOW
         $scope.adminToolsTab_searchMember = function () {
             var data = {
@@ -242,4 +304,5 @@ var myAppModule = angular
 		$scope.homeTab_searchMemberInfo();
 		$scope.registerMemberTab_searchMyInfo();
 		$scope.requestUpgradeTab_searchNextLeader();
+		$scope.upgradeMemberTab_searchMemberInfo();
 });

@@ -31,21 +31,19 @@
 <?php
 $view['slots']->start('data-table-tbody');
 ?>
-    <?php foreach ($member_infos as $member_info) { ?>
-    <tr>
-        <td><?php echo $member_info['leader_id']; ?></td>
-        <td><?php echo $member_info['member_id']; ?></td>
-        <td><?php echo $member_info['first_name']; ?></td>
-        <td><?php echo $member_info['last_name']; ?></td>
-        <td><?php echo $member_info['mobile_number']; ?></td>
-        <td><?php echo $member_info['acct_exp_date']; ?></td>
-        <td><?php echo $member_info['activation_level']; ?></td>
-        <td><?php echo $member_info['status']; ?></td>
+    <tr ng-repeat="upgradeMemberTabResultsMemberInfo in upgradeMemberTabResultsMemberInfos">
+        <td>{{ upgradeMemberTabResultsMemberInfo.leader_id }}</td>
+        <td>{{ upgradeMemberTabResultsMemberInfo.member_id }}</td>
+        <td>{{ upgradeMemberTabResultsMemberInfo.first_name }}</td>
+        <td>{{ upgradeMemberTabResultsMemberInfo.last_name }}</td>
+        <td>{{ upgradeMemberTabResultsMemberInfo.mobile_number }}</td>
+        <td>{{ upgradeMemberTabResultsMemberInfo.acct_exp_date }}</td>
+        <td>{{ upgradeMemberTabResultsMemberInfo.activation_level }}</td>
+        <td>{{ upgradeMemberTabResultsMemberInfo.status }}</td>
         <td>
-            <button href="#basic" data-toggle="modal" class="btn btn-success">Upgrade</button>
+            <button id="upgrade_{{ upgradeMemberTabResultsMemberInfo.mph_id }}" href="#basic" data-toggle="modal" class="btn btn-success" ng-click="upgradeMemberTab_setBtnId(upgradeMemberTabResultsMemberInfo.mph_id, upgradeMemberTabResultsMemberInfo.member_id);">Upgrade</button>
         </td>
     </tr>
-    <?php } ?>
 
     <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
@@ -57,7 +55,7 @@ $view['slots']->start('data-table-tbody');
                     <h3 class="modal-title">Are you sure you want to Upgrade this member? <span class="device-name" style="font-weight:bold;"></h3>
                 </div>
                 <div class="modal-footer">
-                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide'); upgradeMember(<?php if(isset($member_info['leader_id'])) { echo $member_info['leader_id']; } ?>, <?php if(isset($member_info['member_id'])) { echo $member_info['member_id']; } ?>);"> <i class="fa fa-check" style="font-size:25px;"></i></button>
+                    <button id='cornershort-form-submit' class="btn btn-green" onClick="$('#basic').modal('hide');" ng-click="upgradeMemberTab_manual();"> <i class="fa fa-check" style="font-size:25px;"></i></button>
                     <a class="btn" style="background:#dddddd;" onClick="$('#basic').modal('hide');"> <i class="fa fa-times" style="font-size:25px;"></i></a>
                 </div>
             </div>
