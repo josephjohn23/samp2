@@ -124,6 +124,13 @@ class MemberPaymentHistory
     private $dateCompleted;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=10, nullable=false)
+     */
+    private $status; //requested or active
+
+    /**
      * Set leaderId
      *
      * @param string $leaderId
@@ -433,5 +440,29 @@ class MemberPaymentHistory
     public function getIsLevelRequested()
     {
         return $this->isLevelRequested;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }
