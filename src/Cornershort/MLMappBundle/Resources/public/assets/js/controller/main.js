@@ -2,7 +2,6 @@ var myAppModule = angular
 	.module("myAppModule", [])
 	.controller("myAppController", function($scope, $http, $rootScope) {
 		$scope.homeTab_searchMemberInfo = function () {
-			console.log('home');
 			var data = {
 				member_id: '00000001',
 				leader_id: '00000001'
@@ -120,7 +119,7 @@ var myAppModule = angular
                             });
 		};
 
-        $scope.searchMember = function () {
+        $scope.adminToolsTab_searchMember = function () {
             var data = {
                 member_id: document.getElementById("member_id").value
             }

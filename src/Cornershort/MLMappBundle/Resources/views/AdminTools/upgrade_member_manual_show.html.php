@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="row" style="display:flex; justify-content:center;">
                                     <div class="form-actions noborder col-lg-4 col-md-4 col-sm-4 col-xs-4" style="display:flex; justify-content:center;">
-                                        <button type="button" id="visor-form-submit" class="btn btn-lg btn-success" ng-Click="searchMember();">Search</button>
+                                        <button type="button" id="visor-form-submit" class="btn btn-lg btn-success" ng-Click="adminToolsTab_searchMember();">Search</button>
                                     </div>
                                 </div>
 
