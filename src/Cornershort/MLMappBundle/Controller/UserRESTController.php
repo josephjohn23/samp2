@@ -30,7 +30,7 @@ class UserRESTController extends VoryxController
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $data = json_decode($request->getContent(), true);
 
-        $my_id = '001';
+        $my_id = '00000001';
         //FIND MY INFO
         $params = array('my_id' => $my_id,);
         $sql = "SELECT * FROM users WHERE member_id=:my_id ";
@@ -92,13 +92,27 @@ class UserRESTController extends VoryxController
      * @return Response
      *
      */
-    public function postAction(Request $request)
+    public function postAddRegisterMemberAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $data = json_decode($request->getContent(), true);
         $saved_record = 0;
 
+        //FIND memberId
+        $myInfo = $em->getRepository('CornershortMLMappBundle:User')->findAll();
+        $num = sizeof($myInfo) - 1;
+        $memberId = $myInfo[$num]->getId() + 1;
+
+        $data['member_id'] = str_pad($memberId, 8, '0', STR_PAD_LEFT);
+        $data['acct_id'] = str_pad($memberId, 8, '0', STR_PAD_LEFT);
+        $data['leader_id'] = str_pad($data['leader_id'], 8, '0', STR_PAD_LEFT);
+        $data['next_leader_id'] = str_pad($data['leader_id'], 8, '0', STR_PAD_LEFT);
         $data['password'] = md5($data['password']);
+        $data['roles'] = 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}';
+        $data['access_level'] = 95;
+        $data['activation_level'] = 0;
+        $data['status'] = 'not_active';
 
         $params = array('email' => $data['email']);
         $sql = "SELECT * FROM users WHERE email=:email";
@@ -115,6 +129,33 @@ class UserRESTController extends VoryxController
         } else {
             return "Success";
         }
+    }
+
+    public function postFindMyInfoAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $data = json_decode($request->getContent(), true);
+        $memberId = str_pad($data['leader_id'], 8, '0', STR_PAD_LEFT);
+        $leaderId = str_pad($data['leader_id'], 8, '0', STR_PAD_LEFT); //need $leaderId = session['leaderId'];
+
+        //FIND myInfo
+        $myInfo = $em->getRepository('CornershortMLMappBundle:User')->findBy(
+            array(
+                'memberId' => $memberId
+            )
+        );
+
+        //FIND memberInfo
+        $memberInfos = $em->getRepository('CornershortMLMappBundle:User')->findBy(
+            array(
+                'leaderId' => $leaderId
+            )
+        );
+
+        $result['myInfo'] = is_null($myInfo[0]) ? null : $myInfo;
+        $result['memberInfos'] = is_null($memberInfos[0]) ? null : $memberInfos;
+
+        return $result;
     }
 
     public function postEditAccountAction(Request $request)

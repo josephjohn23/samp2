@@ -1,10 +1,11 @@
 var myAppModule = angular
 	.module("myAppModule", [])
 	.controller("myAppController", function($scope, $http, $rootScope) {
-		$scope.homeTab = function () {
+		$scope.homeTab_searchMemberInfo = function () {
+			console.log('home');
 			var data = {
-				member_id: '001',
-				leader_id: '001'
+				member_id: '00000001',
+				leader_id: '00000001'
 			}
 
 			$http(
@@ -24,8 +25,58 @@ var myAppModule = angular
 							});
 		};
 
-		$scope.addNewMember = function () {
+		$scope.registerMemberTab_searchLeaderId = function () {
+			var data = {
+				leader_id: $('#leader_id').val()
+			}
+
+			$http(
+					{
+						method: 'POST',
+						url: '/api/users/finds/mies/infos',
+						data: data,
+						headers: {
+							"Content-Type": "application/json; charset=utf-8",
+							"Accept": "application/json"
+						}
+					})
+					.then(
+							function (results) {
+								if (typeof results.data.myInfo === "undefined"){
+									$("html, body").animate({scrollTop: 1}, 1000);
+									$('#leader_name').val('');
+									messageAlert('Member Id do not exist!', 'danger');
+								} else {
+									$('#leader_name').val(results.data.myInfo[0].first_name + ' ' + results.data.myInfo[0].last_name);
+								}
+							});
+		};
+
+		$scope.registerMemberTab_searchMyInfo = function () {
+			var data = {
+				leader_id: '00000001'
+			}
+
+			$http(
+					{
+						method: 'POST',
+						url: '/api/users/finds/mies/infos',
+						data: data,
+						headers: {
+							"Content-Type": "application/json; charset=utf-8",
+							"Accept": "application/json"
+						}
+					})
+					.then(
+							function (results) {
+								$rootScope.registerMemberTabResults = results.data;
+							});
+		};
+
+		$scope.registerMemberTab_addNewMember = function () {
 		    var data = {
+				leader_id: $('#leader_id').val(),
+				next_leader_id: $('#leader_id').val(),
 		        password: 'abc123',
 		        last_name: $('#last_name').val(),
 		        first_name: $('#first_name').val(),
@@ -43,28 +94,30 @@ var myAppModule = angular
 		        username: $('#email').val(),
 		        username_canonical: $('#email').val(),
 		        email_canonical: $('#email').val(),
-		        roles: 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}',
-		        access_level: 95,
 		        user_id: $('#leaders_id').val(),
-		        bank_acct_no: $('#bank_acct_no').val(),
-		        status: 'not_active'
+		        bank_acct_no: $('#bank_acct_no').val()
 		    };
 
-		    $.ajax({
-		        method: "POST",
-		        url: "/api/users",
-		        data: JSON.stringify(data),
-		        contentType: "application/json",
-		        timeout: 5000
-		    })
-		    .success(function (result) {
-		        $("html, body").animate({scrollTop: 1}, 1000);
-		        if (result == "Success"){
-		            messageAlert('Successfully added new member!', 'success');
-		        } else {
-		            messageAlert('Unable to add new member!', 'danger');
-		        }
-		    });
+			$http(
+                    {
+                        method: 'POST',
+                        url: '/api/users/adds/registers/members',
+                        data: data,
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8",
+                            "Accept": "application/json"
+                        }
+                    })
+                    .then(
+                            function (results) {
+								$("html, body").animate({scrollTop: 1}, 1000);
+						        if (results.data == "Success"){
+									$scope.registerMemberTab_searchMyInfo();
+						            messageAlert('Successfully added new members!', 'success');
+						        } else {
+						            messageAlert('Unable to add new member!', 'danger');
+						        }
+                            });
 		};
 
         $scope.searchMember = function () {
@@ -127,5 +180,6 @@ var myAppModule = angular
         };
 
 		//Load Functions
-		$scope.homeTab();
+		$scope.homeTab_searchMemberInfo();
+		$scope.registerMemberTab_searchMyInfo();
 });

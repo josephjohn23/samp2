@@ -9,7 +9,7 @@ class RegisterMemberWebController extends Controller
 {
     public function showAction(){
         $em = $this->getDoctrine()->getManager();
-        $memberId = '001';
+        $memberId = '00000001'; //need $leaderId = session['leaderId'];
 
         //FIND memberInfo
         $memberInfos = $em->getRepository('CornershortMLMappBundle:User')->findBy(
@@ -26,20 +26,6 @@ class RegisterMemberWebController extends Controller
     }
 
     public function addAction(){
-        $em = $this->getDoctrine()->getManager();
-        $memberId = '001';
-
-        //FIND myInfo
-        $myInfo = $em->getRepository('CornershortMLMappBundle:User')->findBy(
-            array(
-                'leaderId' => $memberId
-            )
-        );
-
-        return $this->render('CornershortMLMappBundle:RegisterMember:add.html.php',
-            array(
-                'myInfo_activationLevel' => $myInfo[0]->getActivationLevel()
-            )
-        );
+        return $this->render('CornershortMLMappBundle:RegisterMember:add.html.php');
     }
 }
