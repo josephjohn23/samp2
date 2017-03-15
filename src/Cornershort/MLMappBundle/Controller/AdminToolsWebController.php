@@ -7,11 +7,31 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class AdminToolsWebController extends Controller
 {
     public function memberInfoShowAction(){
-        return $this->render('CornershortMLMappBundle:AdminTools:member_info_show.html.php');
+        $SQLHelper = $this->get('cornershort_sql_helper.api');
+        
+        $params = array();
+        $sql = "SELECT * FROM users";
+        $member_infos = $SQLHelper->fetchRows($sql, $params);
+
+        return $this->render('CornershortMLMappBundle:AdminTools:member_info_show.html.php',
+            array(
+                'member_infos' => $member_infos
+            )
+        );
     }
 
     public function memberPaymentHistoryShowAction(){
-        return $this->render('CornershortMLMappBundle:AdminTools:member_payment_history_show.html.php');
+        $SQLHelper = $this->get('cornershort_sql_helper.api');
+
+        $params = array();
+        $sql = "SELECT * FROM member_payment_history";
+        $member_histories = $SQLHelper->fetchRows($sql, $params);
+
+        return $this->render('CornershortMLMappBundle:AdminTools:member_payment_history_show.html.php',
+            array(
+                'member_histories' => $member_histories
+            )
+        );
     }
 
     public function upgradeMemberManualShowAction(){

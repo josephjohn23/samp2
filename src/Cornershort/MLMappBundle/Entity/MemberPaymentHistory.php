@@ -84,6 +84,13 @@ class MemberPaymentHistory
     /**
      * @var \DateTime
      *
+     * @ORM\Column(name="is_level_requested", type="integer", nullable=false)
+     */
+    private $isLevelRequested;
+
+    /**
+     * @var \DateTime
+     *
      * @ORM\Column(name="date_level_upgraded", type="datetime", nullable=false)
      */
     private $dateLevelUpgraded;
@@ -91,7 +98,7 @@ class MemberPaymentHistory
     /**
      * @var \boolean
      *
-     * @ORM\Column(name="is_level_paid", type="boolean", nullable=false)
+     * @ORM\Column(name="is_level_paid", type="integer", nullable=false)
      */
     private $isLevelPaid;
 
@@ -105,7 +112,7 @@ class MemberPaymentHistory
     /**
      * @var \boolean
      *
-     * @ORM\Column(name="is_product_paid", type="boolean", nullable=false)
+     * @ORM\Column(name="is_product_paid", type="integer", nullable=false)
      */
     private $isProductPaid;
 
@@ -115,6 +122,13 @@ class MemberPaymentHistory
      * @ORM\Column(name="date_completed", type="datetime", nullable=false)
      */
     private $dateCompleted;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=10, nullable=false)
+     */
+    private $status; //requested or active
 
     /**
      * Set leaderId
@@ -402,5 +416,53 @@ class MemberPaymentHistory
     public function getDateCompleted()
     {
         return $this->dateCompleted;
+    }
+
+    /**
+     * Set isLevelRequested
+     *
+     * @param integer $isLevelRequested
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setIsLevelRequested($isLevelRequested)
+    {
+        $this->isLevelRequested = $isLevelRequested;
+
+        return $this;
+    }
+
+    /**
+     * Get isLevelRequested
+     *
+     * @return integer
+     */
+    public function getIsLevelRequested()
+    {
+        return $this->isLevelRequested;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return MemberPaymentHistory
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

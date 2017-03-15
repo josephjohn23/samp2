@@ -1,5 +1,10 @@
+cornershort_ml_mapp_member_payment_history_api:
+    resource: "@CornershortMLMappBundle/Controller/MemberPaymentHistoryRESTController.php"
+    type:   rest
+    prefix:   /api
+
 cornershort_ml_mapp_user_api:
-    resource: "@CornershortMLMappBundle/Rest/UserRESTController.php"
+    resource: "@CornershortMLMappBundle/Controller/UserRESTController.php"
     type:   rest
     prefix:   /api
 

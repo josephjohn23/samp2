@@ -1,10 +1,10 @@
 <?php $view->extend('CornershortMLMappBundle:Layout:layout.html.php') ?>
 
 <?php $view['slots']->start('page_css') ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/select2/select2.css'); ?>"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/select2/css/select2.css'); ?>"/>
 <link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css'); ?>"/>
 <link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css'); ?>"/>
-<link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css'); ?>"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css'); ?>"/>
 <?php $view['slots']->stop() ?>
 
 
@@ -41,13 +41,13 @@
 
 
 <?php $view['slots']->start('page_plugin_js') ?>
-<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/select2/select2.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/select2/js/select2.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/js/table-advanced.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/table-advanced.js') ?>"></script>
 <?php $view['slots']->stop() ?>
 
 

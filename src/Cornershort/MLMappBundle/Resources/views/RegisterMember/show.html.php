@@ -7,35 +7,29 @@
 <?php $view['slots']->set('data-table-caption', '<i class="icon-settings"></i>Show Members'); ?>
 
 <?php $view['slots']->start('data-table-thead'); ?>
-<tr>
-    <th>ID</th>
-    <th>Leader's ID</th>
-    <th>Member's ID</th>
-    <th>Last Name</th>
-    <th>First Name</th>
-    <th>Middle Name</th>
-    <th>Mobile Number</th>
-    <th>Acct Exp Date</th>
-    <th>Level</th>
-    <th>Status</th>
-</tr>
+    <tr>
+        <th>Leader's ID</th>
+        <th>Member's ID</th>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Mobile Number</th>
+        <th>Level</th>
+        <th>Status</th>
+    </tr>
 <?php $view['slots']->stop(); ?>
 
-<?php
-$view['slots']->start('data-table-tbody');
-?>
+<?php $view['slots']->start('data-table-tbody'); ?>
+    <?php foreach ($memberInfos as $memberInfo) {?>
     <tr>
-        <td>1</td>
-        <td>PH0001</th>
-        <td>PH0002</td>
-        <td>Dela Cruz</td>
-        <td>Juan</td>
-        <td>Manalo</td>
-        <td>09251234567</td>
-        <td>Feb 30, 2017</td>
-        <td>1</td>
-        <td>Active</td>
+        <td><?php echo $memberInfo->getLeaderId(); ?></th>
+        <td><?php echo $memberInfo->getMemberId(); ?></th>
+        <td><?php echo $memberInfo->getEmail(); ?></th>
+        <td><?php echo $memberInfo->getFirstName(); ?></th>
+        <td><?php echo $memberInfo->getLastName(); ?></th>
+        <td><?php echo $memberInfo->getMobileNumber(); ?></th>
+        <td><?php echo $memberInfo->getActivationLevel(); ?></th>
+        <td><?php echo $memberInfo->getStatus(); ?></th>
     </tr>
-<?php
-$view['slots']->stop()
-?>
+    <?php } ?>
+<?php $view['slots']->stop() ?>

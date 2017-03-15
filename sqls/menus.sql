@@ -39,7 +39,14 @@ CREATE TABLE `menu_parent` (
 
 LOCK TABLES `menu_parent` WRITE;
 /*!40000 ALTER TABLE `menu_parent` DISABLE KEYS */;
-INSERT INTO `menu_parent` VALUES (1,'Home','fa fa-home','cornershort_mlmapp_homepage',0,''),(2,'Register Member','fa fa-user-plus','',1,''),(3,'*Request For Upgrade','fa fa-level-up','',2,''),(4,'Upgrade Member (Level)','fa fa-key','cornershort_mlmapp_upgrade_member_page_manual',3,''),(5,'*Family Tree','fa fa-users','cornershort_mlmapp_family_tree_page',4,''),(6,'User Account','fa fa-user','',5,''),(7,'Admin Tools','fa fa-pencil-square-o','',6,''),(8,'Admin Reports','fa fa-line-chart','',10,'');
+INSERT INTO `menu_parent` VALUES ('1', 'Home', 'fa fa-home', 'cornershort_mlmapp_homepage', '0', '');
+INSERT INTO `menu_parent` VALUES ('2', 'Register Member', 'fa fa-user-plus', '', '1', '');
+INSERT INTO `menu_parent` VALUES ('3', 'Request For Upgrade', 'fa fa-level-up', 'cornershort_mlmapp_request_for_upgrade_page_auto', '2', '');
+INSERT INTO `menu_parent` VALUES ('4', 'Statement', 'fa fa-book', 'cornershort_mlmapp_family_tree_page', '4', '');
+INSERT INTO `menu_parent` VALUES ('5', 'Family Tree', 'fa fa-users', 'cornershort_mlmapp_family_tree_page', '4', '');
+INSERT INTO `menu_parent` VALUES ('6', 'User Account', 'fa fa-user', '', '5', '');
+INSERT INTO `menu_parent` VALUES ('7', 'Admin Tools', 'fa fa-pencil-square-o', '', '6', '');
+INSERT INTO `menu_parent` VALUES ('8', 'Admin Reports', 'fa fa-line-chart', '', '7', '');
 /*!40000 ALTER TABLE `menu_parent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,7 +75,17 @@ CREATE TABLE `menu_child` (
 
 LOCK TABLES `menu_child` WRITE;
 /*!40000 ALTER TABLE `menu_child` DISABLE KEYS */;
-INSERT INTO `menu_child` VALUES (1,2,'Show My Members','cornershort_mlmapp_register_member_page_show',97,0),(2,2,'Add New Member','cornershort_mlmapp_register_member_page_add',97,1),(3,3,'*Auto Request','cornershort_mlmapp_request_for_upgrade_page_auto',97,0),(4,3,'Manual Request','cornershort_mlmapp_request_for_upgrade_page_manual',97,1),(5,6,'Show My Account','cornershort_mlmapp_user_account_page_show',97,0),(6,6,'Edit My Account','cornershort_mlmapp_user_account_page_edit',97,1),(7,7,'Member Info','cornershort_mlmapp_admin_tools_page_member_info_show',100,0),(8,7,'Member Payment History','cornershort_mlmapp_admin_tools_page_member_payment_history_show',100,0),(9,7,'Upgrade Member (Product)','cornershort_mlmapp_admin_tools_page_upgrade_member_manual',100,1),(10,8,'Sales Tab 1','cornershort_mlmapp_report_page_sales_tab_1',100,0),(11,8,'Sales Tab 2','cornershort_mlmapp_report_page_sales_tab_2',100,1),(12,8,'Sales Tab 3','cornershort_mlmapp_report_page_sales_tab_3',100,2),(13,8,'Show Bank Withdrawal','cornershort_mlmapp_report_page_bank_withdraw_show',100,3);
+INSERT INTO `menu_child` VALUES ('1', '2', 'Show My Members', 'cornershort_mlmapp_register_member_page_show', '97', '0');
+INSERT INTO `menu_child` VALUES ('2', '2', 'Add New Member', 'cornershort_mlmapp_register_member_page_add', '97', '1');
+INSERT INTO `menu_child` VALUES ('3', '6', 'Show My Account', 'cornershort_mlmapp_user_account_page_show', '97', '0');
+INSERT INTO `menu_child` VALUES ('4', '6', 'Edit My Account', 'cornershort_mlmapp_user_account_page_edit', '97', '1');
+INSERT INTO `menu_child` VALUES ('5', '7', 'Member Info', 'cornershort_mlmapp_admin_tools_page_member_info_show', '100', '0');
+INSERT INTO `menu_child` VALUES ('6', '7', 'Member Payment History', 'cornershort_mlmapp_admin_tools_page_member_payment_history_show', '100', '0');
+INSERT INTO `menu_child` VALUES ('7', '7', 'Upgrade Member (Product)', 'cornershort_mlmapp_admin_tools_page_upgrade_member_manual', '100', '1');
+INSERT INTO `menu_child` VALUES ('8', '8', 'Sales Tab 1', 'cornershort_mlmapp_report_page_sales_tab_1', '100', '0');
+INSERT INTO `menu_child` VALUES ('9', '8', 'Sales Tab 2', 'cornershort_mlmapp_report_page_sales_tab_2', '100', '1');
+INSERT INTO `menu_child` VALUES ('10', '8', 'Sales Tab 3', 'cornershort_mlmapp_report_page_sales_tab_3', '100', '2');
+INSERT INTO `menu_child` VALUES ('11', '8', 'Show Bank Withdrawal', 'cornershort_mlmapp_report_page_bank_withdraw_show', '100', '3');
 /*!40000 ALTER TABLE `menu_child` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -81,4 +98,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-02  8:02:31
+-- Dump completed on 2017-03-13 15:34:50

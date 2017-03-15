@@ -1,10 +1,10 @@
 <?php $view->extend('CornershortMLMappBundle:Layout:layout.html.php') ?>
 
 <?php $view['slots']->start('page-toolbar') ?>
-<div class="form-actions noborder">
+<!-- <div class="form-actions noborder">
     <button type="button" id="visor-form-submit" class="btn btn-lg btn-success">Submit</button>
     <button type="button" id="visor-form-cancel" class="btn btn-lg red">Cancel</button>
-</div>
+</div> -->
 <?php $view['slots']->stop() ?>
 
 
@@ -50,7 +50,7 @@ if ($view['slots']->has('page_js')) {
 
 <?php $view['slots']->start('page_js') ?>
 <?php echo $slot_content ?>
-<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/js/visor-form-validation.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/visor-form-validation.js') ?>"></script>
 <script>
     $.validator.addMethod("unique", function (value, element) {
         var parentForm = $(element).closest('form');

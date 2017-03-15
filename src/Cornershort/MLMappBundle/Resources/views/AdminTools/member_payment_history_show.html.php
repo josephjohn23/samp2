@@ -10,41 +10,43 @@
 
 <tr>
     <th>ID</th>
-    <th>Order No</th>
     <th>Leader's ID</th>
     <th>Member's ID</th>
     <th>Payment Option</th>
-    <th>Last Name</th>
-    <th>First Name</th>
-    <th>Level Amount</th>
+    <th>Level</th>
     <th>Product Amount</th>
+    <th>Level Amount</th>
     <th>Requested</th>
     <th>Level Upgraded</th>
+    <th>Is Level Paid</th>
     <th>Product Upgraded</th>
+    <th>Is Product Paid</th>
     <th>Completed</th>
-    <th>Level</th>
+    <th>Is Level Requested</th>
 </tr>
 <?php $view['slots']->stop(); ?>
 
 <?php
 $view['slots']->start('data-table-tbody');
 ?>
-    <tr>
-        <td>1</td>
-        <td>00001</td>
-        <td>PH0001</th>
-        <td>PH0002</td>
-        <td>Card</td>
-        <td>Manalo</td>
-        <td>Juan</td>
-        <td>PHP 1,500</td>
-        <td>PHP 1,500</td>
-        <td>Feb 30, 2017</td>
-        <td>Feb 30, 2017</td>
-        <td>Feb 30, 2017</td>
-        <td>Feb 30, 2017</td>
-        <td>1</td>
-    </tr>
+<?php foreach ($member_histories as $member_history) {?>
+<tr>
+    <td><?php echo $member_history['id']; ?></td>
+    <td><?php echo $member_history['leader_id']; ?></th>
+    <td><?php echo $member_history['member_id']; ?></th>
+    <td><?php echo $member_history['membership_option']; ?></th>
+    <td><?php echo $member_history['activation_level']; ?></th>
+    <td><?php echo $member_history['product_amount']; ?></th>
+    <td><?php echo $member_history['level_amount']; ?></th>
+    <td><?php echo $member_history['date_requested']; ?></th>
+    <td><?php echo $member_history['date_level_upgraded']; ?></th>
+    <td><?php echo $member_history['is_level_paid']; ?></th>
+    <td><?php echo $member_history['date_product_upgraded']; ?></th>
+    <td><?php echo $member_history['is_product_paid']; ?></th>
+    <td><?php echo $member_history['date_completed']; ?></th>
+    <td><?php echo $member_history['is_level_requested']; ?></th>
+</tr>
+<?php } ?>
 
     <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
