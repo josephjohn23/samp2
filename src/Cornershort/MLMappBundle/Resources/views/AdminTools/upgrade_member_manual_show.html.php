@@ -50,6 +50,10 @@
                                                 <th style="font-size:2vw; font-weight: normal;">{{ memberInfo.leader_id }}</th>
                                             </tr>
                                             <tr>
+                                                <th style="font-size:2vw;">Member's ID:&nbsp</th>
+                                                <th style="font-size:2vw; font-weight: normal;">{{ memberInfo.member_id }}</th>
+                                            </tr>
+                                            <tr>
                                                 <th style="font-size:2vw;">Name:&nbsp</th>
                                                 <th style="font-size:2vw; font-weight: normal;">{{ memberInfo.first_name }}&nbsp{{ memberInfo.last_name }}</th>
                                             </tr>

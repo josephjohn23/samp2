@@ -8,9 +8,8 @@ class AdminToolsWebController extends Controller
 {
     public function memberInfoShowAction(){
         $SQLHelper = $this->get('cornershort_sql_helper.api');
-
-        $my_id = '004';
-        $params = array('my_id' => $my_id);
+        
+        $params = array();
         $sql = "SELECT * FROM users";
         $member_infos = $SQLHelper->fetchRows($sql, $params);
 
@@ -24,8 +23,7 @@ class AdminToolsWebController extends Controller
     public function memberPaymentHistoryShowAction(){
         $SQLHelper = $this->get('cornershort_sql_helper.api');
 
-        $my_id = '004';
-        $params = array('my_id' => $my_id);
+        $params = array();
         $sql = "SELECT * FROM member_payment_history";
         $member_histories = $SQLHelper->fetchRows($sql, $params);
 

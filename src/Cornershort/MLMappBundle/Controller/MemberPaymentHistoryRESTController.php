@@ -230,12 +230,13 @@ class MemberPaymentHistoryRESTController extends VoryxController
                 $data['product_amount'] = $productInfo[0]->getProductAmount();
                 $data['level_amount'] = $levelInfo[0]->getLevelAmount();
                 $data['date_requested'] = date('Y-m-d H:i:s');
-                $data['is_level_requested'] = 1;
-                // $data['date_level_upgraded'] = '';
-                // $data['is_level_paid'] = '';
+                $data['is_level_requested'] = '1';
+                $data['date_level_upgraded'] = date('Y-m-d H:i:s');
+                $data['is_level_paid'] = '1';
                 $data['date_product_upgraded'] = date('Y-m-d H:i:s');
                 $data['is_product_paid'] = '1';
-                // $data['date_completed'] = '';
+                $data['date_completed'] = date('Y-m-d H:i:s');
+                $data['status'] = 'upgraded';
 
                 $saved_record = $SQLHelper->insertRecord('member_payment_history', $data);
             } else {

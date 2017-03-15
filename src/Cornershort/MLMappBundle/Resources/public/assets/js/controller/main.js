@@ -256,7 +256,7 @@ var myAppModule = angular
                     })
                     .then(
                             function (results) {
-                                $rootScope.memberInfo = results.data[0];
+                                $rootScope.memberInfo = results.data.memberInfo[0];
                                 if ($rootScope.memberInfo == undefined){
                                     $("html, body").animate({scrollTop: 1}, 1000);
                                     messageAlert('Member Id is incorrect!', 'danger');
@@ -284,7 +284,13 @@ var myAppModule = angular
                     })
                     .then(
                             function (results) {
-                                console.log(results);
+								$("html, body").animate({scrollTop: 1}, 1000);
+								if (results.data == "Success"){
+									messageAlert('Your member was successfullt upgraded!', 'success');
+									$rootScope.memberInfo = '';
+								} else {
+									messageAlert('Unable to upgrade your member!', 'danger');
+								}
                                 return results;
                             });
         };
