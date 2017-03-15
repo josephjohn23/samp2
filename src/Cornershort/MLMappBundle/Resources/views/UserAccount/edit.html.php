@@ -53,7 +53,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group form-md-line-input">
                     <label for="acct_id">Account ID</label>
-                    <input type="text" class="form-control" id="acct_id" name="acct_id" value="<?php if(isset($member_info['acct_id'])){ echo $member_info['acct_id']; } ?>" placeholder="">
+                    <input type="text" class="form-control" id="acct_id" name="acct_id" value="<?php if(isset($member_info['acct_id'])){ echo $member_info['acct_id']; } ?>" placeholder="" readonly>
                 </div>
             </div>
         </div>
