@@ -30,7 +30,7 @@ class UserRESTController extends VoryxController
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $data = json_decode($request->getContent(), true);
 
-        $my_id = '00000001'; //need $leaderId = session['leaderId'];
+        $my_id = $this->getUser()->getMemberId();
         //FIND myInfo
         $params = array('my_id' => $my_id,);
         $sql = "SELECT * FROM users WHERE member_id=:my_id ";

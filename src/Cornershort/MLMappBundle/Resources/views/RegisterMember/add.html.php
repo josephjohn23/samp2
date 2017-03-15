@@ -83,7 +83,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group form-md-line-input">
                             <label for="leader_id">Leader ID</label>
-                            <input type="text" class="form-control" id="leader_id" name="leader_id" value="" placeholder="" ng-blur="registerMemberTab_searchLeaderId();">
+                            <input type="text" class="form-control" id="leader_id" name="leader_id" value="<?php echo $memberId; ?>" placeholder="" ng-blur="registerMemberTab_searchLeaderId();" readonly>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group form-md-line-input">
                             <label for="leader_name">Leader Name</label>
-                            <input type="text" class="form-control" id="leader_name" name="leader_name" value="" placeholder="" readonly>
+                            <input type="text" class="form-control" id="leader_name" name="leader_name" value="<?php echo $memberName; ?>" placeholder="" readonly>
                         </div>
                     </div>
                 </div>
