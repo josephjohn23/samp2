@@ -294,6 +294,7 @@ class MemberPaymentHistoryRESTController extends VoryxController
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $em = $this->getDoctrine()->getManager();
         $data = json_decode($request->getContent(), true);
+        $leaderId = $this->getUser()->getMemberId();
 
         $year = $data['year'];
         $month = $data['month'];
@@ -302,16 +303,17 @@ class MemberPaymentHistoryRESTController extends VoryxController
         $nowMonth = $year . '-' . $month . '-' . $day;
         $nextMonth = date("Y-m-d", strtotime("1 month", strtotime(date($nowMonth))));
 
-        $params = array('nowMonth' => $nowMonth, 'nextMonth' => $nextMonth);
-        $sql = "SELECT SUM(level_amount) as total FROM member_payment_history where date_completed >= :nowMonth AND date_completed < :nextMonth ";
+        $params = array('nowMonth' => $nowMonth, 'nextMonth' => $nextMonth, 'leaderId' => $leaderId);
+        $sql = "SELECT SUM(level_amount) as total FROM member_payment_history WHERE leader_id=:leaderId AND date_completed >= :nowMonth AND date_completed < :nextMonth ";
         $statement = $SQLHelper->fetchRows($sql, $params);
 
-        $params = array('nowMonth' => $nowMonth, 'nextMonth' => $nextMonth);
+        $params = array('nowMonth' => $nowMonth, 'nextMonth' => $nextMonth, 'leaderId' => $leaderId);
         $sql = "SELECT u.member_id, u.last_name, u.first_name, mph.level_amount, mph.activation_level, mph.date_completed
                         FROM member_payment_history as mph
                         JOIN users as u
                         ON u.member_id = mph.member_id
-                        WHERE mph.date_completed >= :nowMonth
+                        WHERE mph.leader_id=:leaderId
+                        AND mph.date_completed >= :nowMonth
                         AND mph.date_completed < :nextMonth ";
         $memberPayments = $SQLHelper->fetchRows($sql, $params);
 
