@@ -288,6 +288,38 @@ class MemberPaymentHistoryRESTController extends VoryxController
 
         return $result;
     }
+
+    //STATEMENT
+    public function postSearchMemberPaymentAction(Request $request) {
+        $SQLHelper = $this->get('cornershort_sql_helper.api');
+        $em = $this->getDoctrine()->getManager();
+        $data = json_decode($request->getContent(), true);
+
+        $year = $data['year'];
+        $month = $data['month'];
+        $day = '01';
+
+        $nowMonth = $year . '-' . $month . '-' . $day;
+        $nextMonth = date("Y-m-d", strtotime("1 month", strtotime(date($nowMonth))));
+
+        $params = array('nowMonth' => $nowMonth, 'nextMonth' => $nextMonth);
+        $sql = "SELECT SUM(level_amount) as total FROM member_payment_history where date_completed >= :nowMonth AND date_completed < :nextMonth ";
+        $statement = $SQLHelper->fetchRows($sql, $params);
+
+        $params = array('nowMonth' => $nowMonth, 'nextMonth' => $nextMonth);
+        $sql = "SELECT u.member_id, u.last_name, u.first_name, mph.level_amount, mph.activation_level, mph.date_completed
+                        FROM member_payment_history as mph
+                        JOIN users as u
+                        ON u.member_id = mph.member_id
+                        WHERE mph.date_completed >= :nowMonth
+                        AND mph.date_completed < :nextMonth ";
+        $memberPayments = $SQLHelper->fetchRows($sql, $params);
+
+        $result['statement'] = $statement;
+        $result['memberPayment'] = $memberPayments;
+
+        return $result;
+    }
 }
 
 // $memberPaymentHistory = new MemberPaymentHistory();

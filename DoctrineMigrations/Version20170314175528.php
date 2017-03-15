@@ -21,16 +21,14 @@ class Version20170314175528 extends AbstractMigration
         $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Home\',\'fa fa-home\', \'cornershort_mlmapp_homepage\' , \'1\')');
         $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Register Member\',\'fa fa-user-plus\', \'\', \'2\')');
         $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Upgrade My Account\',\'fa fa-level-up\', \'cornershort_mlmapp_request_for_upgrade_page_auto\', \'3\')');
-        $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Statement\',\'fa fa-book\', \'cornershort_mlmapp_request_for_upgrade_page_auto\', \'4\')');
+        $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Statement\',\'fa fa-book\', \'cornershort_mlmapp_statement_page\', \'4\')');
         $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Family Tree\',\'fa fa-users\', \'cornershort_mlmapp_family_tree_page\', \'5\')');
-        $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'User Account\',\'fa fa-user\', \'\', \'6\')');
+        $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Edit My Account\',\'fa fa-user\', \'cornershort_mlmapp_user_account_page_edit\', \'6\')');
         $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Admin Tools\',\'fa fa-pencil-square-o\', \'\', \'7\')');
         $this->addSql('INSERT INTO `menu_parent` (`name`, `icon`, `route`, `sort_id`) VALUES (\'Admin Reports\',\'fa fa-line-chart\', \'\', \'8\')');
 
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'2\',\'Show My Members\', \'cornershort_mlmapp_register_member_page_show\', \'97\', \'0\')');
-        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'2\',\'Add New Member\', \'cornershort_mlmapp_register_member_page_add\', \'97\', \'1\')');
-        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'6\',\'Show My Account\', \'cornershort_mlmapp_user_account_page_show\', \'97\', \'0\')');
-        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'6\',\'Edit My Account\', \'cornershort_mlmapp_user_account_page_edit\', \'97\', \'1\')');
+        $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'2\',\'Add New Member\', \'cornershort_mlmapp_register_member_page_add\', \'97\', \'1\')');        
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'7\',\'Member Info\', \'cornershort_mlmapp_admin_tools_page_member_info_show\', \'100\', \'0\')');
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'7\',\'Member Payment History\', \'cornershort_mlmapp_admin_tools_page_member_payment_history_show\', \'100\', \'0\')');
         $this->addSql('INSERT INTO `menu_child` (`menu_parent_id`, `name`, `route`, `access_level`, `sort_id`) VALUES (\'7\',\'Upgrade Member\', \'cornershort_mlmapp_admin_tools_page_upgrade_member_manual\', \'100\', \'1\')');

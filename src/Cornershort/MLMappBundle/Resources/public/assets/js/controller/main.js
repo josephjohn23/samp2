@@ -289,6 +289,70 @@ var myAppModule = angular
                             });
         };
 
+		//STATEMENT MENU
+        $scope.statementTab_searchMemberPayment = function () {
+			var currentTime = new Date();
+
+			var data = {
+				month: currentTime.getMonth() + 1,
+				year: currentTime.getFullYear()
+			}
+
+			$http(
+					{
+						method: 'POST',
+						url: '/api/memberpaymenthistories/searches/members/payments',
+						data: data,
+						headers: {
+							"Content-Type": "application/json; charset=utf-8",
+							"Accept": "application/json"
+						}
+					})
+					.then(
+							function (results) {
+								if (results.data.memberPayment[0] != undefined) {
+									$rootScope.statementTabResults = results.data.memberPayment;
+									$rootScope.statementTabResultsTotal = results.data.statement;
+								}
+
+								return results;
+							});
+		}
+
+		//STATEMENT MENU
+        $scope.statementTab_selectMemberPayment = function () {
+            var data = {
+                month: document.getElementById("month").value,
+				year: document.getElementById("year").value
+            }
+
+            $http(
+                    {
+                        method: 'POST',
+                        url: '/api/memberpaymenthistories/searches/members/payments',
+                        data: data,
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8",
+                            "Accept": "application/json"
+                        }
+                    })
+                    .then(
+                            function (results) {
+									$rootScope.statementTabResults = results.data.memberPayment;
+									$rootScope.statementTabResultsTotal = results.data.statement;
+                                return results;
+                            });
+        };
+
+		//STATEMENT MENU
+	    $('#month').on("change", function () {
+	        $scope.statementTab_selectMemberPayment();
+	    });
+
+		$('#year').on("change", function () {
+	        $scope.statementTab_selectMemberPayment();
+	    });
+
 		//POP UP MESSAGE
         $scope.messageAlert = function (data, type) {
             $("#message_" + type).show();
@@ -305,4 +369,5 @@ var myAppModule = angular
 		$scope.registerMemberTab_searchMyInfo();
 		$scope.requestUpgradeTab_searchNextLeader();
 		$scope.upgradeMemberTab_searchMemberInfo();
+		$scope.statementTab_searchMemberPayment();
 });
