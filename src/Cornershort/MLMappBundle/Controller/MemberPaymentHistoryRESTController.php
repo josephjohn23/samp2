@@ -223,7 +223,7 @@ class MemberPaymentHistoryRESTController extends VoryxController
 
             if (is_null($isProductPaid[0])) {
                 $saved_record = 0;
-                $data['leader_id'] = $myInfo[0]->getLeaderID();
+                $data['leader_id'] = $myInfo[0]->getNextLeaderID();
                 $data['member_id'] = $memberId;
                 $data['membership_option'] = 'cash';
                 $data['activation_level'] = $myInfo[0]->getActivationLevel() + 1;
