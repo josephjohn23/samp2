@@ -7,6 +7,9 @@
                 <a id="index" class="navbar-brand" href="<?php echo $view['router']->path('cornershort_mlmapp_homepage') ?>">
                     <img src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/images/cornershort-logo-simple.png') ?>" alt="Logo"> </a>
                 <!-- END LOGO -->
+
+                <?php
+                /**
                 <!-- BEGIN TOPBAR ACTIONS -->
                 <div class="topbar-actions">
                     <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
@@ -159,8 +162,12 @@
                         </ul>
                     </div>
                     <!-- END USER PROFILE -->
+
                 </div>
                 <!-- END TOPBAR ACTIONS -->
+                **/
+                ?>
+
             </div>
         </div>
         <!--/container-->

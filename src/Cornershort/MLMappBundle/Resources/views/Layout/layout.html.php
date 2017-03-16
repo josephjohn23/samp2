@@ -21,7 +21,6 @@ echo $view['actions']->render(
                 <li>
                     <i class="fa fa-home"></i>
                     <a href="<?php echo $view['router']->path('cornershort_mlmapp_homepage') ?>">Home</a>
-                    <i class="fa fa-angle-right"></i>
                 </li>
                 <?php
                 if ($app->getSession()->get('menu_parent_name')) {
@@ -67,7 +66,7 @@ echo $view['actions']->render(
             <!-- END BREADCRUMBS -->
 
         </div>
-        <div class="page-sidebar-wrapper">
+        <div class="page-sidebar-wrapper" data-close-on-body-click="false">
             <!-- BEGIN SIDEBAR MENU -->
             <?php
             echo $view['actions']->render(
