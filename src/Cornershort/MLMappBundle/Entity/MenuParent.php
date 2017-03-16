@@ -56,5 +56,12 @@ class MenuParent
      */
     private $category;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="access_level", type="integer", nullable=false)
+     */
+    private $accessLevel;
+
 
 }
