@@ -177,7 +177,7 @@ function editMyAccount() {
     $.ajax({
         method: "POST",
         //url: "/api/users/edits/accounts",
-        url: "<?php echo $view['router']->path('post_user_edit_account') ?>",
+        url: Routing.generate('api_post_user_edit_account'),
         data: JSON.stringify(data),
         contentType: "application/json",
         timeout: 5000

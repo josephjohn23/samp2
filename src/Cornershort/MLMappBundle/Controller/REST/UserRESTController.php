@@ -161,11 +161,22 @@ class UserRESTController extends VoryxController
         $data = json_decode($request->getContent(), true);
         $saved_record = 0;
 
-        $data['password'] = md5($data['password']);
+        // $data['password'] = md5($data['password']);
+        $data_password = (isset($data['password']) && $data['password'] != '') ? $data['password'] : false;
 
-        $params = array('email' => $data['email']);
-        $sql = "SELECT * FROM users WHERE email=:email";
-        $users = $SQLHelper->fetchRow($sql, $params);
+        if($data_password){
+
+            // Update user password
+            $um = $this->get('fos_user.user_manager');
+            $user = $um->findUserByEmail($data['email']);
+            $user->setPlainPassword($data['password']);
+            $um->updateUser($user, true);
+
+            unset($data['password']);
+            $params = array('email' => $data['email']);
+            $sql = "SELECT * FROM users WHERE email=:email";
+            $users = $SQLHelper->fetchRow($sql, $params);
+        }
 
         if ($users) {
             $saved_record = $SQLHelper->updateRecord('users', $data);
