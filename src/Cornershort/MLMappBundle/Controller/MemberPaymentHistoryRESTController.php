@@ -223,7 +223,7 @@ class MemberPaymentHistoryRESTController extends VoryxController
 
             if (is_null($isProductPaid[0])) {
                 $saved_record = 0;
-                $data['leader_id'] = $myInfo[0]->getLeaderID();
+                $data['leader_id'] = $myInfo[0]->getNextLeaderID();
                 $data['member_id'] = $memberId;
                 $data['membership_option'] = 'cash';
                 $data['activation_level'] = $myInfo[0]->getActivationLevel() + 1;
@@ -239,6 +239,8 @@ class MemberPaymentHistoryRESTController extends VoryxController
                 $data['status'] = 'upgraded';
 
                 $saved_record = $SQLHelper->insertRecord('member_payment_history', $data);
+
+                $this->updateUser($memberId);
             } else {
                 $data = [];
                 $data['id'] = $isProductPaid[0]->getId();
@@ -249,6 +251,34 @@ class MemberPaymentHistoryRESTController extends VoryxController
             }
         }
 
+
+        if (!$saved_record) {
+            return "Error";
+        } else {
+            return "Success";
+        }
+    }
+
+    //ADMINT TOOLS - UPGRADE MEMBER
+    private function updateUser($id) {
+
+        $SQLHelper = $this->get('cornershort_sql_helper.api');
+
+        //FIND memberInfo
+        $params = array('memberId' => $id);
+        $sql = "SELECT id, member_id, next_leader_id, activation_level FROM users WHERE member_id=:memberId";
+        $memberInfo = $SQLHelper->fetchRow($sql, $params);
+
+        //FIND nextNextLeaderId
+        $params = array('nextLeaderId' => $memberInfo['next_leader_id']);
+        $sql = "SELECT leader_id FROM users WHERE member_id=:nextLeaderId";
+        $nextNext = $SQLHelper->fetchRow($sql, $params);
+
+        //UPDATE nextNextLeaderId and activationLevel
+        $memberInfo['next_leader_id'] = $nextNext['leader_id'];
+        $memberInfo['activation_level'] = $memberInfo['activation_level'] + 1;
+
+        $saved_record = $SQLHelper->updateRecord('users', $memberInfo);
 
         if (!$saved_record) {
             return "Error";

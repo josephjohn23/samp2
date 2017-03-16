@@ -73,7 +73,7 @@
                                     </div>
 
                                     <div class="form-actions noborder" style="display:flex; justify-content:flex-end;">
-                                        <button href="#basic" data-toggle="modal" type="button" id="visor-form-submit" class="btn btn-lg btn-success">Upgrade to Level 2</button>
+                                        <button href="#basic" data-toggle="modal" type="button" id="visor-form-submit" class="btn btn-lg btn-success">Upgrade to Level {{ memberInfo.activation_level + 1 }}</button>
                                     </div>
                                 </div>
 
