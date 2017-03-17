@@ -16,8 +16,8 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        //$user_accesslevel = $this->getUser()->getAccessLevel();
-        $user_accesslevel = 100;
+        $user_accesslevel = $this->getUser()->getAccessLevel();
+        //$user_accesslevel = 100;
 
         $sql = "SELECT * FROM menu_parent ORDER BY sort_id ASC,name ASC;";
         $stmt = $em->getConnection()->prepare($sql);

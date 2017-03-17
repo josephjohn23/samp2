@@ -36,6 +36,22 @@ class SecurityListener {
                 $user_id = $user->getId();
                 $access_level = $user->getAccessLevel();
 
+                //CHECK menu_parent
+                $params = array();
+                $params['route'] = $route;
+                $sql = "SELECT * FROM menu_parent WHERE route=:route LIMIT 1";
+
+                $this->stmt = $this->em->getConnection()->prepare($sql);
+                $this->stmt->execute($params);
+                $result = $this->stmt->fetchAll();
+
+                if (isset($result[0]['access_level'])) {
+                    if ($result[0]['access_level'] > $access_level) {
+                        throw new AccessDeniedException('You are not authorized to access this location.');
+                    }
+                }
+
+                //CHECK menu_child
                 $params = array();
                 $params['route'] = $route;
                 $sql = "SELECT * FROM menu_child WHERE route=:route LIMIT 1";
@@ -49,6 +65,7 @@ class SecurityListener {
                         throw new AccessDeniedException('You are not authorized to access this location.');
                     }
                 }
+
             }
         }
       }
