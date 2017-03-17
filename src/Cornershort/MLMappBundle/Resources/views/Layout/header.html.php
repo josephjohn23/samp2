@@ -5,7 +5,7 @@
             <div class="havbar-header">
                 <!-- BEGIN LOGO -->
                 <a id="index" class="navbar-brand" href="<?php echo $view['router']->path('cornershort_mlmapp_homepage') ?>">
-                    <img src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/images/cornershort-logo-simple.png') ?>" alt="Logo"> </a>
+                    <img src="<?php echo $view['assets']->getUrl($this->container->getParameter('portal_logo_url')) ?>" alt="Logo"> </a>
                 <!-- END LOGO -->
 
                 <?php

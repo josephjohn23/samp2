@@ -92,7 +92,7 @@ echo $view['actions']->render(
 
         <!-- BEGIN FOOTER -->
         <p class="copyright-v2">
-            <?php echo date('Y', time()) ?> &copy;  CornerShort.com MLM Portal v<?php echo $this->container->getParameter('application_version'); ?>
+            <?php echo date('Y', time()) ?> &copy;  <?php echo $this->container->getParameter('portal_name') ?> v<?php echo $this->container->getParameter('application_version'); ?>
         </p>
         <!-- BEGIN QUICK SIDEBAR TOGGLER -->
         <!-- END QUICK SIDEBAR TOGGLER -->
