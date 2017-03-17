@@ -280,6 +280,7 @@ class MemberPaymentHistoryRESTController extends VoryxController
         //UPDATE nextNextLeaderId and activationLevel
         $memberInfo['next_leader_id'] = $nextNext['leader_id'];
         $memberInfo['activation_level'] = $memberInfo['activation_level'] + 1;
+        $memberInfo['status'] = 'Active';
 
         $saved_record = $SQLHelper->updateRecord('users', $memberInfo);
 

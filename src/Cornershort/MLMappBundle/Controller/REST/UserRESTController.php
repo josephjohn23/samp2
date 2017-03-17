@@ -108,7 +108,16 @@ class UserRESTController extends VoryxController
         $data['roles'] = 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}';
         $data['access_level'] = 95;
         $data['activation_level'] = 0;
-        $data['status'] = 'not_active';
+        $data['status'] = 'Not Active';
+
+        $data['leader_name'] = ucfirst($data['leader_name']);
+        $data['first_name'] = ucfirst($data['first_name']);
+        $data['last_name'] = ucfirst($data['last_name']);
+        $data['home_addr_street'] = ucfirst($data['home_addr_street']);
+        $data['home_addr_brgy'] = ucfirst($data['home_addr_brgy']);
+        $data['home_addr_subd'] = ucfirst($data['home_addr_subd']);
+        $data['home_addr_city'] = ucfirst($data['home_addr_city']);
+        $data['home_addr_province'] = ucfirst($data['home_addr_province']);
 
         $params = array('email' => $data['email']);
         $sql = "SELECT * FROM users WHERE email=:email";
@@ -142,14 +151,14 @@ class UserRESTController extends VoryxController
         //FIND myInfo
         $myInfo = $em->getRepository('CornershortMLMappBundle:User')->findBy(
             array(
-                'memberId' => $memberId
+                'memberId' => $this->getUser()->getMemberId()
             )
         );
 
         //FIND memberInfo
         $memberInfos = $em->getRepository('CornershortMLMappBundle:User')->findBy(
             array(
-                'leaderId' => $leaderId
+                'leaderId' => $this->getUser()->getMemberId()
             )
         );
 
