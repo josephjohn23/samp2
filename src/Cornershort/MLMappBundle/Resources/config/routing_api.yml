@@ -1,0 +1,9 @@
+memberpaymenthistories:
+    resource: "@CornershortMLMappBundle/Controller/REST/MemberPaymentHistoryRESTController.php"
+    type:     rest
+    name_prefix:   api_
+
+users:
+    resource:    "@CornershortMLMappBundle/Controller/REST/UserRESTController.php"
+    type:        rest
+    name_prefix: api_
