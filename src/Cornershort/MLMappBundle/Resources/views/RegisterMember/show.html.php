@@ -15,7 +15,6 @@
         <th>Last Name</th>
         <th>Mobile Number</th>
         <th>Level</th>
-        <th>Status</th>
     </tr>
 <?php $view['slots']->stop(); ?>
 
@@ -29,7 +28,6 @@
         <td><?php echo $memberInfo->getLastName(); ?></th>
         <td><?php echo $memberInfo->getMobileNumber(); ?></th>
         <td><?php echo $memberInfo->getActivationLevel(); ?></th>
-        <td><?php echo $memberInfo->getStatus(); ?></th>
     </tr>
     <?php } ?>
 <?php $view['slots']->stop() ?>

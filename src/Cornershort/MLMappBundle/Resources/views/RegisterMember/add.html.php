@@ -167,6 +167,15 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group form-md-line-input">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group form-md-line-input">
                             <label for="home_add_house_no">Home Address</label>
                             <input type="text" class="form-control" id="home_add_house_no" name="home_add_house_no" value="" placeholder="No">
                             <input type="text" class="form-control" id="home_addr_street" name="home_addr_street" value="" placeholder="Street">
