@@ -11,7 +11,7 @@ var Layout = function() {
     var resBreakpointSm = App.getResponsiveBreakpoint('sm'); //768px
 
     var handleQuickSearch = function() {
-        // handle search box expand/collapse        
+        // handle search box expand/collapse
         $('.page-header').on('click', '.search-form', function(e) {
             $(this).addClass("open");
             $(this).find('.form-control').focus();
@@ -39,7 +39,7 @@ var Layout = function() {
     };
 
     // handle go to top button
-    var handleGo2Top = function () {       
+    var handleGo2Top = function () {
         var Go2TopOperation = function(){
             var CurrentWindowPosition = $(window).scrollTop();// current vertical position
             if (CurrentWindowPosition > 100) {
@@ -75,7 +75,7 @@ var Layout = function() {
             }
 
             if ($(this).next().hasClass('sub-menu') === false) {
-                if (App.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page 
+                if (App.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page
                     $('.page-header .responsive-toggler').click();
                 }
                 return;
@@ -150,7 +150,7 @@ var Layout = function() {
             });
             $(this).parents('li').addClass('active');
 
-            if (App.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page 
+            if (App.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page
                 $('.page-header .responsive-toggler').click();
             }
 
@@ -192,7 +192,7 @@ var Layout = function() {
 
             App.startPageLoading();
 
-            if (App.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page 
+            if (App.getViewPort().width < resBreakpointMd && $('.page-sidebar').hasClass("in")) { // close the menu on mobile view while laoding a page
                 $('.page-header .responsive-toggler').click();
             }
 
@@ -217,7 +217,7 @@ var Layout = function() {
         // handle scrolling to top on responsive menu toggler click when header is fixed for mobile view
         $(document).on('click', '.page-header-fixed-mobile .responsive-toggler', function(){
             App.scrollTop();
-        });      
+        });
     };
 
     return {
@@ -225,7 +225,7 @@ var Layout = function() {
         // Main init methods to initialize the layout
         // IMPORTANT!!!: Do not modify the core handlers call order.
 
-        init: function () { 
+        init: function () {
             handleQuickSearch();
             handleGo2Top();
             handleSidebarMenu();
@@ -242,6 +242,6 @@ var Layout = function() {
 
 }();
 
-jQuery(document).ready(function() {    
+jQuery(document).ready(function() {
    Layout.init(); // init metronic core componets
 });

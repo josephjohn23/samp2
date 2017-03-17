@@ -88,18 +88,18 @@
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/controller/main.js') ?>" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
 
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/graph.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/layout6/scripts/layout.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-sidebar.min.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-nav.min.js') ?>" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <?php $view['slots']->output('layout_js') ?>
         <?php $view['slots']->output('page_js') ?>
         <?php $view['slots']->output('component_js') ?>
         <!-- END PAGE LEVEL SCRIPTS -->
-
-        <!-- BEGIN THEME LAYOUT SCRIPTS -->
-        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/graph.js') ?>" type="text/javascript"></script>
-        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/layout6/scripts/layout.min.js') ?>" type="text/javascript"></script>
-        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-sidebar.min.js') ?>" type="text/javascript"></script>
-        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-nav.min.js') ?>" type="text/javascript"></script>
-        <!-- END THEME LAYOUT SCRIPTS -->
 
     </body>
 </html>
