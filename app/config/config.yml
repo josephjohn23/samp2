@@ -47,6 +47,12 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         app_version: "%application_version%"
+        application_version: "%application_version%"
+        portal_name: "%portal_name%"
+        portal_css_sidemargin: "%portal_css_sidemargin%"
+        portal_css_header_height: "%portal_css_header_height%"
+        portal_css_header_bgcolor: "%portal_css_header_bgcolor%"
+        portal_css_header_topmargin: "%portal_css_header_topmargin%"
         #global_helper: "@cornershort.global_helper"
         ga_tracking:    "%ga_tracking%"
 
