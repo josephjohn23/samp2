@@ -36,7 +36,6 @@
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/css/components-md.min.css') ?>" rel="stylesheet" id="style_components" type="text/css" />
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/css/plugins-md.min.css') ?>" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/css/cornershort-layout-custom.css') ?>" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
 
         <?php $view['slots']->output('page_plugin_css') ?>
@@ -48,6 +47,7 @@
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/layout6/css/layout.min.css') ?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/layout6/css/custom.min.css') ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/css/cornershort-layout-custom.css') ?>" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
 
         <link rel="shortcut icon" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/images/favicon.ico') ?>" /> </head>
