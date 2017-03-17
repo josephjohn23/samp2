@@ -69,7 +69,7 @@
                             </div>
                             <div class="portlet-body">
                                 <div class="scroller" style="height:500px; display: flex; justify-content: center; align-items: center;">
-                                    <a style="font-size: 2vw; color:#d9534f;" class="btn btn-lg btn-link" href="<?php echo $view['router']->path('cornershort_mlmapp_request_for_upgrade_page_manual', array()) ?>" >Request an upgrade to your leader to add new members.</a></th>
+                                    <a style="font-size: 2vw; color:#d9534f;" class="btn btn-lg btn-link" href="<?php echo $view['router']->path('cornershort_mlmapp_homepage', array()) ?>" >Request an upgrade to your leader to add new members.</a></th>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                 </div>
             </div>
 
-            <div ng-if="registerMemberTabResults.myInfo[0].activation_level >= 0 && registerMemberTabResults.memberInfos.length <= 5">
+            <div ng-if="registerMemberTabResults.myInfo[0].activation_level > 0 && registerMemberTabResults.memberInfos.length <= 5">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group form-md-line-input">
@@ -160,6 +160,15 @@
                         <div class="form-group form-md-line-input">
                             <label for="email">Email Address</label>
                             <input type="text" class="form-control" id="email" name="email" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group form-md-line-input">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password" value="" placeholder="">
                         </div>
                     </div>
                 </div>
