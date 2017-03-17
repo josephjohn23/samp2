@@ -51,32 +51,6 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- BEGIN Portlet PORTLET-->
-                        <div class="portlet box red">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    <i class="fa fa-gift"></i>For Activation</div>
-                                <div class="tools">
-                                    <a href="javascript:;" class="collapse"> </a>
-                                    <a href="#portlet-config" data-toggle="modal" class="config"> </a>
-                                    <a href="javascript:;" class="reload"> </a>
-                                    <a href="" class="fullscreen"> </a>
-                                    <a href="javascript:;" class="remove"> </a>
-                                </div>
-                            </div>
-                            <div class="portlet-body">
-                                <div class="scroller" style="height:200px; display: flex; justify-content: center; align-items: center;">
-                                    <a ng-if="homeTabResultsMemberInfos == 1" style="font-size: 2vw; color:#d9534f;" class="btn btn-lg btn-link" ng-if="homeTabResults.member_infos" href="<?php echo $view['router']->path('cornershort_mlmapp_upgrade_member_page_manual', array()) ?>" >{{ homeTabResults.member_infos.length }}  Member/s needs your approval to upgrade.</a></th>
-                                    <a ng-if="homeTabResultsMemberInfos == 0" style="font-size: 2vw; color:#d9534f;" class="btn btn-lg btn-link">Wait For your members to request for an upgrade.</a></th>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END Portlet PORTLET-->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- BEGIN Portlet PORTLET-->
                         <div class="portlet box blue">
                             <div class="portlet-title">
                                 <div class="caption">
