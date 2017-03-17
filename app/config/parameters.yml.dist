@@ -32,3 +32,7 @@ parameters:
     # Website Customization
     portal_logo_url: bundles/cornershortmlmapp/images/cornershort-logo-simple.png
     portal_name:     CornerShort.com MLM Portal
+    portal_css_sidemargin: 20px
+    portal_css_header_height: 60px
+    portal_css_header_bgcolor: #2f373e
+    portal_css_header_topmargin: 0px

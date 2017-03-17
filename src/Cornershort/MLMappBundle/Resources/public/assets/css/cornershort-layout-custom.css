@@ -1,17 +1,5 @@
-.page-header {
-    background:#fff;
-    margin-top:20px;
-}
-.page-header .navbar-brand {
-    height:120px;
-    max-height:200px;
-}
 .page-header .navbar-brand {
     border:none;
-}
-.container, .container-fluid {
-    padding-left:5%;
-    padding-right:5%;
 }
 .page-toolbar {
     float:right;

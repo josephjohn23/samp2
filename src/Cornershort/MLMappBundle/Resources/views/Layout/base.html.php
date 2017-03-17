@@ -50,6 +50,23 @@
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/css/cornershort-layout-custom.css') ?>" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
 
+        <!-- BEGIN DYNAMIC CSS PROPERTIES -->
+        <style type="text/css">
+        .page-header {
+            background:<?php echo $this->container->getParameter('portal_css_header_bgcolor') ?>;
+            margin-top:<?php echo $this->container->getParameter('portal_css_header_topmargin') ?>;
+        }
+        .page-header .navbar-brand {
+            height:<?php echo $this->container->getParameter('portal_css_header_height') ?>;
+            max-height:<?php echo $this->container->getParameter('portal_css_header_height') ?>;
+        }
+        .container, .container-fluid {
+            padding-left:<?php echo $this->container->getParameter('portal_css_sidemargin') ?>;
+            padding-right:<?php echo $this->container->getParameter('portal_css_sidemargin') ?>;
+        }
+        </style>
+        <!-- END DYNAMIC CSS PROPERTIES -->
+
         <link rel="shortcut icon" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/images/favicon.ico') ?>" /> </head>
     <!-- END HEAD -->
 
