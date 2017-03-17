@@ -53,7 +53,7 @@
         <link rel="shortcut icon" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/images/favicon.ico') ?>" /> </head>
     <!-- END HEAD -->
 
-    <body ng-controller="myAppController" class="<?php $view['slots']->output('body_class', 'page-md page-quick-sidebar-over-content') ?>">
+    <body ng-controller="myAppController" class="<?php $view['slots']->output('body_class', 'page-md') ?>">
 
         <?php $view['slots']->output('body') ?>
 
@@ -72,6 +72,8 @@
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/angularjs/angular.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/fosjsrouting/js/router.js') ?>"></script>
+        <script src="<?php echo $view['router']->generate('fos_js_routing_js', array('callback' => 'fos.Router.setData')) ?>"></script>
         <!-- END CORE PLUGINS -->
 
         <!-- BEGIN PAGE LEVEL PLUGINS -->
@@ -93,10 +95,10 @@
         <!-- END PAGE LEVEL SCRIPTS -->
 
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/graph.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/layout6/scripts/layout.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-sidebar.min.js') ?>" type="text/javascript"></script>
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-nav.min.js') ?>" type="text/javascript"></script>
-        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/graph.js') ?>" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
 
     </body>

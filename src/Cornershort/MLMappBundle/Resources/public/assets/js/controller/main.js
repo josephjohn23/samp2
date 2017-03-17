@@ -11,7 +11,7 @@ var myAppModule = angular
 			$http(
 					{
 						method: 'POST',
-						url: '/api/users/homes',
+                        url: Routing.generate('api_post_user_home'),
 						data: data,
 						headers: {
 							"Content-Type": "application/json; charset=utf-8",
@@ -34,7 +34,7 @@ var myAppModule = angular
 			$http(
 					{
 						method: 'POST',
-						url: '/api/users/finds/mies/infos',
+                        url: Routing.generate('api_post_user_find_my_info'),
 						data: data,
 						headers: {
 							"Content-Type": "application/json; charset=utf-8",
@@ -62,7 +62,7 @@ var myAppModule = angular
 			$http(
 					{
 						method: 'POST',
-						url: '/api/users/finds/mies/infos',
+                        url: Routing.generate('api_post_user_find_my_info'),
 						data: data,
 						headers: {
 							"Content-Type": "application/json; charset=utf-8",
@@ -104,7 +104,7 @@ var myAppModule = angular
 			$http(
                     {
                         method: 'POST',
-                        url: '/api/users/adds/registers/members',
+                        url: Routing.generate('api_post_user_add_register_member'),
                         data: data,
                         headers: {
                             "Content-Type": "application/json; charset=utf-8",
@@ -133,7 +133,7 @@ var myAppModule = angular
 			$http(
                     {
                         method: 'POST',
-                        url: '/api/memberpaymenthistories/searches/nexts/leaders',
+                        url: Routing.generate('api_post_memberpaymenthistory_search_next_leader'),
                         data: data,
                         headers: {
                             "Content-Type": "application/json; charset=utf-8",
@@ -156,7 +156,7 @@ var myAppModule = angular
 			$http(
                     {
                         method: 'POST',
-                        url: '/api/memberpaymenthistories/requests/fors/upgrades',
+                        url: Routing.generate('api_post_memberpaymenthistory_request_for_upgrade'),
                         data: data,
                         headers: {
                             "Content-Type": "application/json; charset=utf-8",
@@ -186,7 +186,7 @@ var myAppModule = angular
             $http(
                     {
                         method: 'POST',
-                        url: '/api/memberpaymenthistories/searches/members',
+                        url: Routing.generate('api_post_memberpaymenthistory_search_member'),
                         data: data,
                         headers: {
                             "Content-Type": "application/json; charset=utf-8",
@@ -219,7 +219,7 @@ var myAppModule = angular
 			$http(
                     {
                         method: 'POST',
-                        url: '/api/memberpaymenthistories/upgrades/members',
+                        url: Routing.generate('api_post_memberpaymenthistory_upgrade_member'),
                         data: data,
                         headers: {
                             "Content-Type": "application/json; charset=utf-8",
@@ -247,7 +247,7 @@ var myAppModule = angular
             $http(
                     {
                         method: 'POST',
-                        url: '/api/memberpaymenthistories/searches/members',
+                        url: Routing.generate('api_post_memberpaymenthistory_search_member'),
                         data: data,
                         headers: {
                             "Content-Type": "application/json; charset=utf-8",
@@ -275,7 +275,7 @@ var myAppModule = angular
             $http(
                     {
                         method: 'POST',
-                        url: '/api/memberpaymenthistories/upgrades/members',
+                        url: Routing.generate('api_post_memberpaymenthistory_upgrade_member'),
                         data: data,
                         headers: {
                             "Content-Type": "application/json; charset=utf-8",
@@ -307,7 +307,7 @@ var myAppModule = angular
 			$http(
 					{
 						method: 'POST',
-						url: '/api/memberpaymenthistories/searches/members/payments',
+                        url: Routing.generate('api_post_memberpaymenthistory_search_member_payment'),
 						data: data,
 						headers: {
 							"Content-Type": "application/json; charset=utf-8",
@@ -335,7 +335,7 @@ var myAppModule = angular
             $http(
                     {
                         method: 'POST',
-                        url: '/api/memberpaymenthistories/searches/members/payments',
+                        url: Routing.generate('api_post_memberpaymenthistory_search_member_payment'),
                         data: data,
                         headers: {
                             "Content-Type": "application/json; charset=utf-8",

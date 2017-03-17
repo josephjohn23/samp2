@@ -1,6 +1,6 @@
 <?php
 
-namespace Cornershort\MLMappBundle\Controller;
+namespace Cornershort\MLMappBundle\Controller\REST;
 
 use Cornershort\MLMappBundle\Entity\User;
 use Cornershort\MLMappBundle\Form\UserType;
@@ -25,8 +25,7 @@ use Voryx\RESTGeneratorBundle\Controller\VoryxController;
  */
 class UserRESTController extends VoryxController
 {
-    public function postHomeAction(Request $request)
-    {
+    public function postHomeAction(Request $request){
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $data = json_decode($request->getContent(), true);
 
@@ -91,8 +90,7 @@ class UserRESTController extends VoryxController
      * @return Response
      *
      */
-    public function postAddRegisterMemberAction(Request $request)
-    {
+    public function postAddRegisterMemberAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $data = json_decode($request->getContent(), true);
@@ -130,8 +128,7 @@ class UserRESTController extends VoryxController
         }
     }
 
-    public function postFindMyInfoAction(Request $request)
-    {
+    public function postFindMyInfoAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $data = json_decode($request->getContent(), true);
         $memberId = str_pad($data['leader_id'], 8, '0', STR_PAD_LEFT);
@@ -151,23 +148,35 @@ class UserRESTController extends VoryxController
             )
         );
 
-        $result['myInfo'] = is_null($myInfo[0]) ? null : $myInfo;
-        $result['memberInfos'] = is_null($memberInfos[0]) ? null : $memberInfos;
+        //$result['myInfo'] = is_null($myInfo[0]) ? null : $myInfo;
+        $result['myInfo'] = isset($myInfo[0]) ? $myInfo : null;
+        //$result['memberInfos'] = is_null($memberInfos[0]) ? null : $memberInfos;
+        $result['memberInfos'] = isset($memberInfos[0]) ? $memberInfos : null;
 
         return $result;
     }
 
-    public function postEditAccountAction(Request $request)
-    {
+    public function postEditAccountAction(Request $request){
         $SQLHelper = $this->get('cornershort_sql_helper.api');
         $data = json_decode($request->getContent(), true);
         $saved_record = 0;
 
-        $data['password'] = md5($data['password']);
+        // $data['password'] = md5($data['password']);
+        $data_password = (isset($data['password']) && $data['password'] != '') ? $data['password'] : false;
 
-        $params = array('email' => $data['email']);
-        $sql = "SELECT * FROM users WHERE email=:email";
-        $users = $SQLHelper->fetchRow($sql, $params);
+        if($data_password){
+
+            // Update user password
+            $um = $this->get('fos_user.user_manager');
+            $user = $um->findUserByEmail($data['email']);
+            $user->setPlainPassword($data['password']);
+            $um->updateUser($user, true);
+
+            unset($data['password']);
+            $params = array('email' => $data['email']);
+            $sql = "SELECT * FROM users WHERE email=:email";
+            $users = $SQLHelper->fetchRow($sql, $params);
+        }
 
         if ($users) {
             $saved_record = $SQLHelper->updateRecord('users', $data);

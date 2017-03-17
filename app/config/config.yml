@@ -33,8 +33,8 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
-    serializer:
-        enabled: true
+    #serializer:
+        #enabled: true
 
 sensio_framework_extra:
     request: { converters: true }
@@ -130,3 +130,11 @@ fos_rest:
         enabled: true
     view:
         view_response_listener: force
+    service:
+        router:               router
+        templating:           templating
+        serializer:           null
+
+fos_js_routing:
+    routes_to_expose:
+        - "^api_.*" # expose all routes with a name starting with api_

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cornershort\MLMappBundle\Controller;
+namespace Cornershort\MLMappBundle\Controller\REST;
 
 use Cornershort\MLMappBundle\Entity\MemberPaymentHistory;
 use Cornershort\MLMappBundle\Form\MemberPaymentHistoryType;
@@ -84,10 +84,13 @@ class MemberPaymentHistoryRESTController extends VoryxController
         $sql = "SELECT next_leader_id, activation_level FROM users WHERE member_id=:my_id";
         $next_leader_info = $SQLHelper->fetchRow($sql, $params);
 
+        $result = array();
+
         //FIND next_leader_info
-        $params = array('next_leader_id' => $next_leader_info['next_leader_id'],);
-        $sql = "SELECT * FROM users WHERE member_id=:next_leader_id";
-        $next_leader_info = $SQLHelper->fetchRow($sql, $params);
+        if(isset($next_leader_info['next_leader_id'])){
+            $params = array('next_leader_id' => $next_leader_info['next_leader_id'],);
+            $sql = "SELECT * FROM users WHERE member_id=:next_leader_id";
+            $next_leader_info = $SQLHelper->fetchRow($sql, $params);
 
             if (!isset($next_leader_info['member_id'])) {
                 $next_leader_info['member_id'] = '001';
@@ -101,8 +104,8 @@ class MemberPaymentHistoryRESTController extends VoryxController
             $result['next_leader_info'] = $next_leader_info;
             $result['my_info'] = $my_info;
             $result['isLevelPaid'] = $isLevelPaid;
-
-            return $result;
+        }
+        return $result;
     }
 
     public function postRequestForUpgradeAction(Request $request) {

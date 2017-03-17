@@ -1,13 +1,11 @@
-cornershort_ml_mapp_member_payment_history_api:
-    resource: "@CornershortMLMappBundle/Controller/MemberPaymentHistoryRESTController.php"
-    type:   rest
-    prefix:   /api
-
-cornershort_ml_mapp_user_api:
-    resource: "@CornershortMLMappBundle/Controller/UserRESTController.php"
-    type:   rest
-    prefix:   /api
+cornershort_mlm_app_api:
+    resource: "@CornershortMLMappBundle/Resources/config/routing_api.yml"
+    type: rest
+    prefix: /api
 
 cornershort_mlm_app:
     resource: "@CornershortMLMappBundle/Resources/config/routing.yml"
     prefix:   /
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
