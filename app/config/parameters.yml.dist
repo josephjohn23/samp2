@@ -28,3 +28,11 @@ parameters:
     paypal_api_password: ABC12345678910XYZ
     paypal_api_signature: ABCDEFGHIJKLMNOPQRSTUVWXYZ.jLNfEMtg6Y76
     paypal_api_debug: true
+
+    # Website Customization
+    portal_logo_url: bundles/cornershortmlmapp/images/cornershort-logo-simple.png
+    portal_name:     CornerShort.com MLM Portal
+    portal_css_sidemargin: 20px
+    portal_css_header_height: 60px
+    portal_css_header_bgcolor: #2f373e
+    portal_css_header_topmargin: 0px

@@ -66,7 +66,7 @@ echo $view['actions']->render(
             <!-- END BREADCRUMBS -->
 
         </div>
-        <div class="page-sidebar-wrapper" data-close-on-body-click="false">
+        <div class="page-sidebar-wrapper">
             <!-- BEGIN SIDEBAR MENU -->
             <?php
             echo $view['actions']->render(
@@ -92,7 +92,7 @@ echo $view['actions']->render(
 
         <!-- BEGIN FOOTER -->
         <p class="copyright-v2">
-            <?php echo date('Y', time()) ?> &copy;  CornerShort.com MLM Portal v<?php echo $this->container->getParameter('application_version'); ?>
+            <?php echo date('Y', time()) ?> &copy;  <?php echo $this->container->getParameter('portal_name') ?> v<?php echo $this->container->getParameter('application_version'); ?>
         </p>
         <!-- BEGIN QUICK SIDEBAR TOGGLER -->
         <!-- END QUICK SIDEBAR TOGGLER -->
@@ -108,10 +108,10 @@ echo $view['actions']->render(
 <?php $view['slots']->stop() ?>
 
 <?php $view['slots']->start('layout_js') ?>
-<script>
+<script type="text/javascript">
     jQuery(document).ready(function () {
-        Layout.init(); // init current layout
-        QuickSidebar.init(); // init quick sidebar
+        //Layout.init(); // init current layout
+        //QuickSidebar.init(); // init quick sidebar
     });
 </script>
 <!--

@@ -8,7 +8,7 @@
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8" />
-        <title><?php $view['slots']->output('title', 'CornerShort.com') ?></title>
+        <title><?php $view['slots']->output('title', $this->container->getParameter('portal_name')) ?></title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="CornerShort Multi-Level Marketing Portal" name="description" />
@@ -36,7 +36,6 @@
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/css/components-md.min.css') ?>" rel="stylesheet" id="style_components" type="text/css" />
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/global/css/plugins-md.min.css') ?>" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/css/cornershort-layout-custom.css') ?>" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
 
         <?php $view['slots']->output('page_plugin_css') ?>
@@ -48,7 +47,25 @@
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/layout6/css/layout.min.css') ?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/layout6/css/custom.min.css') ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/css/cornershort-layout-custom.css') ?>" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
+
+        <!-- BEGIN DYNAMIC CSS PROPERTIES -->
+        <style type="text/css">
+        .page-header {
+            background:<?php echo $this->container->getParameter('portal_css_header_bgcolor') ?>;
+            margin-top:<?php echo $this->container->getParameter('portal_css_header_topmargin') ?>;
+        }
+        .page-header .navbar-brand {
+            height:<?php echo $this->container->getParameter('portal_css_header_height') ?>;
+            max-height:<?php echo $this->container->getParameter('portal_css_header_height') ?>;
+        }
+        .container, .container-fluid {
+            padding-left:<?php echo $this->container->getParameter('portal_css_sidemargin') ?>;
+            padding-right:<?php echo $this->container->getParameter('portal_css_sidemargin') ?>;
+        }
+        </style>
+        <!-- END DYNAMIC CSS PROPERTIES -->
 
         <link rel="shortcut icon" href="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/images/favicon.ico') ?>" /> </head>
     <!-- END HEAD -->
@@ -88,18 +105,18 @@
         <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/controller/main.js') ?>" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
 
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/graph.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/layout6/scripts/layout.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-sidebar.min.js') ?>" type="text/javascript"></script>
+        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-nav.min.js') ?>" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <?php $view['slots']->output('layout_js') ?>
         <?php $view['slots']->output('page_js') ?>
         <?php $view['slots']->output('component_js') ?>
         <!-- END PAGE LEVEL SCRIPTS -->
-
-        <!-- BEGIN THEME LAYOUT SCRIPTS -->
-        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/js/graph.js') ?>" type="text/javascript"></script>
-        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/layout6/scripts/layout.min.js') ?>" type="text/javascript"></script>
-        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-sidebar.min.js') ?>" type="text/javascript"></script>
-        <script src="<?php echo $view['assets']->getUrl('bundles/cornershortmlmapp/assets/layouts/global/scripts/quick-nav.min.js') ?>" type="text/javascript"></script>
-        <!-- END THEME LAYOUT SCRIPTS -->
 
     </body>
 </html>

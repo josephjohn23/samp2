@@ -69,7 +69,7 @@
 
         <!-- BEGIN FOOTER -->
         <p class="copyright-v2">
-            {{ "now"|date('Y') }} &copy;  CornerShort.com MLM Portal v{{ application_version }}
+            {{ "now"|date('Y') }} &copy;  {{ portal_name }} v{{ application_version }}
         </p>
         <!-- BEGIN QUICK SIDEBAR TOGGLER -->
         <!-- END QUICK SIDEBAR TOGGLER -->
@@ -85,8 +85,8 @@
 {% block 'layout_js' %}
 <script>
     jQuery(document).ready(function () {
-        Layout.init(); // init current layout
-        QuickSidebar.init(); // init quick sidebar
+        //Layout.init(); // init current layout
+        //QuickSidebar.init(); // init quick sidebar
     });
 </script>
 <!--
