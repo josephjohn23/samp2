@@ -71,6 +71,9 @@ var myAppModule = angular
 					})
 					.then(
 							function (results) {
+								if (results.data.memberInfos == undefined) {
+									results.data.memberInfos = new Array();
+								}
 								$rootScope.registerMemberTabResults = results.data;
 							});
 		};

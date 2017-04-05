@@ -109,6 +109,7 @@ class UserRESTController extends VoryxController
         $data['access_level'] = 95;
         $data['activation_level'] = 0;
         $data['status'] = 'Not Active';
+        $data['enable'] = 1;
 
         $data['leader_name'] = ucfirst($data['leader_name']);
         $data['first_name'] = ucfirst($data['first_name']);
